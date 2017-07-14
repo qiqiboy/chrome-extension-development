@@ -1,0 +1,14 @@
+.info-item{
+    display: flex;
+    margin: .5em 0;
+    .label{
+        font-weight: bold;
+        width: 80px;
+        padding-right: 10px;
+        text-align: right;
+    }
+    .content{
+        flex: 1;
+        word-break: break-all;
+    }
+}

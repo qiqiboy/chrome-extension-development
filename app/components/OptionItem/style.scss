@@ -1,0 +1,56 @@
+.ios-switch {
+    $width: 80px;
+    $height: 30px;
+    appearance: none;
+    position: relative;
+    width: $width + 2px;
+    height: $height + 2px;
+    background: #dfdfdf;
+    border-radius: 16px;
+    border: 1px solid #dfdfdf;
+    outline: 0;
+    box-sizing: border-box;
+    &:checked {
+        border-color: #04be02;
+        background-color: #04be02;
+    }
+    &:before,
+    &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: $height;
+        border-radius: 16px;
+        transition: transform 0.3s;
+    }
+    &:before {
+        width: $width;
+        background-color: #fdfdfd;
+    }
+    &:after {
+        width: 30px;
+        background-color: white;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    }
+    &:checked:before {
+        transform: scale(0);
+        transform-origin: ($width - $height / 2) center;
+    }
+    &:checked:after {
+        transform: translateX($width - $height);
+    }
+}
+
+.option-item{
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    background-color: rgba(0,0,0,.1);
+    margin: 1px 0;
+    border-radius: 3px;
+    .desc{
+        flex: 1;
+        padding-right: 10px;
+    }
+}

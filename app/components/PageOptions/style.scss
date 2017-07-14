@@ -1,0 +1,36 @@
+$color-danger:#a94442;
+$color-primary: #ffe100;
+$color-success: #5cb85c;
+$color-warning: #f0ad4e;
+$color-info: #4e97fa;
+.tabs-container {
+    margin-top: 20px;
+    .menus {
+        display: flex;
+        text-align: center;
+        background-color: $color-info;
+        margin-bottom: 10px;
+        a {
+            flex: 1;
+            padding: 8px;
+            border-right: 1px solid $color-primary;
+            transition: .5s ease;
+            cursor: pointer;
+        }
+        .active {
+            background-color: $color-danger;
+            color: #fff;
+        }
+    }
+}
+
+.cur-tab-info {
+    padding: 10px;
+    background-color: rgba(0, 0, 0, .5);
+    color: #fff;
+    margin-bottom: 10px;
+    .qrcode{
+        display: block;
+        margin: 0 auto;
+    }
+}

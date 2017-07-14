@@ -1,0 +1,43 @@
+{
+    "version": "1.0.0",
+    "manifest_version": 2,
+    "name": "Chrome extension development",
+    "description": "chrome扩展开发示范",
+    "icons": {
+        "16": "icons/icon_16.png",
+        "48": "icons/icon_48.png",
+        "128": "icons/icon_128.png"
+    },
+    "browser_action": {
+        "default_icon": "icons/icon_16.png",
+        "default_popup": "popup.html",
+        "default_title": "chrome扩展开发"
+    },
+    "content_scripts": [{
+        "matches": ["*://www.qiqiboy.com/*", "*://github.com/*"],
+        "js": ["dist/js/app.js"]
+    }],
+    "options_page": "popup.html",
+    "web_accessible_resources": [
+      "icons/icon_128.png",
+      "dist/js/run-in-page.js"
+    ],
+    "background": {
+        "scripts": ["dist/js/background.js"]
+    },
+    "permissions": [
+        "tabs",
+        "bookmarks",
+        "contextMenus",
+        "background",
+        "cookies",
+        "geolocation",
+        "history",
+        "notifications",
+        "unlimitedStorage",
+        "chrome://favicon/",
+
+        "*://*.github.com/",
+        "*://*.qiqiboy.com/"
+    ]
+}

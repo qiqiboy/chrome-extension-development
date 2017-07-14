@@ -1,0 +1,83 @@
+.chrome-extension-development-clear {
+    .h-card {
+        display: none;
+    }
+    .h-card+.col-9 {
+        width: 100%;
+    }
+}
+
+.chrome-extension-development-dark {
+    background: #333;
+    color: #eee;
+    .site-header {
+        background: #000;
+        border-bottom-color: #000;
+    }
+    .site-header-nav .nav-item {
+        color: #aaa;
+    }
+    .site-header .header-logo-invertocat {
+        color: red;
+    }
+    .site-header .header-search-wrapper {
+        background: #353535;
+        border-color: #000;
+        .form-control {
+            background: none;
+        }
+    }
+    .vcard-detail .octicon {
+        color: #fff;
+    }
+    a,
+    .site-header .site-header-link {
+        color: #a3bdda;
+    }
+    .form-control,
+    .form-select {
+        background: #eee;
+    }
+    .user-profile-nav {
+        background: #6b6b6b;
+        border-color: #e36209;
+    }
+    .underline-nav-item {
+        color: #a3bdda;
+    }
+    .Counter {
+        background: #000;
+        color: #aaa;
+    }
+    .underline-nav-item.selected {
+        color: #fff;
+    }
+    .pinned-repo-item {
+        background: #000;
+        border-color: #666 !important;
+    }
+    .text-gray {
+        color: #989292 !important;
+    }
+    .muted-link {
+        color: #aaa;
+    }
+    .profile-timeline-year-list {
+        background-color: transparent !important;
+    }
+    .profile-timeline-month-heading {
+        background-color: #333 !important;
+    }
+    .discussion-item-icon {
+        background-color: #333;
+        color: #fff;
+        border-color: #666;
+    }
+    .profile-timeline.discussion-timeline::before {
+        background-color: #666;
+    }
+    .ajax-pagination-form .ajax-pagination-btn {
+        background: #555;
+        border-color: #666 !important;
+    }
+}
