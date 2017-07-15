@@ -1,11 +1,12 @@
 process.env.NODE_ENV = 'production';
 
-var chalk = require('chalk');
-var fs = require('fs-extra');
-var webpack = require('webpack');
-var formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
-var config = require('./webpack.config');
-var ora = require('ora');
+const chalk = require('chalk');
+const path = require('path');
+const fs = require('fs-extra');
+const webpack = require('webpack');
+const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
+const config = require('./webpack.config');
+const ora = require('ora');
 
 // Create the production build and print the deployment instructions.
 function build() {
@@ -70,7 +71,7 @@ function build() {
             process.exit(1);
         }
 
-        spinner.succeed(chalk.green('项目打包完成，可以发布插件'));
+        spinner.succeed(chalk.green('项目打包完成，可以发布插件(目录：'+ path.dirname(config.output.path) +')'));
         console.log();
     });
 
