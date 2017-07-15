@@ -1,7 +1,8 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import './style.scss';
 
 const chrome = window.chrome;
+const KEY = 'chrome-extension-development-workspace';
 
 class WorkSpace extends Component {
     constructor(props) {
@@ -9,7 +10,7 @@ class WorkSpace extends Component {
 
         let list;
         try {
-            list = JSON.parse(localStorage.getItem('chrome-extension-development-workspace'));
+            list = JSON.parse(localStorage.getItem(KEY));
         } catch (e) {
             list = null;
         }
@@ -18,7 +19,7 @@ class WorkSpace extends Component {
     }
 
     saveData(list) {
-        localStorage.setItem('chrome-extension-development-workspace', JSON.stringify(list));
+        localStorage.setItem(KEY, JSON.stringify(list));
 
         this.setState({
             list,

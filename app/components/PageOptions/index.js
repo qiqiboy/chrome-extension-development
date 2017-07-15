@@ -126,13 +126,19 @@ class PageOptions extends Component {
                     {options.clearMode ? '清爽模式' : '正常模式'}
                 </OptionItem>
 
-                <button className="btn-option-item btn btn-success" onClick={this.tabUtil.openGithubInNewTab}>新标签页中访问Github</button>
-                <button className="btn-option-item btn btn-success" onClick={this.tabUtil.openGithubInCurTab}>当前标签页中访问Github</button>
-                <button className="btn-option-item btn btn-success" onClick={this.tabUtil.createBlankTab}>创建新标签页</button>
-                <button className="btn-option-item btn btn-success" onClick={this.tabUtil.closeCurTab}>关闭当前标签页</button>
-                <button className="btn-option-item btn btn-success" onClick={tabUtil.moveCurTabLast}>将当前标签页移动到最后面</button>
-                <button className="btn-option-item btn btn-success" onClick={tabUtil.moveCurTabFirst}>将当前标签页移动到最前面</button>
-                <button className="btn-option-item btn btn-success" onClick={tabUtil.copyCurWindow}>复制当前窗口</button>
+                <OptionItem active={options.fullscreen} onChange={this.setOption.bind(this, 'fullscreen')}>
+                    {options.fullscreen ? '全屏模式' : '非全屏模式'}
+                </OptionItem>
+
+                <div className="btn-group">
+                    <button className="btn-option-item btn btn-success" onClick={this.tabUtil.openGithubInNewTab}>新标签页中访问Github</button>
+                    <button className="btn-option-item btn btn-success" onClick={this.tabUtil.openGithubInCurTab}>当前标签页中访问Github</button>
+                    <button className="btn-option-item btn btn-success" onClick={this.tabUtil.createBlankTab}>创建新标签页</button>
+                    <button className="btn-option-item btn btn-success" onClick={this.tabUtil.closeCurTab}>关闭当前标签页</button>
+                    <button className="btn-option-item btn btn-success" onClick={tabUtil.moveCurTabLast}>将当前标签页移动到最后面</button>
+                    <button className="btn-option-item btn btn-success" onClick={tabUtil.moveCurTabFirst}>将当前标签页移动到最前面</button>
+                    <button className="btn-option-item btn btn-success" onClick={tabUtil.copyCurWindow}>复制当前窗口</button>
+                </div>
             </div>
         );
     }

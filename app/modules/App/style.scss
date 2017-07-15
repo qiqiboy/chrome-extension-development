@@ -5,6 +5,32 @@
     .h-card+.col-9 {
         width: 100%;
     }
+    .discussion-sidebar{
+        display: none;
+    }
+}
+
+.chrome-extension-development-fullscreen{
+    .site-nav-container, .site-footer-container,
+    .container-lg,
+    .container{
+        width: auto;
+        max-width: none;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    #discussion_bucket{
+        display: flex;
+    }
+    .discussion-sidebar{
+        float: none;
+        margin-left: 20px;
+        order: 1;
+    }
+    .discussion-timeline{
+        float: none;
+        flex: 1;
+    }
 }
 
 .chrome-extension-development-dark {
@@ -26,6 +52,9 @@
         .form-control {
             background: none;
         }
+    }
+    .header-search-scope{
+        border-right: #333;
     }
     .vcard-detail .octicon {
         color: #fff;
@@ -79,5 +108,13 @@
     .ajax-pagination-form .ajax-pagination-btn {
         background: #555;
         border-color: #666 !important;
+    }
+    .reponav-item.selected,
+    .repohead.experiment-repo-nav{
+        background-color: #333;
+        color: #fff;
+    }
+    .signup-prompt-bg {
+        background-image: linear-gradient(180deg, rgba(255,255,255,0) 50%, #000), linear-gradient(70deg, #333 32%, #555);
     }
 }

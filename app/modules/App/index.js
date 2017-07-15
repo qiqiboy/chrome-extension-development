@@ -38,11 +38,20 @@ class App {
         document.body.classList.remove('chrome-extension-development-clear');
     }
 
+    enableFullscreen() {
+        document.body.classList.add('chrome-extension-development-fullscreen');
+    }
+
+    disabledFullscreen() {
+        document.body.classList.remove('chrome-extension-development-fullscreen');
+    }
+
     async checkOption() {
         const options = await Options.getAsync();
 
         options.enableSkin ? this.enableSkin() : this.disabledSkin()
         options.clearMode ? this.enableClearMode() : this.disabledClearMode();
+        options.fullscreen ? this.enableFullscreen() : this.disabledFullscreen();
     }
 
     executeScript(code) {

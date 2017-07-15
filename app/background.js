@@ -27,10 +27,8 @@ chrome.runtime.onMessage.addListener((data, sender, sendResponse) => {
     }
 });
 
-chrome.tabs.onSelectionChanged.addListener(tabId => {
-    chrome.tabs.get(tabId, tab => {
-        chrome.tabs.sendRequest(tabId, {
-            action: 'active'
-        });
+chrome.tabs.onActivated.addListener(({tabId}) => {
+    chrome.tabs.sendMessage(tabId, {
+        action: 'active'
     });
 });

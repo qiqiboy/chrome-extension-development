@@ -106,11 +106,11 @@ chrome.runtime.onMessage.addListener(function (data, sender, sendResponse) {
     }
 });
 
-chrome.tabs.onSelectionChanged.addListener(function (tabId) {
-    chrome.tabs.get(tabId, function (tab) {
-        chrome.tabs.sendRequest(tabId, {
-            action: 'active'
-        });
+chrome.tabs.onActivated.addListener(function (_ref) {
+    var tabId = _ref.tabId;
+
+    chrome.tabs.sendMessage(tabId, {
+        action: 'active'
     });
 });
 

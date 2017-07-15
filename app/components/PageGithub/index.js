@@ -96,7 +96,9 @@ class Github extends Component {
                 {loading ? <div className="loading">加载中...</div> : null}
                 {error && <div className="error">{error.message}</div>}
                 {user && <div className="userinfo">
-                    <img src={user.avatar_url} className="avatar" width="100" alt="avatar" />
+                    <a href={user.html_url} title="打开开发者Github主页" onClick={this.openRepoPage.bind(this, user)}>
+                        <img src={user.avatar_url} className="avatar" width="100" alt="avatar" />
+                    </a>
                     <InfoItem label="账号：" content={user.login} />
                     <InfoItem label="简介：" content={user.bio || '--'} />
                     <InfoItem label="公司：" content={user.company || '--'} />
