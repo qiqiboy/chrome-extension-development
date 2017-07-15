@@ -22,12 +22,12 @@ options.transform = transform
 var update = __webpack_require__(/*! ../../_style-loader@0.18.2@style-loader/lib/addStyles.js */ "./node_modules/_style-loader@0.18.2@style-loader/lib/addStyles.js")(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
-if(false) {
+if(true) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../_css-loader@0.28.4@css-loader/index.js!./codemirror.css", function() {
-			var newContent = require("!!../../_css-loader@0.28.4@css-loader/index.js!./codemirror.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+		module.hot.accept(/*! !../../_css-loader@0.28.4@css-loader!./codemirror.css */ "./node_modules/_css-loader@0.28.4@css-loader/index.js!./node_modules/_codemirror@5.27.4@codemirror/lib/codemirror.css", function() {
+			var newContent = __webpack_require__(/*! !../../_css-loader@0.28.4@css-loader!./codemirror.css */ "./node_modules/_css-loader@0.28.4@css-loader/index.js!./node_modules/_codemirror@5.27.4@codemirror/lib/codemirror.css");
+			if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
 			update(newContent);
 		});
 	}

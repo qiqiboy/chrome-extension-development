@@ -2,8 +2,11 @@ const path = require('path');
 const glob = require('glob');
 const webpack = require('webpack');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
+const WriteFilePlugin = require('write-file-webpack-plugin');
 const autoprefixer = require('autoprefixer');
+
 const appRoot = process.cwd();
+const pkg = require('../package.json');
 
 const isProduction = process.env.NODE_ENV === 'production';
 const env = {
@@ -17,7 +20,12 @@ const paths = {
     appBuild: path.resolve(appRoot, 'extension/dist'),
     appEntery: glob.sync(path.resolve(appRoot, 'app/!(_)*.js?(x)'))
         .reduce((ret, file) => {
-            ret[path.basename(file).replace(/\.jsx?$/, '')] = file;
+            ret[path.basename(file).replace(/\.jsx?$/, '')] = isProduction ?
+                file : [
+                    'webpack-dev-server/client?http://localhost:' + (pkg.port || 3666),
+                    'webpack/hot/dev-server',
+                    file
+                ];
 
             return ret;
         }, {})
@@ -122,7 +130,9 @@ const webpackConfig = {
         })
     ] : [
         new webpack.NamedModulesPlugin(),
-        new webpack.DefinePlugin(env)
+        new webpack.DefinePlugin(env),
+        new WriteFilePlugin(),
+        new webpack.HotModuleReplacementPlugin()
     ],
     node: {
         dgram: 'empty',

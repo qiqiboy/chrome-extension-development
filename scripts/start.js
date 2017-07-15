@@ -6,9 +6,13 @@ const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
 const config = require('./webpack.config');
 const chalk = require('chalk');
 const webpack = require('webpack');
+const detect = require('detect-port');
+var fs = require('fs-extra');
 const _ = require('lodash');
 const path = require('path');
+const pkg = require('../package.json');
 
+const DEFAULT_PORT = pkg.port || 3666;
 const spinner = ora('webpack启动中...').start();
 
 const cwd = process.cwd();
@@ -24,13 +28,6 @@ function setupCompiler() {
         console.log();
         process.exit(1);
     }
-
-    compiler.watch({
-        ignored: /node_modules/
-    }, (err, stats) => {
-        // Print watch/build result here...
-        // console.log(stats);
-    });
 
     compiler.plugin('invalid', function() {
         clearConsole();
@@ -83,6 +80,49 @@ function setupCompiler() {
         spinner.text = 'webpack运行中...';
         spinner.render().start();
     });
+
+    runDevServer(compiler);
 }
 
-setupCompiler();
+function runDevServer(compiler) {
+    const WebpackDevServer = require('webpack-dev-server');
+    const devServer = new WebpackDevServer(compiler, {
+        clientLogLevel: 'none',
+        hot: true,
+        publicPath: config.output.publicPath,
+        quiet: true,
+        watchOptions: {
+            ignored: /node_modules/
+        },
+        overlay: {
+            warnings: true,
+            errors: true
+        },
+        host: 'localhost'
+    });
+
+    // Launch WebpackDevServer.
+    devServer.listen(DEFAULT_PORT, (err, result) => {
+        if (err) {
+            return console.log(err);
+        }
+
+        clearConsole();
+        console.log(chalk.cyan('正在启动服务...'));
+        console.log();
+    });
+}
+
+function run() {
+    fs.emptyDirSync(config.output.path);
+    setupCompiler();
+}
+
+detect(DEFAULT_PORT).then(port => {
+    if (port === DEFAULT_PORT) {
+        return run(port);
+    }
+
+    spinner.fail('端口（' + chalk.yellow(DEFAULT_PORT) + '）被占用！');
+    console.log('请修改package.json中的 port，或者关闭占用的程序后再试。');
+});

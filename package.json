@@ -2,6 +2,7 @@
   "name": "chrome-extension-development",
   "version": "1.0.0",
   "description": "chrome extension development",
+  "port": 3666,
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js"
@@ -21,6 +22,7 @@
     "babel-preset-react-app": "^3.0.1",
     "chalk": "^2.0.1",
     "css-loader": "^0.28.4",
+    "detect-port": "^1.2.1",
     "eslint": "^4.2.0",
     "eslint-config-react-app": "^1.0.5",
     "eslint-loader": "^1.9.0",
@@ -40,7 +42,9 @@
     "react-easyform": "^0.1.5",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
-    "webpack": "^3.2.0"
+    "webpack": "^3.2.0",
+    "webpack-dev-server": "^2.5.1",
+    "write-file-webpack-plugin": "^4.1.0"
   },
   "babel": {
     "presets": [
