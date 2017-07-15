@@ -45,3 +45,10 @@ export const sendAllTabsRequest = (...args) => {
         chrome.tabs.sendMessage(tab.id, ...args);
     }));
 }
+
+/*！
+ * @desc 向扩展发送消息
+ */
+export const sendRuntimeMessage = (...args) => {
+    chrome.runtime.sendMessage(...args);
+}

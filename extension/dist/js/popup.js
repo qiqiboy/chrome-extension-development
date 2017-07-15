@@ -1350,10 +1350,14 @@ var PageOptions = function (_Component) {
                                     options: options
                                 });
 
+                                __WEBPACK_IMPORTED_MODULE_3__utils_request__["d" /* sendRuntimeMessage */]({
+                                    action: 'updateOption'
+                                });
+
                                 //同步组件状态中的设置项，以触发组件展示更新
                                 this.setState(_defineProperty({}, key, value));
 
-                            case 5:
+                            case 6:
                             case 'end':
                                 return _context5.stop();
                         }
@@ -1446,7 +1450,7 @@ var PageOptions = function (_Component) {
                 {
                     __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 114
+                        lineNumber: 118
                     },
                     __self: this
                 },
@@ -1454,31 +1458,31 @@ var PageOptions = function (_Component) {
                     'div',
                     { className: 'cur-tab-info', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 115
+                            lineNumber: 119
                         },
                         __self: this
                     },
                     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__InfoItem__["a" /* default */], { label: '\u6807\u9898', content: curTab.title, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 116
+                            lineNumber: 120
                         },
                         __self: this
                     }),
                     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__InfoItem__["a" /* default */], { label: '\u5730\u5740', content: curTab.url, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 117
+                            lineNumber: 121
                         },
                         __self: this
                     }),
                     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__InfoItem__["a" /* default */], { label: '\u6B21\u5E8F', content: '\u603Btab\u6570\uFF1A' + allTabs + '\uFF0C\u5F53\u524D\uFF1A' + curTab.index, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 118
+                            lineNumber: 122
                         },
                         __self: this
                     }),
                     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('img', { src: qrcode, width: '100', className: 'qrcode', alt: 'qrcode', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 119
+                            lineNumber: 123
                         },
                         __self: this
                     })
@@ -1487,7 +1491,7 @@ var PageOptions = function (_Component) {
                     __WEBPACK_IMPORTED_MODULE_2__OptionItem__["a" /* default */],
                     { active: options.enableSkin, onChange: this.setOption.bind(this, 'enableSkin'), __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 121
+                            lineNumber: 125
                         },
                         __self: this
                     },
@@ -1497,7 +1501,7 @@ var PageOptions = function (_Component) {
                     __WEBPACK_IMPORTED_MODULE_2__OptionItem__["a" /* default */],
                     { active: options.clearMode, onChange: this.setOption.bind(this, 'clearMode'), __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 125
+                            lineNumber: 129
                         },
                         __self: this
                     },
@@ -1507,7 +1511,7 @@ var PageOptions = function (_Component) {
                     __WEBPACK_IMPORTED_MODULE_2__OptionItem__["a" /* default */],
                     { active: options.fullscreen, onChange: this.setOption.bind(this, 'fullscreen'), __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 129
+                            lineNumber: 133
                         },
                         __self: this
                     },
@@ -1517,7 +1521,7 @@ var PageOptions = function (_Component) {
                     'div',
                     { className: 'btn-group', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 133
+                            lineNumber: 137
                         },
                         __self: this
                     },
@@ -1525,7 +1529,7 @@ var PageOptions = function (_Component) {
                         'button',
                         { className: 'btn-option-item btn btn-success', onClick: this.tabUtil.openGithubInNewTab, __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 134
+                                lineNumber: 138
                             },
                             __self: this
                         },
@@ -1535,7 +1539,7 @@ var PageOptions = function (_Component) {
                         'button',
                         { className: 'btn-option-item btn btn-success', onClick: this.tabUtil.openGithubInCurTab, __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 135
+                                lineNumber: 139
                             },
                             __self: this
                         },
@@ -1545,7 +1549,7 @@ var PageOptions = function (_Component) {
                         'button',
                         { className: 'btn-option-item btn btn-success', onClick: this.tabUtil.createBlankTab, __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 136
+                                lineNumber: 140
                             },
                             __self: this
                         },
@@ -1555,7 +1559,7 @@ var PageOptions = function (_Component) {
                         'button',
                         { className: 'btn-option-item btn btn-success', onClick: this.tabUtil.closeCurTab, __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 137
+                                lineNumber: 141
                             },
                             __self: this
                         },
@@ -1565,7 +1569,7 @@ var PageOptions = function (_Component) {
                         'button',
                         { className: 'btn-option-item btn btn-success', onClick: __WEBPACK_IMPORTED_MODULE_5__utils_tabUtil__["d" /* moveCurTabLast */], __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 138
+                                lineNumber: 142
                             },
                             __self: this
                         },
@@ -1575,7 +1579,7 @@ var PageOptions = function (_Component) {
                         'button',
                         { className: 'btn-option-item btn btn-success', onClick: __WEBPACK_IMPORTED_MODULE_5__utils_tabUtil__["c" /* moveCurTabFirst */], __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 139
+                                lineNumber: 143
                             },
                             __self: this
                         },
@@ -1585,12 +1589,22 @@ var PageOptions = function (_Component) {
                         'button',
                         { className: 'btn-option-item btn btn-success', onClick: __WEBPACK_IMPORTED_MODULE_5__utils_tabUtil__["a" /* copyCurWindow */], __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 140
+                                lineNumber: 144
                             },
                             __self: this
                         },
                         '\u590D\u5236\u5F53\u524D\u7A97\u53E3'
                     )
+                ),
+                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_2__OptionItem__["a" /* default */],
+                    { active: options.animateIcon, onChange: this.setOption.bind(this, 'animateIcon'), __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 147
+                        },
+                        __self: this
+                    },
+                    options.animateIcon ? '动态icon' : '静态icon'
                 )
             );
         }
@@ -2322,8 +2336,8 @@ try {
 /*!******************************!*\
   !*** ./app/utils/request.js ***!
   \******************************/
-/*! exports provided: getUser, getRepos, executeScript, sendActiveTabRequest, sendAllTabsRequest */
-/*! exports used: getRepos, getUser, sendActiveTabRequest */
+/*! exports provided: getUser, getRepos, executeScript, sendActiveTabRequest, sendAllTabsRequest, sendRuntimeMessage */
+/*! exports used: getRepos, getUser, sendActiveTabRequest, sendRuntimeMessage */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2332,6 +2346,7 @@ try {
 /* unused harmony export executeScript */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return sendActiveTabRequest; });
 /* unused harmony export sendAllTabsRequest */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return sendRuntimeMessage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(/*! axios */ "./node_modules/_axios@0.16.2@axios/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
@@ -2405,6 +2420,15 @@ var sendAllTabsRequest = function sendAllTabsRequest() {
             (_chrome$tabs2 = chrome.tabs).sendMessage.apply(_chrome$tabs2, [tab.id].concat(args));
         });
     });
+};
+
+/*！
+ * @desc 向扩展发送消息
+ */
+var sendRuntimeMessage = function sendRuntimeMessage() {
+    var _chrome$runtime;
+
+    (_chrome$runtime = chrome.runtime).sendMessage.apply(_chrome$runtime, arguments);
 };
 
 /***/ }),

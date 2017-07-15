@@ -76,6 +76,8 @@
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_options__ = __webpack_require__(/*! ./utils/options */ "./app/utils/options.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_animateIcon__ = __webpack_require__(/*! ./utils/animateIcon */ "./app/utils/animateIcon/index.js");
+
 
 
 var chrome = window.chrome;
@@ -100,6 +102,12 @@ chrome.runtime.onMessage.addListener(function (data, sender, sendResponse) {
             sendResponse(__WEBPACK_IMPORTED_MODULE_0__utils_options__["a" /* default */].set(data.key, data.value));
             break;
 
+        case 'updateOption':
+            if (__WEBPACK_IMPORTED_MODULE_1__utils_animateIcon__["a" /* default */].running !== __WEBPACK_IMPORTED_MODULE_0__utils_options__["a" /* default */].get('animateIcon')) {
+                __WEBPACK_IMPORTED_MODULE_0__utils_options__["a" /* default */].get('animateIcon') ? __WEBPACK_IMPORTED_MODULE_1__utils_animateIcon__["a" /* default */].start() : __WEBPACK_IMPORTED_MODULE_1__utils_animateIcon__["a" /* default */].stop();
+            }
+            break;
+
         default:
             //nothing todo
             break;
@@ -112,6 +120,71 @@ chrome.tabs.onActivated.addListener(function (_ref) {
     chrome.tabs.sendMessage(tabId, {
         action: 'active'
     });
+});
+
+if (__WEBPACK_IMPORTED_MODULE_0__utils_options__["a" /* default */].get('animateIcon')) {
+    __WEBPACK_IMPORTED_MODULE_1__utils_animateIcon__["a" /* default */].start();
+}
+
+/***/ }),
+
+/***/ "./app/utils/animateIcon/index.js":
+/*!****************************************!*\
+  !*** ./app/utils/animateIcon/index.js ***!
+  \****************************************/
+/*! exports provided: default */
+/*! exports used: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var chrome = window.chrome;
+var originImg = new Image();
+var defaultIconUrl = window.chrome.runtime.getURL('icons/icon_16.png');
+
+originImg.src = defaultIconUrl;
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+    running: false,
+    angle: 0,
+
+    start: function start() {
+        this.running = true;
+
+        this.render();
+    },
+    stop: function stop() {
+        this.running = false;
+        this.angle = 0;
+
+        clearTimeout(this.timer);
+
+        chrome.browserAction.setIcon({
+            path: defaultIconUrl
+        });
+    },
+    render: function render() {
+        var imageData = this.getImageData();
+
+        chrome.browserAction.setIcon({
+            imageData: imageData
+        });
+
+        this.angle = (this.angle + 5) % 360;
+
+        this.timer = setTimeout(this.render.bind(this), 100);
+    },
+    getImageData: function getImageData() {
+        var canvas = document.createElement('canvas');
+        var ctx = canvas.getContext('2d');
+
+        canvas.width = canvas.height = 32;
+
+        ctx.translate(canvas.width / 2, canvas.height / 2);
+        ctx.rotate(this.angle * Math.PI / 180);
+        ctx.drawImage(originImg, -canvas.width / 2, -canvas.height / 2, canvas.width, canvas.height);
+
+        return ctx.getImageData(0, 0, canvas.width, canvas.height);
+    }
 });
 
 /***/ }),

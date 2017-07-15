@@ -1,4 +1,5 @@
 import Options from './utils/options';
+import animateIcon from './utils/animateIcon';
 
 const chrome = window.chrome;
 
@@ -22,6 +23,12 @@ chrome.runtime.onMessage.addListener((data, sender, sendResponse) => {
             sendResponse(Options.set(data.key, data.value));
             break;
 
+        case 'updateOption':
+            if(animateIcon.running !== Options.get('animateIcon')) {
+                Options.get('animateIcon') ? animateIcon.start() : animateIcon.stop();
+            }
+            break;
+
         default: //nothing todo
             break;
     }
@@ -32,3 +39,7 @@ chrome.tabs.onActivated.addListener(({tabId}) => {
         action: 'active'
     });
 });
+
+if( Options.get('animateIcon')) {
+    animateIcon.start();
+}

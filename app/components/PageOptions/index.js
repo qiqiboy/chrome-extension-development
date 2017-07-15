@@ -43,6 +43,10 @@ class PageOptions extends Component {
             options
         });
 
+        request.sendRuntimeMessage({
+            action: 'updateOption'
+        });
+
         //同步组件状态中的设置项，以触发组件展示更新
         this.setState({
             [key]: value
@@ -50,24 +54,24 @@ class PageOptions extends Component {
     }
 
     async getTabInfo() {
-         const tab = await tabUtil.getCurrent();
-         this.setState({
-             curTab: {
-                 index: tab.index + 1,
-                 url: tab.url,
-                 title: tab.title
-             }
-         });
+        const tab = await tabUtil.getCurrent();
+        this.setState({
+            curTab: {
+                index: tab.index + 1,
+                url: tab.url,
+                title: tab.title
+            }
+        });
 
-         this.createQrcode(tab.url);
+        this.createQrcode(tab.url);
 
-         chrome.tabs.query({
-             windowId: chrome.windows.WINDOW_ID_CURRENT
-         }, tabs => {
-             this.setState({
-                 allTabs: tabs.length
-             });
-         });
+        chrome.tabs.query({
+            windowId: chrome.windows.WINDOW_ID_CURRENT
+        }, tabs => {
+            this.setState({
+                allTabs: tabs.length
+            });
+        });
     }
 
     createQrcode(text) {
@@ -139,6 +143,10 @@ class PageOptions extends Component {
                     <button className="btn-option-item btn btn-success" onClick={tabUtil.moveCurTabFirst}>将当前标签页移动到最前面</button>
                     <button className="btn-option-item btn btn-success" onClick={tabUtil.copyCurWindow}>复制当前窗口</button>
                 </div>
+
+                <OptionItem active={options.animateIcon} onChange={this.setOption.bind(this, 'animateIcon')}>
+                    {options.animateIcon ? '动态icon' : '静态icon'}
+                </OptionItem>
             </div>
         );
     }
