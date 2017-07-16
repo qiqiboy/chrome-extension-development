@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Options from '../../components/PageOptions';
 import Github from '../../components/PageGithub';
-import Execcute from '../../components/PageExecute';
+import Execute from '../../components/PageExecute';
 import WorkSpace from '../../components/PageWorkSpace';
 
 const tabData = [{
@@ -17,7 +17,7 @@ const tabData = [{
     {
         id: 'execute',
         title: '代码注入',
-        component: Execcute
+        component: Execute
     },
     {
         id: 'workspace',

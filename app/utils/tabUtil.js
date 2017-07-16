@@ -7,6 +7,12 @@ export const getCurrent = function() {
     }, ([tab]) => resolve(tab)));
 }
 
+export const getAll = function() {
+    return new Promise(resolve => chrome.tabs.query({
+        windowId: chrome.windows.WINDOW_ID_CURRENT
+    }, resolve));
+}
+
 export const closeCurTab = async function() {
     const current = await getCurrent();
     chrome.tabs.remove(current.id);

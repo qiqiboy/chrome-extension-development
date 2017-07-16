@@ -3,7 +3,7 @@ chrome扩展开发功能示范与开发环境配置。该项目包含了chrome�
 
 1. javascript语法支持`ES6+`(babel-preset-latest)、css支持`sass`预编译器。
 2. 支持`React-jsx`，自定义页面（`option`、`browser action`等）和`content scripts`都可以使用react构建ui。
-3. 开发时支持background、contnet scripts以及其它自定义页面的自动刷新、`HMR`(Hot Moudule Replacement)。
+3. 开发时支持background、content scripts以及其它自定义页面的自动刷新、`HMR`(Hot Moudule Replacement)。
 4. 支持eslint代码预检查，可以在页面与终端控制台显示错误与警告。
 
 ![][5]

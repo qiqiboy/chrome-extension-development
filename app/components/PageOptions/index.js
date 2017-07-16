@@ -44,7 +44,7 @@ class PageOptions extends Component {
         });
 
         request.sendRuntimeMessage({
-            action: 'updateOption'
+            action: 'optionUpdated'
         });
 
         //同步组件状态中的设置项，以触发组件展示更新
@@ -54,23 +54,20 @@ class PageOptions extends Component {
     }
 
     async getTabInfo() {
-        const tab = await tabUtil.getCurrent();
+        const allTabs = await tabUtil.getAll();
+        const curTab = await tabUtil.getCurrent();
         this.setState({
             curTab: {
-                index: tab.index + 1,
-                url: tab.url,
-                title: tab.title
+                index: curTab.index + 1,
+                url: curTab.url,
+                title: curTab.title
             }
         });
 
-        this.createQrcode(tab.url);
+        this.createQrcode(curTab.url);
 
-        chrome.tabs.query({
-            windowId: chrome.windows.WINDOW_ID_CURRENT
-        }, tabs => {
-            this.setState({
-                allTabs: tabs.length
-            });
+        this.setState({
+            allTabs: allTabs.length
         });
     }
 
@@ -108,6 +105,52 @@ class PageOptions extends Component {
         async closeCurTab() {
             const tab = await tabUtil.getCurrent();
             chrome.tabs.remove(tab.id);
+        },
+        createNewWindow() {
+            chrome.windows.create();
+        },
+        closeCurWindow() {
+            chrome.windows.getCurrent(null, win => {
+                chrome.windows.remove(win.id);
+            });
+        },
+        zoomMoveMaxCurWindow() {
+            window.close(); //关闭popup窗口
+
+            // 获取当前窗口的信息，最后需要根据这个信息恢复窗口位置、尺寸
+            chrome.windows.getCurrent(null, win => {
+                //要执行的步骤更新的窗口信息
+                const steps = [{
+                    state: 'minimized'
+                }, {
+                    state: 'normal'
+                }, {
+                    width: 500,
+                    height: 500,
+                    top: 0,
+                    left: 0
+                }, {
+                    top: window.screen.availHeight - 500,
+                    left: window.screen.availWidth - 500
+                }, {
+                    state: 'fullscreen'
+                }, {
+                    state: 'normal'
+                }, {
+                    state: 'maximized'
+                }, {
+                    width: win.width,
+                    height: win.height,
+                    left: win.left,
+                    top: win.top,
+                    focused: true
+                }];
+
+                chrome.runtime.sendMessage({
+                    action: 'updateWindow',
+                    steps
+                });
+            });
         }
     }
 
@@ -138,6 +181,9 @@ class PageOptions extends Component {
                     <button className="btn-option-item btn btn-success" onClick={this.tabUtil.openGithubInNewTab}>新标签页中访问Github</button>
                     <button className="btn-option-item btn btn-success" onClick={this.tabUtil.openGithubInCurTab}>当前标签页中访问Github</button>
                     <button className="btn-option-item btn btn-success" onClick={this.tabUtil.createBlankTab}>创建新标签页</button>
+                    <button className="btn-option-item btn btn-success" onClick={this.tabUtil.closeCurWindow}>关闭当前窗口</button>
+                    <button className="btn-option-item btn btn-success" onClick={this.tabUtil.createNewWindow}>创建新窗口</button>
+                    <button className="btn-option-item btn btn-success" onClick={this.tabUtil.zoomMoveMaxCurWindow}>缩小移动最大化当前窗口</button>
                     <button className="btn-option-item btn btn-success" onClick={this.tabUtil.closeCurTab}>关闭当前标签页</button>
                     <button className="btn-option-item btn btn-success" onClick={tabUtil.moveCurTabLast}>将当前标签页移动到最后面</button>
                     <button className="btn-option-item btn btn-success" onClick={tabUtil.moveCurTabFirst}>将当前标签页移动到最前面</button>

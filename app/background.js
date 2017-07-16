@@ -23,10 +23,28 @@ chrome.runtime.onMessage.addListener((data, sender, sendResponse) => {
             sendResponse(Options.set(data.key, data.value));
             break;
 
-        case 'updateOption':
-            if(animateIcon.running !== Options.get('animateIcon')) {
+        case 'optionUpdated':
+            if (animateIcon.running !== Options.get('animateIcon')) {
                 Options.get('animateIcon') ? animateIcon.start() : animateIcon.stop();
             }
+            break;
+
+        case 'updateWindow':
+             chrome.windows.getCurrent(null, async win => {
+                const updateWindow = function(updateInfo) {
+                    return new Promise(resolve => chrome.windows.update(win.id, updateInfo, resolve));
+                }
+                //定义一个延迟执行器
+                const delay = function(ms) {
+                    return new Promise(resolve => setTimeout(resolve, ms));
+                }
+
+                //顺序根据设置的步骤顺序设置窗口状态，并且暂停一秒后继续下一步
+                for(let info of data.steps) {
+                    await updateWindow(info);
+                    await delay(1000);
+                }
+            });
             break;
 
         default: //nothing todo
@@ -34,12 +52,12 @@ chrome.runtime.onMessage.addListener((data, sender, sendResponse) => {
     }
 });
 
-chrome.tabs.onActivated.addListener(({tabId}) => {
+chrome.tabs.onActivated.addListener(({ tabId }) => {
     chrome.tabs.sendMessage(tabId, {
         action: 'active'
     });
 });
 
-if( Options.get('animateIcon')) {
+if (Options.get('animateIcon')) {
     animateIcon.start();
 }
