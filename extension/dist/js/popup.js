@@ -84,7 +84,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "b39e43775509c5f6be23"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "17cd4e49b43359ffb13d"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -2844,13 +2844,25 @@ var Popup = function (_Component) {
     }
 
     _createClass(Popup, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            var _this2 = this;
+
+            //为什么多此一举？
+            //页面css是由js创建插入的，这样子容易导致chrome的browser action弹出窗口计算错误尺寸
+            //这么做是触发其重新计算窗口样式
+            setTimeout(function () {
+                _this2.refs.removeme.parentNode.removeChild(_this2.refs.removeme);
+            }, 300);
+        }
+    }, {
         key: 'render',
         value: function render() {
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { className: 'popup-root', __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 10
+                        lineNumber: 19
                     },
                     __self: this
                 },
@@ -2858,7 +2870,7 @@ var Popup = function (_Component) {
                     'h3',
                     { className: 'page-title', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 11
+                            lineNumber: 20
                         },
                         __self: this
                     },
@@ -2867,7 +2879,7 @@ var Popup = function (_Component) {
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Tabs__["a" /* default */], {
                     __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 12
+                        lineNumber: 21
                     },
                     __self: this
                 }),
@@ -2875,7 +2887,7 @@ var Popup = function (_Component) {
                     'div',
                     { className: 'footer', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 13
+                            lineNumber: 22
                         },
                         __self: this
                     },
@@ -2886,12 +2898,22 @@ var Popup = function (_Component) {
                         __WEBPACK_IMPORTED_MODULE_1__components_Link__["a" /* default */],
                         { href: 'https://github.com/qiqiboy', __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 13
+                                lineNumber: 22
                             },
                             __self: this
                         },
                         '@qiqiboy'
                     )
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { ref: 'removeme', style: { opacity: 0 }, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 23
+                        },
+                        __self: this
+                    },
+                    'remove'
                 )
             );
         }
