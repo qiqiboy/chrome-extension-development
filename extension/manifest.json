@@ -4,6 +4,7 @@
     "name": "Chrome extension development",
     "description": "chrome扩展开发环境示例",
     "author": "qiqiboy",
+    "homepage_url" : "https://github.com/qiqiboy/chrome-extension-development",
     "icons": {
         "16": "icons/icon_16.png",
         "48": "icons/icon_48.png",

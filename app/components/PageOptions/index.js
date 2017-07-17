@@ -122,6 +122,8 @@ class PageOptions extends Component {
             chrome.windows.getCurrent(null, win => {
                 //要执行的步骤更新的窗口信息
                 const steps = [{
+                    state: 'normal'
+                }, {
                     state: 'minimized'
                 }, {
                     state: 'normal'
