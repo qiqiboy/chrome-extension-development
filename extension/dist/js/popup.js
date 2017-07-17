@@ -84,7 +84,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "d92de8e4815547cb6480"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "ac2c314c52c25d6076e0"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -1363,6 +1363,8 @@ if(true) {
 
 var _jsxFileName = '/Users/qiqiboy/develop/chrome-extension-development/app/components/PageGithub/index.js';
 
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
@@ -1413,7 +1415,8 @@ var Github = function (_Component) {
         key: 'getUser',
         value: function () {
             var _ref2 = _asyncToGenerator(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(value) {
-                var user, repos, error, resp;
+                var _value$split, _value$split2, username, reponame, user, repos, error, resp;
+
                 return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
                     while (1) {
                         switch (_context.prev = _context.next) {
@@ -1430,6 +1433,18 @@ var Github = function (_Component) {
                                 }));
 
                             case 2:
+                                _value$split = value.split('/'), _value$split2 = _slicedToArray(_value$split, 2), username = _value$split2[0], reponame = _value$split2[1];
+
+                                //如果账号不变，则去筛选repo
+
+                                if (!(this.state.user && username === this.state.user.login)) {
+                                    _context.next = 5;
+                                    break;
+                                }
+
+                                return _context.abrupt('return', this.filterRepos(reponame));
+
+                            case 5:
 
                                 this.setState({
                                     error: null,
@@ -1437,42 +1452,44 @@ var Github = function (_Component) {
                                 });
 
                                 user = void 0, repos = void 0, error = void 0;
-                                _context.prev = 4;
-                                _context.next = 7;
-                                return __WEBPACK_IMPORTED_MODULE_2__utils_request__["b" /* getUser */](value);
+                                _context.prev = 7;
+                                _context.next = 10;
+                                return __WEBPACK_IMPORTED_MODULE_2__utils_request__["b" /* getUser */](username);
 
-                            case 7:
+                            case 10:
                                 resp = _context.sent;
 
                                 user = resp.data;
-                                _context.next = 14;
+                                _context.next = 17;
                                 break;
 
-                            case 11:
-                                _context.prev = 11;
-                                _context.t0 = _context['catch'](4);
+                            case 14:
+                                _context.prev = 14;
+                                _context.t0 = _context['catch'](7);
 
                                 error = _context.t0;
 
-                            case 14:
+                            case 17:
 
-                                if (this.refs.user.value === value) {
+                                if ((this.refs.user.value || '').split('/')[0] === username) {
                                     this.setState({
                                         loading: false,
-                                        user: user, repos: repos, error: error
+                                        user: user,
+                                        repos: repos,
+                                        error: error
                                     });
 
                                     if (!error) {
-                                        this.getRepos(value);
+                                        this.getRepos(value, reponame);
                                     }
                                 }
 
-                            case 15:
+                            case 18:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[4, 11]]);
+                }, _callee, this, [[7, 14]]);
             }));
 
             function getUser(_x) {
@@ -1484,51 +1501,67 @@ var Github = function (_Component) {
     }, {
         key: 'getRepos',
         value: function () {
-            var _ref3 = _asyncToGenerator(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2(user) {
-                var repos, resp;
+            var _ref3 = _asyncToGenerator(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2(user, reponame) {
+                var resp;
                 return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
                     while (1) {
                         switch (_context2.prev = _context2.next) {
                             case 0:
-                                repos = void 0;
-                                _context2.prev = 1;
-                                _context2.next = 4;
+                                _context2.prev = 0;
+                                _context2.next = 3;
                                 return __WEBPACK_IMPORTED_MODULE_2__utils_request__["a" /* getRepos */](user);
 
-                            case 4:
+                            case 3:
                                 resp = _context2.sent;
 
 
-                                repos = resp.data;
-                                _context2.next = 11;
+                                this.repos = resp.data;
+                                _context2.next = 10;
                                 break;
 
-                            case 8:
-                                _context2.prev = 8;
-                                _context2.t0 = _context2['catch'](1);
+                            case 7:
+                                _context2.prev = 7;
+                                _context2.t0 = _context2['catch'](0);
 
-                                repos = [];
+                                this.repos = [];
+
+                            case 10:
+
+                                this.filterRepos(reponame);
 
                             case 11:
-
-                                this.setState({
-                                    repos: repos
-                                });
-
-                            case 12:
                             case 'end':
                                 return _context2.stop();
                         }
                     }
-                }, _callee2, this, [[1, 8]]);
+                }, _callee2, this, [[0, 7]]);
             }));
 
-            function getRepos(_x2) {
+            function getRepos(_x2, _x3) {
                 return _ref3.apply(this, arguments);
             }
 
             return getRepos;
         }()
+    }, {
+        key: 'filterRepos',
+        value: function filterRepos(reponame) {
+            if (reponame) {
+                var pattern = new RegExp('.*' + reponame.replace(/./g, function (char) {
+                    return char + '.*';
+                }), 'i');
+
+                this.setState({
+                    repos: this.repos.filter(function (repo) {
+                        return pattern.test(repo.name);
+                    })
+                });
+            } else {
+                this.setState({
+                    repos: this.repos
+                });
+            }
+        }
     }, {
         key: 'openRepoPage',
         value: function () {
@@ -1558,7 +1591,7 @@ var Github = function (_Component) {
                 }, _callee3, this);
             }));
 
-            function openRepoPage(_x3, _x4) {
+            function openRepoPage(_x4, _x5) {
                 return _ref4.apply(this, arguments);
             }
 
@@ -1576,12 +1609,12 @@ var Github = function (_Component) {
                 repos = _state.repos;
 
 
-            var repoComponent = repos ? repos.map(function (item) {
+            var repoComponent = repos ? repos.length ? repos.map(function (item) {
                 return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                     'div',
                     { className: 'repo-item', key: item.id, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 89
+                            lineNumber: 111
                         },
                         __self: _this2
                     },
@@ -1589,7 +1622,7 @@ var Github = function (_Component) {
                         'a',
                         { href: item.html_url, onClick: _this2.openRepoPage.bind(_this2, item), __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 89
+                                lineNumber: 111
                             },
                             __self: _this2
                         },
@@ -1600,7 +1633,7 @@ var Github = function (_Component) {
                         'div',
                         { className: 'desc', __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 89
+                                lineNumber: 111
                             },
                             __self: _this2
                         },
@@ -1608,20 +1641,20 @@ var Github = function (_Component) {
                         item.description
                     )
                 );
-            }) : '加载中...';
+            }) : '没找到相关仓库列表' : '加载中...';
 
             return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                 'div',
                 { className: 'github', __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 93
+                        lineNumber: 115
                     },
                     __self: this
                 },
                 __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('input', { type: 'text', ref: 'user', className: 'form-control',
                     placeholder: '\u8F93\u5165github\u8D26\u53F7\u641C\u7D22', onChange: this.onChange, __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 94
+                        lineNumber: 116
                     },
                     __self: this
                 }),
@@ -1629,7 +1662,7 @@ var Github = function (_Component) {
                     'div',
                     { className: 'loading', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 96
+                            lineNumber: 118
                         },
                         __self: this
                     },
@@ -1639,7 +1672,7 @@ var Github = function (_Component) {
                     'div',
                     { className: 'error', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 97
+                            lineNumber: 119
                         },
                         __self: this
                     },
@@ -1649,7 +1682,7 @@ var Github = function (_Component) {
                     'div',
                     { className: 'userinfo', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 98
+                            lineNumber: 120
                         },
                         __self: this
                     },
@@ -1657,56 +1690,56 @@ var Github = function (_Component) {
                         'a',
                         { href: user.html_url, title: '\u6253\u5F00\u5F00\u53D1\u8005Github\u4E3B\u9875', onClick: this.openRepoPage.bind(this, user), __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 99
+                                lineNumber: 121
                             },
                             __self: this
                         },
                         __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('img', { src: user.avatar_url, className: 'avatar', width: '100', alt: 'avatar', __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 100
+                                lineNumber: 122
                             },
                             __self: this
                         })
                     ),
                     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__InfoItem__["a" /* default */], { label: '\u8D26\u53F7\uFF1A', content: user.login, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 102
+                            lineNumber: 124
                         },
                         __self: this
                     }),
                     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__InfoItem__["a" /* default */], { label: '\u7B80\u4ECB\uFF1A', content: user.bio || '--', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 103
+                            lineNumber: 125
                         },
                         __self: this
                     }),
                     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__InfoItem__["a" /* default */], { label: '\u516C\u53F8\uFF1A', content: user.company || '--', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 104
+                            lineNumber: 126
                         },
                         __self: this
                     }),
                     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__InfoItem__["a" /* default */], { label: '\u9879\u76EE\u6570\uFF1A', content: user.public_repos || '0', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 105
+                            lineNumber: 127
                         },
                         __self: this
                     }),
                     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__InfoItem__["a" /* default */], { label: '\u5173\u6CE8\u6570\uFF1A', content: user.following || '0', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 106
+                            lineNumber: 128
                         },
                         __self: this
                     }),
                     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__InfoItem__["a" /* default */], { label: '\u88AB\u5173\u6CE8\u6570\uFF1A', content: user.followers || '0', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 107
+                            lineNumber: 129
                         },
                         __self: this
                     }),
                     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__InfoItem__["a" /* default */], { label: '\u4ED3\u5E93\u5217\u8868\uFF1A', content: repoComponent, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 108
+                            lineNumber: 130
                         },
                         __self: this
                     })
@@ -3086,6 +3119,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 
 
 var chrome = window.chrome;
+var dataCache = {};
 
 //这里可以根据环境配置请求线上还是线下api
 //这里是拿github做示例，所以都是一个地址
@@ -3093,12 +3127,21 @@ var HOST =  true ? 'https://api.github.com' : 'https://api.github.com';
 
 //获取指定用户的信息
 var getUser = function getUser(user) {
-    return __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get(HOST + ('/users/' + user));
+    return dataCache[user] ? Promise.resolve(dataCache[user]) : __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get(HOST + ('/users/' + user)).then(function (resp) {
+        return dataCache[user] = resp;
+    });
 };
 
 //获取指定用户的仓库列表
 var getRepos = function getRepos(user) {
-    return __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get(HOST + ('/users/' + user + '/repos'));
+    return dataCache[user + '/repos'] ? Promise.resolve(dataCache[user + '/repos']) : __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get(HOST + ('/users/' + user + '/repos'), {
+        params: {
+            type: 'all',
+            sort: 'pushed'
+        }
+    }).then(function (resp) {
+        return dataCache[user + '/repos'] = resp;
+    });
 };
 
 var executeScript = function executeScript(code) {

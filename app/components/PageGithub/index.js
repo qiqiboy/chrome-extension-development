@@ -32,6 +32,13 @@ class Github extends Component {
             });
         }
 
+        const [username, reponame] = value.split('/');
+
+        //如果账号不变，则去筛选repo
+        if (this.state.user && username === this.state.user.login) {
+            return this.filterRepos(reponame);
+        }
+
         this.setState({
             error: null,
             loading: true
@@ -39,38 +46,53 @@ class Github extends Component {
 
         let user, repos, error;
 
-        try{
-            const resp = await request.getUser(value);
+        try {
+            const resp = await request.getUser(username);
             user = resp.data;
-        }catch(err) {
+        } catch (err) {
             error = err;
         }
 
-        if (this.refs.user.value === value) {
+        if ((this.refs.user.value || '').split('/')[0] === username) {
             this.setState({
                 loading: false,
-                user,repos,error
+                user,
+                repos,
+                error
             });
 
             if (!error) {
-                this.getRepos(value);
+                this.getRepos(value, reponame);
             }
         }
     }
 
-    async getRepos(user) {
-        let repos;
-        try{
+    async getRepos(user, reponame) {
+        try {
             const resp = await request.getRepos(user);
 
-            repos = resp.data;
-        }catch(e) {
-            repos = [];
+            this.repos = resp.data;
+        } catch (e) {
+            this.repos = [];
         }
 
-        this.setState({
-            repos
-        });
+        this.filterRepos(reponame);
+    }
+
+    filterRepos(reponame) {
+        if (reponame) {
+            const pattern = new RegExp('.*' + reponame.replace(/./g, char => {
+                return char + '.*';
+            }), 'i');
+
+            this.setState({
+                repos: this.repos.filter(repo => pattern.test(repo.name))
+            });
+        } else {
+            this.setState({
+                repos: this.repos
+            });
+        }
     }
 
     async openRepoPage(repo, ev) {
@@ -85,9 +107,9 @@ class Github extends Component {
     render() {
         const { error, loading, user, repos } = this.state;
 
-        const repoComponent = repos ? repos.map(item => {
+        const repoComponent = repos ? repos.length ? repos.map(item => {
             return <div className="repo-item" key={item.id}><a href={item.html_url} onClick={this.openRepoPage.bind(this, item)}>{item.name}</a> <div className="desc">- {item.description}</div></div>;
-        }) : '加载中...';
+        }) : '没找到相关仓库列表' : '加载中...';
 
         return (
             <div className="github">
