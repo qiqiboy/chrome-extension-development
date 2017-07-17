@@ -1,5 +1,6 @@
 import './style.scss';
 import Options from '../../utils/options';
+import './search';
 
 const chrome = window.chrome;
 

@@ -87,10 +87,15 @@ function setupCompiler() {
 
 function runDevServer(compiler) {
     const devServer = new WebpackDevServer(compiler, {
+         headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, HEAD, DELETE'
+        },
         clientLogLevel: 'none',
         hot: true,
         publicPath: config.output.publicPath,
         quiet: true,
+        https: process.env.HTTPS === 'true',
         watchOptions: {
             ignored: /node_modules/
         },

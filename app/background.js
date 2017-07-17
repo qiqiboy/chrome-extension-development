@@ -30,7 +30,7 @@ chrome.runtime.onMessage.addListener((data, sender, sendResponse) => {
             break;
 
         case 'updateWindow':
-             chrome.windows.getCurrent(null, async win => {
+            chrome.windows.getCurrent(null, async win => {
                 const updateWindow = function(updateInfo) {
                     return new Promise(resolve => chrome.windows.update(win.id, updateInfo, resolve));
                 }
@@ -40,7 +40,7 @@ chrome.runtime.onMessage.addListener((data, sender, sendResponse) => {
                 }
 
                 //顺序根据设置的步骤顺序设置窗口状态，并且暂停一秒后继续下一步
-                for(let info of data.steps) {
+                for (let info of data.steps) {
                     await updateWindow(info);
                     await delay(1000);
                 }
@@ -52,9 +52,24 @@ chrome.runtime.onMessage.addListener((data, sender, sendResponse) => {
     }
 });
 
+chrome.runtime.onInstalled.addListener(() => {
+    chrome.contextMenus.create({
+        type: 'normal',
+        id: 'search_github',
+        contexts: [chrome.contextMenus.ContextType.SELECTION],
+        title: '在github上搜索 %s'
+    });
+});
+
 chrome.tabs.onActivated.addListener(({ tabId }) => {
     chrome.tabs.sendMessage(tabId, {
         action: 'active'
+    });
+});
+
+chrome.contextMenus.onClicked.addListener(info => {
+    chrome.tabs.create({
+        url: `https://github.com/search?q=${info.selectionText.trim()}`
     });
 });
 

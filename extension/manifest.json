@@ -1,5 +1,5 @@
 {
-    "version": "1.0.0",
+    "version": "1.1.0",
     "manifest_version": 2,
     "name": "Chrome extension development",
     "description": "chrome扩展开发环境示例",
@@ -21,8 +21,7 @@
     }],
     "options_page": "popup.html",
     "web_accessible_resources": [
-      "icons/icon_128.png",
-      "dist/js/run-in-page.js"
+      "icons/icon_48.png"
     ],
     "background": {
         "scripts": ["dist/js/background.js"]

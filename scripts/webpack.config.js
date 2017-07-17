@@ -22,7 +22,7 @@ const paths = {
         .reduce((ret, file) => {
             ret[path.basename(file).replace(/\.jsx?$/, '')] = isProduction ?
                 file : [
-                    'webpack-dev-server/client?http://localhost:' + (pkg.port || 3666),
+                    'webpack-dev-server/client?' + (process.env.HTTPS === 'true' ? 'https' : 'http') + '://localhost:' + (pkg.port || 3666),
                     'webpack/hot/dev-server',
                     file
                 ];
