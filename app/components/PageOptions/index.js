@@ -115,6 +115,7 @@ class PageOptions extends Component {
             });
         },
         zoomMoveMaxCurWindow() {
+            const screen = window.screen;
             window.close(); //关闭popup窗口
 
             // 获取当前窗口的信息，最后需要根据这个信息恢复窗口位置、尺寸
@@ -127,11 +128,11 @@ class PageOptions extends Component {
                 }, {
                     width: 500,
                     height: 500,
-                    top: 0,
-                    left: 0
+                    top: screen.availTop,
+                    left: screen.availLeft
                 }, {
-                    top: window.screen.availHeight - 500,
-                    left: window.screen.availWidth - 500
+                    top: screen.availTop + screen.availHeight - 500,
+                    left: screen.availLeft + screen.availWidth - 500
                 }, {
                     state: 'fullscreen'
                 }, {
@@ -181,10 +182,10 @@ class PageOptions extends Component {
                     <button className="btn-option-item btn btn-success" onClick={this.tabUtil.openGithubInNewTab}>新标签页中访问Github</button>
                     <button className="btn-option-item btn btn-success" onClick={this.tabUtil.openGithubInCurTab}>当前标签页中访问Github</button>
                     <button className="btn-option-item btn btn-success" onClick={this.tabUtil.createBlankTab}>创建新标签页</button>
-                    <button className="btn-option-item btn btn-success" onClick={this.tabUtil.closeCurWindow}>关闭当前窗口</button>
-                    <button className="btn-option-item btn btn-success" onClick={this.tabUtil.createNewWindow}>创建新窗口</button>
-                    <button className="btn-option-item btn btn-success" onClick={this.tabUtil.zoomMoveMaxCurWindow}>缩小移动最大化当前窗口</button>
                     <button className="btn-option-item btn btn-success" onClick={this.tabUtil.closeCurTab}>关闭当前标签页</button>
+                    <button className="btn-option-item btn btn-success" onClick={this.tabUtil.createNewWindow}>创建新窗口</button>
+                    <button className="btn-option-item btn btn-success" onClick={this.tabUtil.closeCurWindow}>关闭当前窗口</button>
+                    <button className="btn-option-item btn btn-success" onClick={this.tabUtil.zoomMoveMaxCurWindow}>缩小移动最大化当前窗口</button>
                     <button className="btn-option-item btn btn-success" onClick={tabUtil.moveCurTabLast}>将当前标签页移动到最后面</button>
                     <button className="btn-option-item btn btn-success" onClick={tabUtil.moveCurTabFirst}>将当前标签页移动到最前面</button>
                     <button className="btn-option-item btn btn-success" onClick={tabUtil.copyCurWindow}>复制当前窗口</button>

@@ -6,6 +6,7 @@ const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
 const config = require('./webpack.config');
 const chalk = require('chalk');
 const webpack = require('webpack');
+const WebpackDevServer = require('webpack-dev-server');
 const detect = require('detect-port');
 var fs = require('fs-extra');
 const _ = require('lodash');
@@ -85,7 +86,6 @@ function setupCompiler() {
 }
 
 function runDevServer(compiler) {
-    const WebpackDevServer = require('webpack-dev-server');
     const devServer = new WebpackDevServer(compiler, {
         clientLogLevel: 'none',
         hot: true,
@@ -124,5 +124,5 @@ detect(DEFAULT_PORT).then(port => {
     }
 
     spinner.fail('端口（' + chalk.yellow(DEFAULT_PORT) + '）被占用！');
-    console.log('请修改package.json中的 port，或者关闭占用的程序后再试。');
+    console.log('请修改package.json中的 port 更换端口号，或者关闭占用的程序后再试。');
 });
