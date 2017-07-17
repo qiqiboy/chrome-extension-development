@@ -14,11 +14,14 @@ body {
 
 .popup-root {
     max-width: 600px;
-    min-width: 400px;
+    min-width: 399px;
     margin: 0 auto;
     min-height: 100px;
     padding: 15px;
     font-size: 14px;
+    &.trigger-win-resize{
+        min-width: 400px;
+    }
 }
 
 .footer {

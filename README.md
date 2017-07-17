@@ -73,7 +73,7 @@ chrome扩展开发功能示范与开发环境配置。该项目包含了chrome�
 
 ![][3]
 
-这里示范了几种不同的在扩展中像页面注入各种代码的方式（内联注入开关）。不同注入方式会影响对页面上js作用域的访问差异。参考：[components/PageGithub][14]、[background.js][10]、[modules/App][15]
+这里示范了几种不同的在扩展中像页面注入各种代码的方式（内联注入开关）。不同注入方式会影响对页面上js作用域的访问差异。参考：[components/PageExecute][14]、[background.js][10]、[modules/App][15]
 
 #### 工作区
 
