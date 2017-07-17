@@ -84,7 +84,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "3b24e11f32d7e84c0b67"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "426ff9f9952c02555f4e"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -3121,11 +3121,7 @@ var executeScript = function executeScript(code) {
 };
 
 /*！
- * @desc 向当前tab发送消息
- *      我们的操作都是在github站点上，所以作下判断，如果当前tab不是github就不发消息了
- *
- *      注意：这里是判断当前激活的tab是不是我们需要的站点，然后再发送相关消息。也可以获取所有的tab，向符合的tab发送消息。
- *      后者适用于简单的操作，如果页面需要大量的计算、dom操作等，不要这么做，会有性能、页面休眠等负面影响
+ * @desc 向当前激活的tab发送消息
  */
 var sendActiveTabRequest = function sendActiveTabRequest() {
     for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {

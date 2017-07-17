@@ -20,11 +20,7 @@ export const executeScript = code => {
 }
 
 /*！
- * @desc 向当前tab发送消息
- *      我们的操作都是在github站点上，所以作下判断，如果当前tab不是github就不发消息了
- *
- *      注意：这里是判断当前激活的tab是不是我们需要的站点，然后再发送相关消息。也可以获取所有的tab，向符合的tab发送消息。
- *      后者适用于简单的操作，如果页面需要大量的计算、dom操作等，不要这么做，会有性能、页面休眠等负面影响
+ * @desc 向当前激活的tab发送消息
  */
 export const sendActiveTabRequest = (...args) => {
     chrome.tabs.query({
