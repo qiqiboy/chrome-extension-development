@@ -2,7 +2,8 @@
     "version": "1.0.0",
     "manifest_version": 2,
     "name": "Chrome extension development",
-    "description": "chrome扩展开发示范",
+    "description": "chrome扩展开发环境示例",
+    "author": "qiqiboy",
     "icons": {
         "16": "icons/icon_16.png",
         "48": "icons/icon_48.png",
@@ -14,7 +15,7 @@
         "default_title": "chrome扩展开发"
     },
     "content_scripts": [{
-        "matches": ["*://www.qiqiboy.com/*", "*://github.com/*"],
+        "matches": ["*://github.com/*"],
         "js": ["dist/js/app.js"]
     }],
     "options_page": "popup.html",
