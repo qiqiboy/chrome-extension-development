@@ -11,7 +11,7 @@ class Popup extends Component {
         //这么做是触发其重新计算窗口样式
         setTimeout(() => {
             this.refs.root.classList.add('trigger-win-resize');
-        }, 100);
+        }, 300);
     }
 
     render() {
