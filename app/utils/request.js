@@ -18,7 +18,8 @@ export const getRepos = user => dataCache[user + '/repos'] ?
     http.get(HOST + `/users/${user}/repos`, {
         params: {
             type: 'all',
-            sort: 'pushed'
+            sort: 'pushed',
+            per_page: 9999
         }
     }).then(resp => dataCache[user + '/repos'] = resp)
 

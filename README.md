@@ -11,8 +11,10 @@ chrome扩展开发功能示范与开发环境配置。该项目包含了chrome�
 ## 使用 & usage
 
 * Fork或者直接clone本项目
-* 打开chrome的扩展开发者模式（`chrome://extensions/`）
-* 点击“加载已解压的扩展程序”，选择`<chrome-extension-development>/extension/`目录
+* 打开chrome的扩展页面的开发者模式（`chrome://extensions/`）
+* 接下来有两种方式：
+    * 方式一：点击“加载已解压的扩展程序”，选择`<chrome-extension-development>/extension/`目录
+    * 方式二：将目录下的 extension.crx 托放到扩展管理页面上即可
 
 然后就可以看到本示例扩展已成功安装到你的chrome浏览器上。
 
@@ -24,7 +26,8 @@ chrome扩展开发功能示范与开发环境配置。该项目包含了chrome�
     $ npm install
     $ npm start
 
-需要注意的是，扩展所在目录在项目下的`extension`目录下（默认，可更改）。开发代码在项目的 `app` 目录下。经过webpack打包，代码会被放到 `extension/dist/` 目录下。  
+* 然后按照前面的方式一安装插件即可看到开发模式下插件效果，更改代码后会自动更新插件
+* 需要注意的是，扩展所在目录在项目下的`extension`目录下（默认，可更改）。开发代码在项目的 `app` 目录下。经过webpack打包，代码会被放到 `extension/dist/` 目录下。  
 之所以这么做，是为了避免chrome会将 `node_modules` 目录当作扩展一部分加载，否则会导致chrome假死。
 
 #### 打包上线
