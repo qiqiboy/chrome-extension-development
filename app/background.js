@@ -1,5 +1,8 @@
 import Options from './utils/options';
 import animateIcon from './utils/animateIcon';
+import Omnibox from './modules/omnibox';
+
+new Omnibox();
 
 const chrome = window.chrome;
 

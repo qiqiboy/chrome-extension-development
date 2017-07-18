@@ -1,44 +1,47 @@
 {
-    "version": "1.1.0",
-    "manifest_version": 2,
-    "name": "Chrome extension development",
-    "description": "chrome扩展开发环境示例",
-    "author": "qiqiboy",
-    "homepage_url" : "https://github.com/qiqiboy/chrome-extension-development",
-    "icons": {
-        "16": "icons/icon_16.png",
-        "48": "icons/icon_48.png",
-        "128": "icons/icon_128.png"
-    },
-    "browser_action": {
-        "default_icon": "icons/icon_16.png",
-        "default_popup": "popup.html",
-        "default_title": "chrome扩展开发"
-    },
-    "content_scripts": [{
-        "matches": ["*://github.com/*"],
-        "js": ["dist/js/app.js"]
-    }],
-    "options_page": "popup.html",
-    "web_accessible_resources": [
-      "icons/icon_48.png"
-    ],
-    "background": {
-        "scripts": ["dist/js/background.js"]
-    },
-    "permissions": [
-        "tabs",
-        "bookmarks",
-        "contextMenus",
-        "background",
-        "cookies",
-        "geolocation",
-        "history",
-        "notifications",
-        "unlimitedStorage",
-        "chrome://favicon/",
+  "version": "1.1.0",
+  "manifest_version": 2,
+  "name": "Chrome extension development",
+  "description": "chrome扩展开发环境示例",
+  "author": "qiqiboy",
+  "homepage_url": "https://github.com/qiqiboy/chrome-extension-development",
+  "icons": {
+    "16": "icons/icon_16.png",
+    "48": "icons/icon_48.png",
+    "128": "icons/icon_128.png"
+  },
+  "omnibox": {
+    "keyword": "github"
+  },
+  "browser_action": {
+    "default_icon": "icons/icon_16.png",
+    "default_popup": "popup.html",
+    "default_title": "chrome扩展开发"
+  },
+  "content_scripts": [{
+    "matches": ["*://github.com/*"],
+    "js": ["dist/js/app.js"]
+  }],
+  "options_page": "popup.html",
+  "web_accessible_resources": [
+    "icons/icon_48.png"
+  ],
+  "background": {
+    "scripts": ["dist/js/background.js"]
+  },
+  "permissions": [
+    "tabs",
+    "bookmarks",
+    "contextMenus",
+    "background",
+    "cookies",
+    "geolocation",
+    "history",
+    "notifications",
+    "unlimitedStorage",
+    "chrome://favicon/",
 
-        "*://*.github.com/",
-        "*://*.qiqiboy.com/"
-    ]
+    "*://*.github.com/",
+    "*://*.qiqiboy.com/"
+  ]
 }

@@ -42,6 +42,15 @@ chrome扩展开发功能示范与开发环境配置。该项目包含了chrome�
 
 该示例扩展以github.com站点为示范，围绕chrome开发中常用场景示范了几个基础开发实现方法。
 
+#### github站内搜索
+* 支持任意页面通过右键，快速搜索选中的文本。参考：[background.js][10]
+* github.com页面支持选中文本旁边出现 快捷搜索图标（因为我们的插件只针对github网站的配置了content scripts）。参考：[modules/App/search.js][17]
+
+#### 地址栏快捷访问 omnibox
+![][7]
+
+* 地址栏输入 `github`，然后空格，就会激活插件的omnibox功能，然后根据提示快速访问开发者主页、项目，或者直接回车搜索github。参考：[modules/omnibox][18]
+
 #### 页面设置
 
 ![][0]
@@ -57,6 +66,7 @@ chrome扩展开发功能示范与开发环境配置。该项目包含了chrome�
 [4]: https://user-images.githubusercontent.com/3774036/28240643-12babf86-69b8-11e7-9ace-75b93e707b3b.png
 [5]: https://user-images.githubusercontent.com/3774036/28240610-b7533ac4-69b7-11e7-8423-0179cadc7a93.png "全屏1"
 [6]: https://user-images.githubusercontent.com/3774036/28240609-b75342c6-69b7-11e7-86c4-9bc2519c50b0.png "全屏2"
+[7]: https://user-images.githubusercontent.com/3774036/28306210-0d71f31c-6bd1-11e7-8e73-2260ecb63324.png "omnibox"
 
 [10]: https://github.com/qiqiboy/chrome-extension-development/blob/master/app/background.js
 [11]: https://github.com/qiqiboy/chrome-extension-development/blob/master/app/utils/animateIcon/index.js
@@ -65,6 +75,8 @@ chrome扩展开发功能示范与开发环境配置。该项目包含了chrome�
 [14]: https://github.com/qiqiboy/chrome-extension-development/blob/master/app/components/PageExecute/index.js
 [15]: https://github.com/qiqiboy/chrome-extension-development/blob/master/app/modules/App/index.js
 [16]: https://github.com/qiqiboy/chrome-extension-development/blob/master/app/components/PageWorkSpace/index.js
+[17]: https://github.com/qiqiboy/chrome-extension-development/blob/master/app/modules/App/search.js
+[18]: https://github.com/qiqiboy/chrome-extension-development/blob/master/app/modules/omnibox/index.js
 
 #### Github
 
