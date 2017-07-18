@@ -10,13 +10,13 @@ class Omnibox {
         chrome.omnibox.onInputEntered.addListener(this.onclick);
     }
 
-    updateDefaultSuggestion(description) {
+    updateDefaultSuggestion = description => {
         chrome.omnibox.setDefaultSuggestion({
             description
         });
     }
 
-    resetDefaultSuggestion() {
+    resetDefaultSuggestion = () => {
         this.updateDefaultSuggestion('输入要访问的github账号');
     }
 
