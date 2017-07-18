@@ -49,7 +49,7 @@ chrome扩展开发功能示范与开发环境配置。该项目包含了chrome�
 #### 地址栏快捷访问 omnibox
 ![][7]
 
-* 地址栏输入 `github`，然后空格，就会激活插件的omnibox功能，然后根据提示快速访问开发者主页、项目，或者直接回车搜索github。参考：[modules/omnibox][18]
+* 地址栏输入 `gh`，然后空格，就会激活插件的omnibox功能，然后根据提示快速访问开发者主页、项目，或者直接回车搜索github。参考：[modules/omnibox][18]
 
 #### 页面设置
 
