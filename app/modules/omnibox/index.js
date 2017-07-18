@@ -37,7 +37,7 @@ class Omnibox {
                 this.updateDefaultSuggestion(`查看 <match>${slices[0]}</match> 的 <match>${slices[1]}</match> 仓库`);
                 suggest(this.repoLinks.map(item => ({
                     content: `https://github.com/${slices[0]}/${slices[1]}${item.path}`,
-                    description: item.desc.replace('%s', `<match>${slices[1]}</match>`) + ` https://github.com/${slices[0]}/${slices[1]}${item.path}`
+                    description: item.desc.replace('%s', `<match>${slices[1]}</match>`) + ` <dim>-</dim> https://github.com/${slices[0]}/${slices[1]}${item.path}`
                 })));
                 break;
             case 1:
@@ -45,7 +45,7 @@ class Omnibox {
 
                 suggest(this.userLinks.map(item => ({
                     content: `https://github.com/${slices[0]}${item.path}`,
-                    description: item.desc.replace('%s', `<match>${slices[0]}</match>`) + ` <url>https://github.com/${slices[0]}${item.path}</url>`
+                    description: item.desc.replace('%s', `<match>${slices[0]}</match>`) + ` <dim>-</dim> <url>https://github.com/${slices[0]}${item.path}</url>`
                 })));
                 break;
             default:
@@ -64,7 +64,7 @@ class Omnibox {
     userLinks = [
         { path: '', desc: '查看 %s 的个人主页' },
         { path: '?tab=repositories', desc: '查看 %s 的全部仓库列表(Repositories)' },
-        { path: '?tab=stars', desc: '查看 %s 的收藏列表（StarS）' },
+        { path: '?tab=stars', desc: '查看 %s 的收藏列表(StarS)' },
         { path: '?tab=followers', desc: '查看关注 %s 的用户(Follwers)' },
         { path: '?tab=following', desc: '查看 %s 关注的用户(Following)' }
     ]
