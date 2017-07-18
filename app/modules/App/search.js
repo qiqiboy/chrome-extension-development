@@ -12,15 +12,19 @@ document.addEventListener('mousedown', ev => {
 }, false);
 
 document.addEventListener('mouseup', ev => {
-    lastPosition = {
-        x: ev.pageX,
-        y: ev.pageY
-    }
+    if (isIconNode(ev.target)) {
+        hideIcon();
+    } else {
+        lastPosition = {
+            x: ev.pageX,
+            y: ev.pageY
+        }
 
-    const selectionText = getText();
+        const selectionText = getText();
 
-    if (selectionText) {
-        showIcon(selectionText);
+        if (selectionText) {
+            showIcon(selectionText);
+        }
     }
 }, false);
 
@@ -36,6 +40,7 @@ function showIcon(selectionText) {
     if (!iconNode) {
         iconNode = document.createElement('div');
         iconNode.className = 'chrome-extension-github-search-icon';
+        iconNode.title = '点击搜索github';
         iconNode.innerHTML = document.querySelector('.octicon-mark-github').outerHTML.replace(/class="[^"]+"/, 'class="github-icon"');
 
         iconNode.addEventListener('click', () => {

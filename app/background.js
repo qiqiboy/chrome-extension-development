@@ -52,6 +52,15 @@ chrome.runtime.onMessage.addListener((data, sender, sendResponse) => {
     }
 });
 
+
+//给激活的tab发送消息
+chrome.tabs.onActivated.addListener(({ tabId }) => {
+    chrome.tabs.sendMessage(tabId, {
+        action: 'active'
+    });
+});
+
+//创建搜索github的右键菜单
 chrome.runtime.onInstalled.addListener(() => {
     chrome.contextMenus.create({
         type: 'normal',
@@ -60,19 +69,13 @@ chrome.runtime.onInstalled.addListener(() => {
         title: '在github上搜索 %s'
     });
 });
-
-chrome.tabs.onActivated.addListener(({ tabId }) => {
-    chrome.tabs.sendMessage(tabId, {
-        action: 'active'
-    });
-});
-
 chrome.contextMenus.onClicked.addListener(info => {
     chrome.tabs.create({
         url: `https://github.com/search?q=${info.selectionText.trim()}`
     });
 });
 
+//插件启动时检测下设置
 if (Options.get('animateIcon')) {
     animateIcon.start();
 }
