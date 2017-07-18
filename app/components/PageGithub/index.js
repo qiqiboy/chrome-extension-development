@@ -53,7 +53,7 @@ class Github extends Component {
             error = err;
         }
 
-        if ((this.refs.user.value || '').split('/')[0] === username) {
+        if (this.refs.user.value.split('/')[0] === username) {
             this.setState({
                 loading: false,
                 user,
@@ -62,21 +62,25 @@ class Github extends Component {
             });
 
             if (!error) {
-                this.getRepos(value, reponame);
+                this.getRepos(username, reponame);
             }
         }
     }
 
-    async getRepos(user, reponame) {
+    async getRepos(username, reponame) {
+        let repos;
         try {
-            const resp = await request.getRepos(user);
+            const resp = await request.getRepos(username);
 
-            this.repos = resp.data;
+            repos = resp.data;
         } catch (e) {
-            this.repos = [];
+            repos = [];
         }
 
-        this.filterRepos(reponame);
+        if(this.refs.user.value.split('/')[0] === username) {
+            this.repos = repos;
+            this.filterRepos(reponame);
+        }
     }
 
     filterRepos(reponame) {
