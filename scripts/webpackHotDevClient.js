@@ -27,6 +27,7 @@ var ansiHTML = require('react-dev-utils/ansiHTML');
 var entities = new Entities();
 var pkg = require('../package.json');
 var chrome = window.chrome;
+var isContentScripts = window.location.protocol !== 'chrome-extension:';
 
 function createOverlayIframe(onIframeLoad) {
     var iframe = document.createElement('iframe');
@@ -165,7 +166,7 @@ function destroyErrorOverlay() {
 // Connect to WebpackDevServer via a socket.
 var connection = new SockJS(
     url.format({
-        protocol: pkg.https ? 'https' : 'http',
+        protocol: process.env.HTTPS === 'true' ? 'https' : 'http',
         hostname: 'localhost',
         port: parseInt(pkg.port) || 3666,
         // Hardcoded in WebpackDevServer
@@ -177,9 +178,14 @@ var connection = new SockJS(
 // to avoid spamming the console. Disconnect usually happens
 // when developer stops the server.
 connection.onclose = function() {
-    if (typeof console !== 'undefined' && typeof console.info === 'function') {
-        console.info(
-            'The development server has disconnected.\nRefresh the page if necessary.'
+    if (window.location.protocol === 'https:' && process.env.HTTPS !== 'true' ) {
+        console.warn(
+            '当前网站为https页面，请检查是否启动https开发服务器。尝试运行 "HTTPS=true npm start" 后，手动重载一次扩展再试！'
+        );
+    } else {
+        console.warn(
+            '连接开发服务器失败。如果确认已经启动开发服务器，你可以尝试刷新页面。\n' + 
+            (isContentScripts ? '如果你持续看到该提示，请尝试手动重载一次扩展。' : '')
         );
     }
 };
@@ -294,7 +300,6 @@ function handleAvailableHash(hash) {
     mostRecentCompilationHash = hash;
 }
 
-const isContentScripts = window.location.protocol !== 'chrome-extension:';
 let isBakcground = false;
 try { isBakcground = chrome.extension.getBackgroundPage().window === window; } catch (e) {}
 // Handle messages from the server.

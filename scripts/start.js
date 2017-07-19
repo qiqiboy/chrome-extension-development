@@ -15,7 +15,7 @@ const pkg = require('../package.json');
 
 const DEFAULT_PORT = pkg.port || 3666;
 const spinner = ora('webpack启动中...').start();
-
+const HTTPS = process.env.HTTPS === 'true';
 const cwd = process.cwd();
 
 function setupCompiler() {
@@ -95,7 +95,7 @@ function runDevServer(compiler) {
         hot: true,
         publicPath: config.output.publicPath,
         quiet: true,
-        https: pkg.https === true,
+        https: HTTPS,
         watchOptions: {
             ignored: /node_modules/
         },

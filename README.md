@@ -29,7 +29,15 @@ chrome扩展开发功能示范与开发环境配置。该项目包含了chrome�
 * 然后按照前面的方式一安装插件即可看到开发模式下插件效果，更改代码后会自动更新插件
 * 需要注意的是，扩展所在目录在项目下的`extension`目录下（默认，可更改）。开发代码在项目的 `app` 目录下。经过webpack打包，代码会被放到 `extension/dist/` 目录下。  
 之所以这么做，是为了避免chrome会将 `node_modules` 目录当作扩展一部分加载，否则会导致chrome假死。
-* <font color="red">默认开发环境中的package.json中端口号为`3666`，`https`为true。这是因为本扩展示例针对github，github为全站https，所以`content scripts`中代码需要socket连接到`dev server`，只能是https方式。但是这样子会由于浏览器默认拦截未通过证书验证的https请求，所以需要手动访问下开发服务器地址(https://localhost:3666/sockjs-node/info) ，选择 `高级`、`仍然访问`，保证可以访问https形式的开发服务器。如果你要注入`content scripts`的站点不是https协议，可以直接将`package.json`中的`https`配置为`false`。</font>
+* 默认的开发服务器为http协议。如果你的扩展需要用到`content scripts`，而目标网站又包含有https页面，那么需要在启动webpack时加上`HTTPS=true`的环境变量参数：
+```
+    HTTPS=true npm start
+```
+这是因为需要通过socket连接到开发服务器获取代码变动通知，https页面是不允许http通信的。所以需要启用https协议。本扩展示例针对github做content scrips调用演示，由于github为全站https，所以运行本示例最好是使用上边的命令形式，否则content scripts页面无法自动刷新。
+
+    但是这样子会由于浏览器默认拦截未通过证书验证的https请求，所以需要手动访问下开发服务器地址(https://localhost:3666/sockjs-node/info) ，选择 `高级`、`继续前往localhost（不安全）`，保证可以访问https形式的开发服务器。
+
+    ![][8]
 
 #### 打包上线
 
@@ -68,6 +76,7 @@ chrome扩展开发功能示范与开发环境配置。该项目包含了chrome�
 [5]: https://user-images.githubusercontent.com/3774036/28240610-b7533ac4-69b7-11e7-8423-0179cadc7a93.png "全屏1"
 [6]: https://user-images.githubusercontent.com/3774036/28240609-b75342c6-69b7-11e7-86c4-9bc2519c50b0.png "全屏2"
 [7]: https://user-images.githubusercontent.com/3774036/28306210-0d71f31c-6bd1-11e7-8e73-2260ecb63324.png "omnibox"
+[8]: https://user-images.githubusercontent.com/3774036/28369828-48d5c1cc-6ccb-11e7-91bd-2d7a6ee6dba9.png "https"
 
 [10]: https://github.com/qiqiboy/chrome-extension-development/blob/master/app/background.js
 [11]: https://github.com/qiqiboy/chrome-extension-development/blob/master/app/utils/animateIcon/index.js

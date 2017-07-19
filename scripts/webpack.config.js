@@ -10,7 +10,8 @@ const appRoot = process.cwd();
 const isProduction = process.env.NODE_ENV === 'production';
 const env = {
     'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+        HTTPS: JSON.stringify(process.env.HTTPS || 'false')
     }
 }
 

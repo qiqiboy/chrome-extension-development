@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "0b25d554d572e054c85c"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "2a53f2cd7f939b9d2137"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -2078,7 +2078,7 @@ Object.defineProperty(module, 'exports', {
 	get: assembleStyles
 });
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../_webpack@3.3.0@webpack/buildin/module.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/module.js")(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../_webpack@3.2.0@webpack/buildin/module.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/module.js")(module)))
 
 /***/ }),
 
@@ -2183,7 +2183,7 @@ var stripAnsi = __webpack_require__(/*! strip-ansi */ "./node_modules/_strip-ans
 var hasAnsi = __webpack_require__(/*! has-ansi */ "./node_modules/_has-ansi@2.0.0@has-ansi/index.js");
 var supportsColor = __webpack_require__(/*! supports-color */ "./node_modules/_supports-color@2.0.0@supports-color/index.js");
 var defineProps = Object.defineProperties;
-var isSimpleWindowsTerm = process.platform === 'win32' && !/^xterm/i.test(Object({"NODE_ENV":"development"}).TERM);
+var isSimpleWindowsTerm = process.platform === 'win32' && !/^xterm/i.test(Object({"NODE_ENV":"development","HTTPS":"false"}).TERM);
 
 function Chalk(options) {
 	// detect mode if not set manually
@@ -2821,7 +2821,7 @@ function load() {
 
   // If debug isn't set in LS, and we're in Electron, try to load $DEBUG
   if (!r && typeof process !== 'undefined' && 'env' in process) {
-    r = Object({"NODE_ENV":"development"}).DEBUG;
+    r = Object({"NODE_ENV":"development","HTTPS":"false"}).DEBUG;
   }
 
   return r;
@@ -3702,7 +3702,7 @@ if (typeof Object.create === 'function') {
 ;(function () {
   // Detect the `define` function exposed by asynchronous module loaders. The
   // strict `define` check is necessary for compatibility with `r.js`.
-  var isLoader = "function" === "function" && __webpack_require__(/*! !webpack amd options */ "./node_modules/_webpack@3.3.0@webpack/buildin/amd-options.js");
+  var isLoader = "function" === "function" && __webpack_require__(/*! !webpack amd options */ "./node_modules/_webpack@3.2.0@webpack/buildin/amd-options.js");
 
   // A set of types used to distinguish objects from primitives.
   var objectTypes = {
@@ -4602,7 +4602,7 @@ if (typeof Object.create === 'function') {
   }
 }).call(this);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../_webpack@3.3.0@webpack/buildin/module.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/module.js")(module), __webpack_require__(/*! ./../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../_webpack@3.2.0@webpack/buildin/module.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/module.js")(module), __webpack_require__(/*! ./../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -5507,7 +5507,7 @@ process.umask = function() { return 0; };
 
 }(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../_webpack@3.3.0@webpack/buildin/module.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/module.js")(module), __webpack_require__(/*! ./../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../_webpack@3.2.0@webpack/buildin/module.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/module.js")(module), __webpack_require__(/*! ./../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -6111,7 +6111,7 @@ if (hadRuntime) {
   }
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -6860,7 +6860,7 @@ if (hadRuntime) {
   typeof self === "object" ? self : this
 );
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -6935,7 +6935,7 @@ if ('_sockjs_onload' in global) {
   setTimeout(global._sockjs_onload, 1);
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -7519,7 +7519,7 @@ InfoIframe.prototype.close = function() {
 
 module.exports = InfoIframe;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -7645,7 +7645,7 @@ module.exports = global.location || {
 , hash: ''
 };
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -8040,7 +8040,7 @@ module.exports = function(availableTransports) {
   return SockJS;
 };
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -8743,7 +8743,7 @@ AbstractXHRObject.supportsCORS = cors;
 
 module.exports = AbstractXHRObject;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -8757,7 +8757,7 @@ module.exports = AbstractXHRObject;
 
 /* WEBPACK VAR INJECTION */(function(global) {module.exports = global.EventSource;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -8781,7 +8781,7 @@ if (Driver) {
 	module.exports = undefined;
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -9061,7 +9061,7 @@ JsonPTransport.needBody = true;
 
 module.exports = JsonPTransport;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -9270,7 +9270,7 @@ module.exports = function(transport) {
   return IframeWrapTransport;
 };
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -9575,7 +9575,7 @@ HtmlfileReceiver.enabled = HtmlfileReceiver.htmlfileEnabled || iframeUtils.ifram
 
 module.exports = HtmlfileReceiver;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -9772,7 +9772,7 @@ JsonpReceiver.prototype._createScript = function(url) {
 
 module.exports = JsonpReceiver;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -9968,7 +9968,7 @@ module.exports = function(url, payload, callback) {
   };
 };
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -10085,7 +10085,7 @@ XDRObject.enabled = !!(global.XDomainRequest && browser.hasDomain());
 
 module.exports = XDRObject;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -10474,7 +10474,7 @@ XhrStreamingTransport.needBody = !!global.document;
 
 module.exports = XhrStreamingTransport;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -10505,7 +10505,7 @@ if (global.crypto && global.crypto.getRandomValues) {
   };
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -10546,7 +10546,7 @@ module.exports = {
   }
 };
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -10696,7 +10696,7 @@ if (!isChromePackagedApp) {
   module.exports.attachEvent('unload', unloadTriggered);
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -10896,7 +10896,7 @@ if (global.document) {
     typeof global.postMessage === 'object') && (!browser.isKonqueror());
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -10928,7 +10928,7 @@ var logObject = {};
 
 module.exports = logObject;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -11203,7 +11203,7 @@ var hasFlag = function (flag) {
 };
 
 module.exports = (function () {
-	if ('FORCE_COLOR' in Object({"NODE_ENV":"development"})) {
+	if ('FORCE_COLOR' in Object({"NODE_ENV":"development","HTTPS":"false"})) {
 		return true;
 	}
 
@@ -11228,15 +11228,15 @@ module.exports = (function () {
 		return true;
 	}
 
-	if ('COLORTERM' in Object({"NODE_ENV":"development"})) {
+	if ('COLORTERM' in Object({"NODE_ENV":"development","HTTPS":"false"})) {
 		return true;
 	}
 
-	if (Object({"NODE_ENV":"development"}).TERM === 'dumb') {
+	if (Object({"NODE_ENV":"development","HTTPS":"false"}).TERM === 'dumb') {
 		return false;
 	}
 
-	if (/^screen|^xterm|^vt100|color|ansi|cygwin|linux/i.test(Object({"NODE_ENV":"development"}).TERM)) {
+	if (/^screen|^xterm|^vt100|color|ansi|cygwin|linux/i.test(Object({"NODE_ENV":"development","HTTPS":"false"}).TERM)) {
 		return true;
 	}
 
@@ -11664,7 +11664,7 @@ URL.qs = qs;
 
 module.exports = URL;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -12442,7 +12442,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./node_modules/_webpack@3.3.0@webpack/buildin/amd-options.js":
+/***/ "./node_modules/_webpack@3.2.0@webpack/buildin/amd-options.js":
 /*!****************************************!*\
   !*** (webpack)/buildin/amd-options.js ***!
   \****************************************/
@@ -12457,7 +12457,7 @@ module.exports = __webpack_amd_options__;
 
 /***/ }),
 
-/***/ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js":
+/***/ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js":
 /*!***********************************!*\
   !*** (webpack)/buildin/global.js ***!
   \***********************************/
@@ -12490,7 +12490,7 @@ module.exports = g;
 
 /***/ }),
 
-/***/ "./node_modules/_webpack@3.3.0@webpack/buildin/module.js":
+/***/ "./node_modules/_webpack@3.2.0@webpack/buildin/module.js":
 /*!***********************************!*\
   !*** (webpack)/buildin/module.js ***!
   \***********************************/
@@ -12537,7 +12537,6 @@ module.exports = {
 	"version": "1.2.1",
 	"description": "chrome extension development",
 	"port": 3666,
-	"https": true,
 	"scripts": {
 		"start": "node scripts/start.js",
 		"build": "node scripts/build.js"
@@ -12646,6 +12645,7 @@ var ansiHTML = __webpack_require__(/*! react-dev-utils/ansiHTML */ "./node_modul
 var entities = new Entities();
 var pkg = __webpack_require__(/*! ../package.json */ "./package.json");
 var chrome = window.chrome;
+var isContentScripts = window.location.protocol !== 'chrome-extension:';
 
 function createOverlayIframe(onIframeLoad) {
     var iframe = document.createElement('iframe');
@@ -12784,7 +12784,7 @@ function destroyErrorOverlay() {
 // Connect to WebpackDevServer via a socket.
 var connection = new SockJS(
     url.format({
-        protocol: pkg.https ? 'https' : 'http',
+        protocol:  false ? 'https' : 'http',
         hostname: 'localhost',
         port: parseInt(pkg.port) || 3666,
         // Hardcoded in WebpackDevServer
@@ -12796,9 +12796,14 @@ var connection = new SockJS(
 // to avoid spamming the console. Disconnect usually happens
 // when developer stops the server.
 connection.onclose = function() {
-    if (typeof console !== 'undefined' && typeof console.info === 'function') {
-        console.info(
-            'The development server has disconnected.\nRefresh the page if necessary.'
+    if (window.location.protocol === 'https:' && "false" !== 'true' ) {
+        console.warn(
+            '当前网站为https页面，请检查是否启动https开发服务器。尝试运行 "HTTPS=true npm start" 后，手动重载一次扩展再试！'
+        );
+    } else {
+        console.warn(
+            '连接开发服务器失败。如果确认已经启动开发服务器，你可以尝试刷新页面。\n' + 
+            (isContentScripts ? '如果你持续看到该提示，请尝试手动重载一次扩展。' : '')
         );
     }
 };
@@ -12913,7 +12918,6 @@ function handleAvailableHash(hash) {
     mostRecentCompilationHash = hash;
 }
 
-const isContentScripts = window.location.protocol !== 'chrome-extension:';
 let isBakcground = false;
 try { isBakcground = chrome.extension.getBackgroundPage().window === window; } catch (e) {}
 // Handle messages from the server.
@@ -13038,8 +13042,8 @@ function tryApplyUpdates(onHotUpdateSuccess) {
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/qiqiboy/develop/chrome-extension-development/scripts/webpackHotDevClient.js */"./scripts/webpackHotDevClient.js");
-module.exports = __webpack_require__(/*! /Users/qiqiboy/develop/chrome-extension-development/app/background.js */"./app/background.js");
+__webpack_require__(/*! /Users/qiqibopy/develop/chrome-extension-development/scripts/webpackHotDevClient.js */"./scripts/webpackHotDevClient.js");
+module.exports = __webpack_require__(/*! /Users/qiqibopy/develop/chrome-extension-development/app/background.js */"./app/background.js");
 
 
 /***/ })
