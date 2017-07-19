@@ -3,7 +3,7 @@ chrome扩展开发功能示范与开发环境配置。该项目包含了chrome�
 
 1. javascript语法支持`ES6+`(babel-preset-latest)、css支持`sass`预编译器。
 2. 支持`React-jsx`，自定义页面（`option`、`browser action`等）和`content scripts`都可以使用react构建ui。
-3. 开发时支持background、content scripts以及其它自定义页面的自动刷新、`HMR`(Hot Moudule Replacement)。
+3. 代码变动支持时时重载扩展runtime、`HMR`(Hot Moudule Replacement)。
 4. 支持eslint代码预检查，可以在页面与终端控制台显示错误与警告。
 
 ![][5]
@@ -29,6 +29,7 @@ chrome扩展开发功能示范与开发环境配置。该项目包含了chrome�
 * 然后按照前面的方式一安装插件即可看到开发模式下插件效果，更改代码后会自动更新插件
 * 需要注意的是，扩展所在目录在项目下的`extension`目录下（默认，可更改）。开发代码在项目的 `app` 目录下。经过webpack打包，代码会被放到 `extension/dist/` 目录下。  
 之所以这么做，是为了避免chrome会将 `node_modules` 目录当作扩展一部分加载，否则会导致chrome假死。
+* <font color="red">默认开发环境中的package.json中端口号为`3666`，`https`为true。这是因为本扩展示例针对github，github为全站https，所以`content scripts`中代码需要socket连接到`dev server`，只能是https方式。但是这样子会由于浏览器默认拦截未通过证书验证的https请求，所以需要手动访问下开发服务器地址(https://localhost:3666/sockjs-node/info) ，选择 `高级`、`仍然访问`，保证可以访问https形式的开发服务器。如果你要注入`content scripts`的站点不是https协议，可以直接将`package.json`中的`https`配置为`false`。</font>
 
 #### 打包上线
 

@@ -6,7 +6,6 @@ const WriteFilePlugin = require('write-file-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
 const appRoot = process.cwd();
-const pkg = require('../package.json');
 
 const isProduction = process.env.NODE_ENV === 'production';
 const env = {
@@ -22,8 +21,7 @@ const paths = {
         .reduce((ret, file) => {
             ret[path.basename(file).replace(/\.jsx?$/, '')] = isProduction ?
                 file : [
-                    'webpack-dev-server/client?' + (process.env.HTTPS === 'true' ? 'https' : 'http') + '://localhost:' + (pkg.port || 3666),
-                    'webpack/hot/dev-server',
+                    require.resolve('./webpackHotDevClient'),
                     file
                 ];
 

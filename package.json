@@ -1,8 +1,9 @@
 {
   "name": "chrome-extension-development",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "chrome extension development",
   "port": 3666,
+  "https": true,
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js"

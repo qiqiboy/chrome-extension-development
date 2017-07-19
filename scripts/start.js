@@ -95,7 +95,7 @@ function runDevServer(compiler) {
         hot: true,
         publicPath: config.output.publicPath,
         quiet: true,
-        https: process.env.HTTPS === 'true',
+        https: pkg.https === true,
         watchOptions: {
             ignored: /node_modules/
         },
