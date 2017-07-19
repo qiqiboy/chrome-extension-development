@@ -35,9 +35,9 @@ chrome扩展开发功能示范与开发环境配置。该项目包含了chrome�
 ```
 这是因为需要通过socket连接到开发服务器获取代码变动通知，https页面是不允许http通信的。所以需要启用https协议。本扩展示例针对github做content scrips调用演示，由于github为全站https，所以运行本示例最好是使用上边的命令形式，否则content scripts页面无法自动刷新。
 
-    但是这样子会由于浏览器默认拦截未通过证书验证的https请求，所以需要手动访问下开发服务器地址(https://localhost:3666/sockjs-node/info) ，选择 `高级`、`继续前往localhost（不安全）`，保证可以访问https形式的开发服务器。
+但是这样子会由于浏览器默认拦截未通过证书验证的https请求，所以需要手动访问下开发服务器地址(https://localhost:3666/sockjs-node/info) ，选择 `高级`、`继续前往localhost（不安全）`，保证可以访问https形式的开发服务器。
 
-    ![][8]
+![][8]
 
 #### 打包上线
 
