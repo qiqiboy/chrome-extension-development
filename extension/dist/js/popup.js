@@ -84,7 +84,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "2a53f2cd7f939b9d2137"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "035f1978b4182c900e84"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -667,7 +667,7 @@
 /******/
 /******/ 	// objects to store loaded and loading chunks
 /******/ 	var installedChunks = {
-/******/ 		5: 0
+/******/ 		6: 0
 /******/ 	};
 /******/
 /******/ 	// The require function
@@ -786,7 +786,7 @@
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return hotCreateRequire(2)(__webpack_require__.s = 2);
+/******/ 	return hotCreateRequire(3)(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -804,7 +804,7 @@
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_scss__ = __webpack_require__(/*! ./style.scss */ "./app/components/InfoItem/style.scss");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__style_scss__);
-var _jsxFileName = '/Users/qiqibopy/develop/chrome-extension-development/app/components/InfoItem/index.js';
+var _jsxFileName = '/Users/qiqiboy/develop/chrome-extension-development/app/components/InfoItem/index.js';
 
 
 
@@ -889,7 +889,7 @@ if(true) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(/*! react */ "./node_modules/_react@15.6.1@react/react.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-var _jsxFileName = '/Users/qiqibopy/develop/chrome-extension-development/app/components/Link/index.js';
+var _jsxFileName = '/Users/qiqiboy/develop/chrome-extension-development/app/components/Link/index.js';
 
 
 function Link(props) {
@@ -930,7 +930,7 @@ function openUrl(url, ev) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_scss__ = __webpack_require__(/*! ./style.scss */ "./app/components/OptionItem/style.scss");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__style_scss__);
-var _jsxFileName = '/Users/qiqibopy/develop/chrome-extension-development/app/components/OptionItem/index.js';
+var _jsxFileName = '/Users/qiqiboy/develop/chrome-extension-development/app/components/OptionItem/index.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -1064,7 +1064,9 @@ if(true) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__style_scss__ = __webpack_require__(/*! ./style.scss */ "./app/components/PageExecute/style.scss");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__style_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__style_scss__);
 
-var _jsxFileName = '/Users/qiqibopy/develop/chrome-extension-development/app/components/PageExecute/index.js';
+var _jsxFileName = '/Users/qiqiboy/develop/chrome-extension-development/app/components/PageExecute/index.js';
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -1134,52 +1136,42 @@ var Execute = function (_Component) {
         key: 'componentDidMount',
         value: function () {
             var _ref2 = _asyncToGenerator(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-                var editor, tab;
+                var _ref3, _ref4, Editor, tab;
+
                 return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
                     while (1) {
                         switch (_context.prev = _context.next) {
                             case 0:
                                 _context.next = 2;
-                                return __webpack_require__.e/* import() */(4).then(__webpack_require__.bind(null, /*! codemirror */ "./node_modules/_codemirror@5.27.4@codemirror/lib/codemirror.js"));
+                                return Promise.all([__webpack_require__.e/* import() */(2/* duplicate */).then(__webpack_require__.bind(null, /*! codemirror */ "./node_modules/_codemirror@5.27.4@codemirror/lib/codemirror.js")), //异步载入编辑器代码
+                                __webpack_require__.e/* import() */(4).then(__webpack_require__.bind(null, /*! codemirror/mode/javascript/javascript */ "./node_modules/_codemirror@5.27.4@codemirror/mode/javascript/javascript.js")), __webpack_require__.e/* import() */(5).then(__webpack_require__.bind(null, /*! codemirror/mode/css/css */ "./node_modules/_codemirror@5.27.4@codemirror/mode/css/css.js")), __webpack_require__.e/* import() */(1/* duplicate */).then(__webpack_require__.bind(null, /*! codemirror/lib/codemirror.css */ "./node_modules/_codemirror@5.27.4@codemirror/lib/codemirror.css")), //载入编辑器样式
+                                __webpack_require__.e/* import() */(0/* duplicate */).then(__webpack_require__.bind(null, /*! codemirror/theme/solarized.css */ "./node_modules/_codemirror@5.27.4@codemirror/theme/solarized.css")) //载入编辑器主题
+                                ]);
 
                             case 2:
-                                editor = _context.sent;
-                                _context.next = 5;
-                                return __webpack_require__.e/* import() */(2).then(__webpack_require__.bind(null, /*! codemirror/mode/javascript/javascript */ "./node_modules/_codemirror@5.27.4@codemirror/mode/javascript/javascript.js"));
+                                _ref3 = _context.sent;
+                                _ref4 = _slicedToArray(_ref3, 1);
+                                Editor = _ref4[0];
 
-                            case 5:
-                                _context.next = 7;
-                                return __webpack_require__.e/* import() */(3).then(__webpack_require__.bind(null, /*! codemirror/mode/css/css */ "./node_modules/_codemirror@5.27.4@codemirror/mode/css/css.js"));
 
-                            case 7:
-                                _context.next = 9;
-                                return __webpack_require__.e/* import() */(1).then(__webpack_require__.bind(null, /*! codemirror/lib/codemirror.css */ "./node_modules/_codemirror@5.27.4@codemirror/lib/codemirror.css"));
-
-                            case 9:
-                                _context.next = 11;
-                                return __webpack_require__.e/* import() */(0).then(__webpack_require__.bind(null, /*! codemirror/theme/solarized.css */ "./node_modules/_codemirror@5.27.4@codemirror/theme/solarized.css"));
-
-                            case 11:
-                                //载入编辑器主题
-
-                                this.jsEditor = new editor(this.refs.jseditor, {
+                                this.jsEditor = new Editor(this.refs.jseditor, {
                                     mode: 'javascript',
                                     lineNumbers: true,
                                     theme: 'solarized',
                                     value: '// \u8F93\u5165\u8981\u6267\u884C\u7684js\u4EE3\u7801\ndocument.body.style.background = \'red\';\nconsole.log(\'executed!\');'
                                 });
 
-                                this.cssEditor = new editor(this.refs.csseditor, {
+                                this.cssEditor = new Editor(this.refs.csseditor, {
                                     mode: 'css',
                                     lineNumbers: true,
                                     theme: 'solarized',
                                     value: 'body {\n    background: red !important;\n}'
                                 });
 
-                                _context.next = 15;
+                                _context.next = 9;
                                 return Object(__WEBPACK_IMPORTED_MODULE_4__utils_tabUtil__["c" /* getCurrent */])();
 
-                            case 15:
+                            case 9:
                                 tab = _context.sent;
 
                                 if (__WEBPACK_IMPORTED_MODULE_5_url___default.a.parse(tab.url).host.toLowerCase() !== 'github.com') {
@@ -1188,7 +1180,7 @@ var Execute = function (_Component) {
                                     });
                                 }
 
-                            case 17:
+                            case 11:
                             case 'end':
                                 return _context.stop();
                         }
@@ -1209,7 +1201,7 @@ var Execute = function (_Component) {
                 'div',
                 { className: 'execute', __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 82
+                        lineNumber: 84
                     },
                     __self: this
                 },
@@ -1217,7 +1209,7 @@ var Execute = function (_Component) {
                     __WEBPACK_IMPORTED_MODULE_2__OptionItem__["a" /* default */],
                     { active: this.state.inline, onChange: this.optionChange, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 83
+                            lineNumber: 85
                         },
                         __self: this
                     },
@@ -1228,7 +1220,7 @@ var Execute = function (_Component) {
                     {
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 84
+                            lineNumber: 86
                         },
                         __self: this
                     },
@@ -1236,7 +1228,7 @@ var Execute = function (_Component) {
                 ),
                 __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('div', { ref: 'jseditor', __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 85
+                        lineNumber: 87
                     },
                     __self: this
                 }),
@@ -1244,7 +1236,7 @@ var Execute = function (_Component) {
                     'button',
                     { className: 'btn btn-success', disabled: true, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 86
+                            lineNumber: 88
                         },
                         __self: this
                     },
@@ -1253,7 +1245,7 @@ var Execute = function (_Component) {
                     'button',
                     { className: 'btn btn-success', onClick: this.executeJS, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 87
+                            lineNumber: 89
                         },
                         __self: this
                     },
@@ -1264,7 +1256,7 @@ var Execute = function (_Component) {
                     {
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 88
+                            lineNumber: 90
                         },
                         __self: this
                     },
@@ -1272,7 +1264,7 @@ var Execute = function (_Component) {
                 ),
                 __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('div', { ref: 'csseditor', __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 89
+                        lineNumber: 91
                     },
                     __self: this
                 }),
@@ -1280,7 +1272,7 @@ var Execute = function (_Component) {
                     'button',
                     { className: 'btn btn-success', disabled: true, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 90
+                            lineNumber: 92
                         },
                         __self: this
                     },
@@ -1289,7 +1281,7 @@ var Execute = function (_Component) {
                     'button',
                     { className: 'btn btn-success', onClick: this.executeCSS, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 91
+                            lineNumber: 93
                         },
                         __self: this
                     },
@@ -1361,7 +1353,7 @@ if(true) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__style_scss__ = __webpack_require__(/*! ./style.scss */ "./app/components/PageGithub/style.scss");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__style_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__style_scss__);
 
-var _jsxFileName = '/Users/qiqibopy/develop/chrome-extension-development/app/components/PageGithub/index.js';
+var _jsxFileName = '/Users/qiqiboy/develop/chrome-extension-development/app/components/PageGithub/index.js';
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
@@ -1795,6 +1787,206 @@ if(true) {
 
 /***/ }),
 
+/***/ "./app/components/PageMarkdown/index.js":
+/*!**********************************************!*\
+  !*** ./app/components/PageMarkdown/index.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/*! exports used: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(/*! babel-runtime/regenerator */ "./node_modules/_babel-runtime@6.23.0@babel-runtime/regenerator/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(/*! react */ "./node_modules/_react@15.6.1@react/react.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_marked__ = __webpack_require__(/*! marked */ "./node_modules/_marked@0.3.6@marked/lib/marked.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_marked___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_marked__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__style_scss__ = __webpack_require__(/*! ./style.scss */ "./app/components/PageMarkdown/style.scss");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__style_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__style_scss__);
+
+var _jsxFileName = '/Users/qiqiboy/develop/chrome-extension-development/app/components/PageMarkdown/index.js';
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+var chrome = window.chrome;
+var KEY = 'chrome-extension-development-markdown';
+
+var Markdown = function (_Component) {
+    _inherits(Markdown, _Component);
+
+    function Markdown() {
+        var _ref,
+            _this2 = this;
+
+        var _temp, _this, _ret;
+
+        _classCallCheck(this, Markdown);
+
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Markdown.__proto__ || Object.getPrototypeOf(Markdown)).call.apply(_ref, [this].concat(args))), _this), _this.preview = _asyncToGenerator(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+            var code, html;
+            return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+                while (1) {
+                    switch (_context.prev = _context.next) {
+                        case 0:
+                            code = _this.editor.getValue();
+                            html = __WEBPACK_IMPORTED_MODULE_2_marked___default()(code);
+
+
+                            chrome.runtime.sendMessage({
+                                action: 'markdown',
+                                html: html
+                            });
+
+                            localStorage.setItem(KEY, code);
+
+                        case 4:
+                        case 'end':
+                            return _context.stop();
+                    }
+                }
+            }, _callee, _this2);
+        })), _temp), _possibleConstructorReturn(_this, _ret);
+    }
+
+    _createClass(Markdown, [{
+        key: 'componentDidMount',
+        value: function () {
+            var _ref3 = _asyncToGenerator(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
+                var _ref4, _ref5, Editor;
+
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                _context2.next = 2;
+                                return Promise.all([__webpack_require__.e/* import() */(2).then(__webpack_require__.bind(null, /*! codemirror */ "./node_modules/_codemirror@5.27.4@codemirror/lib/codemirror.js")), //异步载入编辑器代码
+                                __webpack_require__.e/* import() */(3).then(__webpack_require__.bind(null, /*! codemirror/mode/markdown/markdown */ "./node_modules/_codemirror@5.27.4@codemirror/mode/markdown/markdown.js")), __webpack_require__.e/* import() */(1).then(__webpack_require__.bind(null, /*! codemirror/lib/codemirror.css */ "./node_modules/_codemirror@5.27.4@codemirror/lib/codemirror.css")), //载入编辑器样式
+                                __webpack_require__.e/* import() */(0).then(__webpack_require__.bind(null, /*! codemirror/theme/solarized.css */ "./node_modules/_codemirror@5.27.4@codemirror/theme/solarized.css")) //载入编辑器主题
+                                ]);
+
+                            case 2:
+                                _ref4 = _context2.sent;
+                                _ref5 = _slicedToArray(_ref4, 1);
+                                Editor = _ref5[0];
+
+
+                                this.editor = new Editor(this.refs.editor, {
+                                    mode: 'markdown',
+                                    lineNumbers: true,
+                                    theme: 'solarized',
+                                    value: localStorage.getItem(KEY) || 'Markdown\u7F16\u8F91\u5668\n=====\n\u76F4\u63A5\u8F93\u5165\u5185\u5BB9\u5C06\u4F1A\u5728\u5F53\u524Dtab\u9884\u89C8\u6548\u679C\n'
+                                });
+
+                                this.editor.on('change', this.preview);
+
+                            case 7:
+                            case 'end':
+                                return _context2.stop();
+                        }
+                    }
+                }, _callee2, this);
+            }));
+
+            function componentDidMount() {
+                return _ref3.apply(this, arguments);
+            }
+
+            return componentDidMount;
+        }()
+    }, {
+        key: 'render',
+        value: function render() {
+
+            return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                'div',
+                { className: 'markdown', __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 45
+                    },
+                    __self: this
+                },
+                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('div', { ref: 'editor', __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 46
+                    },
+                    __self: this
+                }),
+                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                    'button',
+                    { className: 'btn btn-success', onClick: this.preview, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 47
+                        },
+                        __self: this
+                    },
+                    '\u9884\u89C8'
+                )
+            );
+        }
+    }]);
+
+    return Markdown;
+}(__WEBPACK_IMPORTED_MODULE_1_react__["Component"]);
+
+/* harmony default export */ __webpack_exports__["a"] = (Markdown);
+
+/***/ }),
+
+/***/ "./app/components/PageMarkdown/style.scss":
+/*!************************************************!*\
+  !*** ./app/components/PageMarkdown/style.scss ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !../../../node_modules/_css-loader@0.28.4@css-loader??ref--3-1!../../../node_modules/_postcss-loader@2.0.6@postcss-loader/lib??postcss!../../../node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./style.scss */ "./node_modules/_css-loader@0.28.4@css-loader/index.js?{\"importLoaders\":2}!./node_modules/_postcss-loader@2.0.6@postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./app/components/PageMarkdown/style.scss");
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(/*! ../../../node_modules/_style-loader@0.18.2@style-loader/lib/addStyles.js */ "./node_modules/_style-loader@0.18.2@style-loader/lib/addStyles.js")(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(true) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept(/*! !../../../node_modules/_css-loader@0.28.4@css-loader??ref--3-1!../../../node_modules/_postcss-loader@2.0.6@postcss-loader/lib??postcss!../../../node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./style.scss */ "./node_modules/_css-loader@0.28.4@css-loader/index.js?{\"importLoaders\":2}!./node_modules/_postcss-loader@2.0.6@postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./app/components/PageMarkdown/style.scss", function() {
+			var newContent = __webpack_require__(/*! !../../../node_modules/_css-loader@0.28.4@css-loader??ref--3-1!../../../node_modules/_postcss-loader@2.0.6@postcss-loader/lib??postcss!../../../node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./style.scss */ "./node_modules/_css-loader@0.28.4@css-loader/index.js?{\"importLoaders\":2}!./node_modules/_postcss-loader@2.0.6@postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./app/components/PageMarkdown/style.scss");
+			if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
 /***/ "./app/components/PageOptions/index.js":
 /*!*********************************************!*\
   !*** ./app/components/PageOptions/index.js ***!
@@ -1818,7 +2010,7 @@ if(true) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__style_scss__ = __webpack_require__(/*! ./style.scss */ "./app/components/PageOptions/style.scss");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__style_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__style_scss__);
 
-var _jsxFileName = '/Users/qiqibopy/develop/chrome-extension-development/app/components/PageOptions/index.js';
+var _jsxFileName = '/Users/qiqiboy/develop/chrome-extension-development/app/components/PageOptions/index.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -2425,7 +2617,7 @@ if(true) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_scss__ = __webpack_require__(/*! ./style.scss */ "./app/components/PageWorkSpace/style.scss");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__style_scss__);
-var _jsxFileName = '/Users/qiqibopy/develop/chrome-extension-development/app/components/PageWorkSpace/index.js';
+var _jsxFileName = '/Users/qiqiboy/develop/chrome-extension-development/app/components/PageWorkSpace/index.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -2722,7 +2914,8 @@ if(true) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_PageGithub__ = __webpack_require__(/*! ../../components/PageGithub */ "./app/components/PageGithub/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_PageExecute__ = __webpack_require__(/*! ../../components/PageExecute */ "./app/components/PageExecute/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_PageWorkSpace__ = __webpack_require__(/*! ../../components/PageWorkSpace */ "./app/components/PageWorkSpace/index.js");
-var _jsxFileName = '/Users/qiqibopy/develop/chrome-extension-development/app/modules/Popup/Tabs.js';
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_PageMarkdown__ = __webpack_require__(/*! ../../components/PageMarkdown */ "./app/components/PageMarkdown/index.js");
+var _jsxFileName = '/Users/qiqiboy/develop/chrome-extension-development/app/modules/Popup/Tabs.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -2731,6 +2924,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -2754,6 +2948,10 @@ var tabData = [{
     id: 'workspace',
     title: '工作区',
     component: __WEBPACK_IMPORTED_MODULE_4__components_PageWorkSpace__["a" /* default */]
+}, {
+    id: 'markdown',
+    title: 'Markdown',
+    component: __WEBPACK_IMPORTED_MODULE_5__components_PageMarkdown__["a" /* default */]
 }];
 
 var lastId = localStorage.getItem('chrome-extension-popup-tab-id') || 'options';
@@ -2798,7 +2996,7 @@ var Tabs = function (_Component) {
                 'div',
                 { className: 'tabs-container', __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 47
+                        lineNumber: 53
                     },
                     __self: this
                 },
@@ -2806,7 +3004,7 @@ var Tabs = function (_Component) {
                     'div',
                     { className: 'menus', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 48
+                            lineNumber: 54
                         },
                         __self: this
                     },
@@ -2815,7 +3013,7 @@ var Tabs = function (_Component) {
                             'a',
                             { className: tab === _this2.state.tab ? 'active' : null, onClick: _this2.switchTab.bind(_this2, tab), key: tab.id, __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 49
+                                    lineNumber: 55
                                 },
                                 __self: _this2
                             },
@@ -2826,7 +3024,7 @@ var Tabs = function (_Component) {
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Component, {
                     __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 51
+                        lineNumber: 57
                     },
                     __self: this
                 })
@@ -2858,7 +3056,7 @@ var Tabs = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Tabs__ = __webpack_require__(/*! ./Tabs */ "./app/modules/Popup/Tabs.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__style_scss__ = __webpack_require__(/*! ./style.scss */ "./app/modules/Popup/style.scss");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__style_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__style_scss__);
-var _jsxFileName = '/Users/qiqibopy/develop/chrome-extension-development/app/modules/Popup/index.js';
+var _jsxFileName = '/Users/qiqiboy/develop/chrome-extension-development/app/modules/Popup/index.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -3007,7 +3205,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(/*! react-dom */ "./node_modules/_react-dom@15.6.1@react-dom/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modules_Popup__ = __webpack_require__(/*! ./modules/Popup */ "./app/modules/Popup/index.js");
-var _jsxFileName = '/Users/qiqibopy/develop/chrome-extension-development/app/popup.js';
+var _jsxFileName = '/Users/qiqiboy/develop/chrome-extension-development/app/popup.js';
 
 
 
@@ -3400,7 +3598,8 @@ module.exports = {
 	],
 	"options_page": "popup.html",
 	"web_accessible_resources": [
-		"icons/icon_48.png"
+		"icons/icon_48.png",
+		"md.skin.github.css"
 	],
 	"background": {
 		"scripts": [
@@ -4182,7 +4381,7 @@ Object.defineProperty(module, 'exports', {
 	get: assembleStyles
 });
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../_webpack@3.2.0@webpack/buildin/module.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/module.js")(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../_webpack@3.3.0@webpack/buildin/module.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/module.js")(module)))
 
 /***/ }),
 
@@ -5962,7 +6161,7 @@ var stripAnsi = __webpack_require__(/*! strip-ansi */ "./node_modules/_strip-ans
 var hasAnsi = __webpack_require__(/*! has-ansi */ "./node_modules/_has-ansi@2.0.0@has-ansi/index.js");
 var supportsColor = __webpack_require__(/*! supports-color */ "./node_modules/_supports-color@2.0.0@supports-color/index.js");
 var defineProps = Object.defineProperties;
-var isSimpleWindowsTerm = process.platform === 'win32' && !/^xterm/i.test(Object({"NODE_ENV":"development","HTTPS":"false"}).TERM);
+var isSimpleWindowsTerm = process.platform === 'win32' && !/^xterm/i.test(Object({"NODE_ENV":"development","HTTPS":"true"}).TERM);
 
 function Chalk(options) {
 	// detect mode if not set manually
@@ -7400,6 +7599,26 @@ exports.push([module.i, ".github .form-control {\n  border: 0;\n  width: 100%;\n
 
 /***/ }),
 
+/***/ "./node_modules/_css-loader@0.28.4@css-loader/index.js?{\"importLoaders\":2}!./node_modules/_postcss-loader@2.0.6@postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./app/components/PageMarkdown/style.scss":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/_css-loader@0.28.4@css-loader?{"importLoaders":2}!./node_modules/_postcss-loader@2.0.6@postcss-loader/lib?{"ident":"postcss","plugins":[null,null]}!./node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./app/components/PageMarkdown/style.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/_css-loader@0.28.4@css-loader/lib/css-base.js */ "./node_modules/_css-loader@0.28.4@css-loader/lib/css-base.js")(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".markdown .btn {\n  margin-top: 10px; }\n", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/_css-loader@0.28.4@css-loader/index.js?{\"importLoaders\":2}!./node_modules/_postcss-loader@2.0.6@postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./app/components/PageOptions/style.scss":
 /*!******************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/_css-loader@0.28.4@css-loader?{"importLoaders":2}!./node_modules/_postcss-loader@2.0.6@postcss-loader/lib?{"ident":"postcss","plugins":[null,null]}!./node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./app/components/PageOptions/style.scss ***!
@@ -7453,7 +7672,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/_css-lo
 
 
 // module
-exports.push([module.i, "/*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */\n/* Document\n   ========================================================================== */\n/**\n * 1. Correct the line height in all browsers.\n * 2. Prevent adjustments of font size after orientation changes in\n *    IE on Windows Phone and in iOS.\n */\nhtml {\n  line-height: 1.15;\n  /* 1 */\n  -ms-text-size-adjust: 100%;\n  /* 2 */\n  -webkit-text-size-adjust: 100%;\n  /* 2 */ }\n\n/* Sections\n   ========================================================================== */\n/**\n * Remove the margin in all browsers (opinionated).\n */\nbody {\n  margin: 0; }\n\n/**\n * Add the correct display in IE 9-.\n */\narticle,\naside,\nfooter,\nheader,\nnav,\nsection {\n  display: block; }\n\n/**\n * Correct the font size and margin on `h1` elements within `section` and\n * `article` contexts in Chrome, Firefox, and Safari.\n */\nh1 {\n  font-size: 2em;\n  margin: 0.67em 0; }\n\n/* Grouping content\n   ========================================================================== */\n/**\n * Add the correct display in IE 9-.\n * 1. Add the correct display in IE.\n */\nfigcaption,\nfigure,\nmain {\n  /* 1 */\n  display: block; }\n\n/**\n * Add the correct margin in IE 8.\n */\nfigure {\n  margin: 1em 40px; }\n\n/**\n * 1. Add the correct box sizing in Firefox.\n * 2. Show the overflow in Edge and IE.\n */\nhr {\n  -webkit-box-sizing: content-box;\n          box-sizing: content-box;\n  /* 1 */\n  height: 0;\n  /* 1 */\n  overflow: visible;\n  /* 2 */ }\n\n/**\n * 1. Correct the inheritance and scaling of font size in all browsers.\n * 2. Correct the odd `em` font sizing in all browsers.\n */\npre {\n  font-family: monospace, monospace;\n  /* 1 */\n  font-size: 1em;\n  /* 2 */ }\n\n/* Text-level semantics\n   ========================================================================== */\n/**\n * 1. Remove the gray background on active links in IE 10.\n * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.\n */\na {\n  background-color: transparent;\n  /* 1 */\n  -webkit-text-decoration-skip: objects;\n  /* 2 */ }\n\n/**\n * 1. Remove the bottom border in Chrome 57- and Firefox 39-.\n * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.\n */\nabbr[title] {\n  border-bottom: none;\n  /* 1 */\n  text-decoration: underline;\n  /* 2 */\n  -webkit-text-decoration: underline dotted;\n          text-decoration: underline dotted;\n  /* 2 */ }\n\n/**\n * Prevent the duplicate application of `bolder` by the next rule in Safari 6.\n */\nb,\nstrong {\n  font-weight: inherit; }\n\n/**\n * Add the correct font weight in Chrome, Edge, and Safari.\n */\nb,\nstrong {\n  font-weight: bolder; }\n\n/**\n * 1. Correct the inheritance and scaling of font size in all browsers.\n * 2. Correct the odd `em` font sizing in all browsers.\n */\ncode,\nkbd,\nsamp {\n  font-family: monospace, monospace;\n  /* 1 */\n  font-size: 1em;\n  /* 2 */ }\n\n/**\n * Add the correct font style in Android 4.3-.\n */\ndfn {\n  font-style: italic; }\n\n/**\n * Add the correct background and color in IE 9-.\n */\nmark {\n  background-color: #ff0;\n  color: #000; }\n\n/**\n * Add the correct font size in all browsers.\n */\nsmall {\n  font-size: 80%; }\n\n/**\n * Prevent `sub` and `sup` elements from affecting the line height in\n * all browsers.\n */\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline; }\n\nsub {\n  bottom: -0.25em; }\n\nsup {\n  top: -0.5em; }\n\n/* Embedded content\n   ========================================================================== */\n/**\n * Add the correct display in IE 9-.\n */\naudio,\nvideo {\n  display: inline-block; }\n\n/**\n * Add the correct display in iOS 4-7.\n */\naudio:not([controls]) {\n  display: none;\n  height: 0; }\n\n/**\n * Remove the border on images inside links in IE 10-.\n */\nimg {\n  border-style: none; }\n\n/**\n * Hide the overflow in IE.\n */\nsvg:not(:root) {\n  overflow: hidden; }\n\n/* Forms\n   ========================================================================== */\n/**\n * 1. Change the font styles in all browsers (opinionated).\n * 2. Remove the margin in Firefox and Safari.\n */\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  font-family: sans-serif;\n  /* 1 */\n  font-size: 100%;\n  /* 1 */\n  line-height: 1.15;\n  /* 1 */\n  margin: 0;\n  /* 2 */ }\n\n/**\n * Show the overflow in IE.\n * 1. Show the overflow in Edge.\n */\nbutton,\ninput {\n  /* 1 */\n  overflow: visible; }\n\n/**\n * Remove the inheritance of text transform in Edge, Firefox, and IE.\n * 1. Remove the inheritance of text transform in Firefox.\n */\nbutton,\nselect {\n  /* 1 */\n  text-transform: none; }\n\n/**\n * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`\n *    controls in Android 4.\n * 2. Correct the inability to style clickable types in iOS and Safari.\n */\nbutton,\nhtml [type=\"button\"],\n[type=\"reset\"],\n[type=\"submit\"] {\n  -webkit-appearance: button;\n  /* 2 */ }\n\n/**\n * Remove the inner border and padding in Firefox.\n */\nbutton::-moz-focus-inner,\n[type=\"button\"]::-moz-focus-inner,\n[type=\"reset\"]::-moz-focus-inner,\n[type=\"submit\"]::-moz-focus-inner {\n  border-style: none;\n  padding: 0; }\n\n/**\n * Restore the focus styles unset by the previous rule.\n */\nbutton:-moz-focusring,\n[type=\"button\"]:-moz-focusring,\n[type=\"reset\"]:-moz-focusring,\n[type=\"submit\"]:-moz-focusring {\n  outline: 1px dotted ButtonText; }\n\n/**\n * Correct the padding in Firefox.\n */\nfieldset {\n  padding: 0.35em 0.75em 0.625em; }\n\n/**\n * 1. Correct the text wrapping in Edge and IE.\n * 2. Correct the color inheritance from `fieldset` elements in IE.\n * 3. Remove the padding so developers are not caught out when they zero out\n *    `fieldset` elements in all browsers.\n */\nlegend {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  /* 1 */\n  color: inherit;\n  /* 2 */\n  display: table;\n  /* 1 */\n  max-width: 100%;\n  /* 1 */\n  padding: 0;\n  /* 3 */\n  white-space: normal;\n  /* 1 */ }\n\n/**\n * 1. Add the correct display in IE 9-.\n * 2. Add the correct vertical alignment in Chrome, Firefox, and Opera.\n */\nprogress {\n  display: inline-block;\n  /* 1 */\n  vertical-align: baseline;\n  /* 2 */ }\n\n/**\n * Remove the default vertical scrollbar in IE.\n */\ntextarea {\n  overflow: auto; }\n\n/**\n * 1. Add the correct box sizing in IE 10-.\n * 2. Remove the padding in IE 10-.\n */\n[type=\"checkbox\"],\n[type=\"radio\"] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  /* 1 */\n  padding: 0;\n  /* 2 */ }\n\n/**\n * Correct the cursor style of increment and decrement buttons in Chrome.\n */\n[type=\"number\"]::-webkit-inner-spin-button,\n[type=\"number\"]::-webkit-outer-spin-button {\n  height: auto; }\n\n/**\n * 1. Correct the odd appearance in Chrome and Safari.\n * 2. Correct the outline style in Safari.\n */\n[type=\"search\"] {\n  -webkit-appearance: textfield;\n  /* 1 */\n  outline-offset: -2px;\n  /* 2 */ }\n\n/**\n * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.\n */\n[type=\"search\"]::-webkit-search-cancel-button,\n[type=\"search\"]::-webkit-search-decoration {\n  -webkit-appearance: none; }\n\n/**\n * 1. Correct the inability to style clickable types in iOS and Safari.\n * 2. Change font properties to `inherit` in Safari.\n */\n::-webkit-file-upload-button {\n  -webkit-appearance: button;\n  /* 1 */\n  font: inherit;\n  /* 2 */ }\n\n/* Interactive\n   ========================================================================== */\n/*\n * Add the correct display in IE 9-.\n * 1. Add the correct display in Edge, IE, and Firefox.\n */\ndetails,\nmenu {\n  display: block; }\n\n/*\n * Add the correct display in all browsers.\n */\nsummary {\n  display: list-item; }\n\n/* Scripting\n   ========================================================================== */\n/**\n * Add the correct display in IE 9-.\n */\ncanvas {\n  display: inline-block; }\n\n/**\n * Add the correct display in IE.\n */\ntemplate {\n  display: none; }\n\n/* Hidden\n   ========================================================================== */\n/**\n * Add the correct display in IE 10-.\n */\n[hidden] {\n  display: none; }\n\n* {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box; }\n\nbody {\n  background: #ffe100; }\n\n.popup-root {\n  max-width: 600px;\n  min-width: 399px;\n  margin: 0 auto;\n  min-height: 100px;\n  padding: 15px;\n  font-size: 14px; }\n  .popup-root.trigger-win-resize {\n    min-width: 400px; }\n\n.footer {\n  font-size: 12px;\n  margin-top: 50px;\n  color: #333;\n  text-align: center; }\n\n.page-title {\n  font-size: 18px;\n  text-align: center;\n  margin: 0; }\n\n.btn-group {\n  margin: 10px 0; }\n\n.btn {\n  width: 100%;\n  height: 36px;\n  border: 0;\n  outline: none;\n  border-radius: 4px;\n  text-align: center;\n  color: #fff;\n  text-decoration: none;\n  cursor: pointer; }\n  .btn:active {\n    -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);\n            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5); }\n  .btn:hover {\n    opacity: .9; }\n  .btn:disabled {\n    opacity: .5; }\n\na.btn {\n  display: inline-block;\n  line-height: 20px;\n  padding: 8px 0; }\n\n.btn-success {\n  background-color: #5cb85c; }\n\n.btn-option-item {\n  margin: 1px 0; }\n", ""]);
+exports.push([module.i, "/*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */\n/* Document\n   ========================================================================== */\n/**\n * 1. Correct the line height in all browsers.\n * 2. Prevent adjustments of font size after orientation changes in\n *    IE on Windows Phone and in iOS.\n */\nhtml {\n  line-height: 1.15;\n  /* 1 */\n  -ms-text-size-adjust: 100%;\n  /* 2 */\n  -webkit-text-size-adjust: 100%;\n  /* 2 */ }\n\n/* Sections\n   ========================================================================== */\n/**\n * Remove the margin in all browsers (opinionated).\n */\nbody {\n  margin: 0; }\n\n/**\n * Add the correct display in IE 9-.\n */\narticle,\naside,\nfooter,\nheader,\nnav,\nsection {\n  display: block; }\n\n/**\n * Correct the font size and margin on `h1` elements within `section` and\n * `article` contexts in Chrome, Firefox, and Safari.\n */\nh1 {\n  font-size: 2em;\n  margin: 0.67em 0; }\n\n/* Grouping content\n   ========================================================================== */\n/**\n * Add the correct display in IE 9-.\n * 1. Add the correct display in IE.\n */\nfigcaption,\nfigure,\nmain {\n  /* 1 */\n  display: block; }\n\n/**\n * Add the correct margin in IE 8.\n */\nfigure {\n  margin: 1em 40px; }\n\n/**\n * 1. Add the correct box sizing in Firefox.\n * 2. Show the overflow in Edge and IE.\n */\nhr {\n  -webkit-box-sizing: content-box;\n          box-sizing: content-box;\n  /* 1 */\n  height: 0;\n  /* 1 */\n  overflow: visible;\n  /* 2 */ }\n\n/**\n * 1. Correct the inheritance and scaling of font size in all browsers.\n * 2. Correct the odd `em` font sizing in all browsers.\n */\npre {\n  font-family: monospace, monospace;\n  /* 1 */\n  font-size: 1em;\n  /* 2 */ }\n\n/* Text-level semantics\n   ========================================================================== */\n/**\n * 1. Remove the gray background on active links in IE 10.\n * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.\n */\na {\n  background-color: transparent;\n  /* 1 */\n  -webkit-text-decoration-skip: objects;\n  /* 2 */ }\n\n/**\n * 1. Remove the bottom border in Chrome 57- and Firefox 39-.\n * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.\n */\nabbr[title] {\n  border-bottom: none;\n  /* 1 */\n  text-decoration: underline;\n  /* 2 */\n  -webkit-text-decoration: underline dotted;\n          text-decoration: underline dotted;\n  /* 2 */ }\n\n/**\n * Prevent the duplicate application of `bolder` by the next rule in Safari 6.\n */\nb,\nstrong {\n  font-weight: inherit; }\n\n/**\n * Add the correct font weight in Chrome, Edge, and Safari.\n */\nb,\nstrong {\n  font-weight: bolder; }\n\n/**\n * 1. Correct the inheritance and scaling of font size in all browsers.\n * 2. Correct the odd `em` font sizing in all browsers.\n */\ncode,\nkbd,\nsamp {\n  font-family: monospace, monospace;\n  /* 1 */\n  font-size: 1em;\n  /* 2 */ }\n\n/**\n * Add the correct font style in Android 4.3-.\n */\ndfn {\n  font-style: italic; }\n\n/**\n * Add the correct background and color in IE 9-.\n */\nmark {\n  background-color: #ff0;\n  color: #000; }\n\n/**\n * Add the correct font size in all browsers.\n */\nsmall {\n  font-size: 80%; }\n\n/**\n * Prevent `sub` and `sup` elements from affecting the line height in\n * all browsers.\n */\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline; }\n\nsub {\n  bottom: -0.25em; }\n\nsup {\n  top: -0.5em; }\n\n/* Embedded content\n   ========================================================================== */\n/**\n * Add the correct display in IE 9-.\n */\naudio,\nvideo {\n  display: inline-block; }\n\n/**\n * Add the correct display in iOS 4-7.\n */\naudio:not([controls]) {\n  display: none;\n  height: 0; }\n\n/**\n * Remove the border on images inside links in IE 10-.\n */\nimg {\n  border-style: none; }\n\n/**\n * Hide the overflow in IE.\n */\nsvg:not(:root) {\n  overflow: hidden; }\n\n/* Forms\n   ========================================================================== */\n/**\n * 1. Change the font styles in all browsers (opinionated).\n * 2. Remove the margin in Firefox and Safari.\n */\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  font-family: sans-serif;\n  /* 1 */\n  font-size: 100%;\n  /* 1 */\n  line-height: 1.15;\n  /* 1 */\n  margin: 0;\n  /* 2 */ }\n\n/**\n * Show the overflow in IE.\n * 1. Show the overflow in Edge.\n */\nbutton,\ninput {\n  /* 1 */\n  overflow: visible; }\n\n/**\n * Remove the inheritance of text transform in Edge, Firefox, and IE.\n * 1. Remove the inheritance of text transform in Firefox.\n */\nbutton,\nselect {\n  /* 1 */\n  text-transform: none; }\n\n/**\n * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`\n *    controls in Android 4.\n * 2. Correct the inability to style clickable types in iOS and Safari.\n */\nbutton,\nhtml [type=\"button\"],\n[type=\"reset\"],\n[type=\"submit\"] {\n  -webkit-appearance: button;\n  /* 2 */ }\n\n/**\n * Remove the inner border and padding in Firefox.\n */\nbutton::-moz-focus-inner,\n[type=\"button\"]::-moz-focus-inner,\n[type=\"reset\"]::-moz-focus-inner,\n[type=\"submit\"]::-moz-focus-inner {\n  border-style: none;\n  padding: 0; }\n\n/**\n * Restore the focus styles unset by the previous rule.\n */\nbutton:-moz-focusring,\n[type=\"button\"]:-moz-focusring,\n[type=\"reset\"]:-moz-focusring,\n[type=\"submit\"]:-moz-focusring {\n  outline: 1px dotted ButtonText; }\n\n/**\n * Correct the padding in Firefox.\n */\nfieldset {\n  padding: 0.35em 0.75em 0.625em; }\n\n/**\n * 1. Correct the text wrapping in Edge and IE.\n * 2. Correct the color inheritance from `fieldset` elements in IE.\n * 3. Remove the padding so developers are not caught out when they zero out\n *    `fieldset` elements in all browsers.\n */\nlegend {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  /* 1 */\n  color: inherit;\n  /* 2 */\n  display: table;\n  /* 1 */\n  max-width: 100%;\n  /* 1 */\n  padding: 0;\n  /* 3 */\n  white-space: normal;\n  /* 1 */ }\n\n/**\n * 1. Add the correct display in IE 9-.\n * 2. Add the correct vertical alignment in Chrome, Firefox, and Opera.\n */\nprogress {\n  display: inline-block;\n  /* 1 */\n  vertical-align: baseline;\n  /* 2 */ }\n\n/**\n * Remove the default vertical scrollbar in IE.\n */\ntextarea {\n  overflow: auto; }\n\n/**\n * 1. Add the correct box sizing in IE 10-.\n * 2. Remove the padding in IE 10-.\n */\n[type=\"checkbox\"],\n[type=\"radio\"] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  /* 1 */\n  padding: 0;\n  /* 2 */ }\n\n/**\n * Correct the cursor style of increment and decrement buttons in Chrome.\n */\n[type=\"number\"]::-webkit-inner-spin-button,\n[type=\"number\"]::-webkit-outer-spin-button {\n  height: auto; }\n\n/**\n * 1. Correct the odd appearance in Chrome and Safari.\n * 2. Correct the outline style in Safari.\n */\n[type=\"search\"] {\n  -webkit-appearance: textfield;\n  /* 1 */\n  outline-offset: -2px;\n  /* 2 */ }\n\n/**\n * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.\n */\n[type=\"search\"]::-webkit-search-cancel-button,\n[type=\"search\"]::-webkit-search-decoration {\n  -webkit-appearance: none; }\n\n/**\n * 1. Correct the inability to style clickable types in iOS and Safari.\n * 2. Change font properties to `inherit` in Safari.\n */\n::-webkit-file-upload-button {\n  -webkit-appearance: button;\n  /* 1 */\n  font: inherit;\n  /* 2 */ }\n\n/* Interactive\n   ========================================================================== */\n/*\n * Add the correct display in IE 9-.\n * 1. Add the correct display in Edge, IE, and Firefox.\n */\ndetails,\nmenu {\n  display: block; }\n\n/*\n * Add the correct display in all browsers.\n */\nsummary {\n  display: list-item; }\n\n/* Scripting\n   ========================================================================== */\n/**\n * Add the correct display in IE 9-.\n */\ncanvas {\n  display: inline-block; }\n\n/**\n * Add the correct display in IE.\n */\ntemplate {\n  display: none; }\n\n/* Hidden\n   ========================================================================== */\n/**\n * Add the correct display in IE 10-.\n */\n[hidden] {\n  display: none; }\n\n* {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box; }\n\nbody {\n  background: #ffe100; }\n\n.popup-root {\n  max-width: 800px;\n  min-width: 499px;\n  margin: 0 auto;\n  min-height: 100px;\n  padding: 15px;\n  font-size: 14px; }\n  .popup-root.trigger-win-resize {\n    min-width: 500px; }\n\n.footer {\n  font-size: 12px;\n  margin-top: 50px;\n  color: #333;\n  text-align: center; }\n\n.page-title {\n  font-size: 18px;\n  text-align: center;\n  margin: 0; }\n\n.btn-group {\n  margin: 10px 0; }\n\n.btn {\n  width: 100%;\n  height: 36px;\n  border: 0;\n  outline: none;\n  border-radius: 4px;\n  text-align: center;\n  color: #fff;\n  text-decoration: none;\n  cursor: pointer; }\n  .btn:active {\n    -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);\n            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5); }\n  .btn:hover {\n    opacity: .9; }\n  .btn:disabled {\n    opacity: .5; }\n\na.btn {\n  display: inline-block;\n  line-height: 20px;\n  padding: 8px 0; }\n\n.btn-success {\n  background-color: #5cb85c; }\n\n.btn-option-item {\n  margin: 1px 0; }\n", ""]);
 
 // exports
 
@@ -7713,7 +7932,7 @@ function load() {
 
   // If debug isn't set in LS, and we're in Electron, try to load $DEBUG
   if (!r && typeof process !== 'undefined' && 'env' in process) {
-    r = Object({"NODE_ENV":"development","HTTPS":"false"}).DEBUG;
+    r = Object({"NODE_ENV":"development","HTTPS":"true"}).DEBUG;
   }
 
   return r;
@@ -10177,7 +10396,7 @@ module.exports = Array.isArray || function (arr) {
 ;(function () {
   // Detect the `define` function exposed by asynchronous module loaders. The
   // strict `define` check is necessary for compatibility with `r.js`.
-  var isLoader = "function" === "function" && __webpack_require__(/*! !webpack amd options */ "./node_modules/_webpack@3.2.0@webpack/buildin/amd-options.js");
+  var isLoader = "function" === "function" && __webpack_require__(/*! !webpack amd options */ "./node_modules/_webpack@3.3.0@webpack/buildin/amd-options.js");
 
   // A set of types used to distinguish objects from primitives.
   var objectTypes = {
@@ -11077,7 +11296,1306 @@ module.exports = Array.isArray || function (arr) {
   }
 }).call(this);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../_webpack@3.2.0@webpack/buildin/module.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/module.js")(module), __webpack_require__(/*! ./../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../_webpack@3.3.0@webpack/buildin/module.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/module.js")(module), __webpack_require__(/*! ./../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
+
+/***/ }),
+
+/***/ "./node_modules/_marked@0.3.6@marked/lib/marked.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/_marked@0.3.6@marked/lib/marked.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/*! exports used: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global) {/**
+ * marked - a markdown parser
+ * Copyright (c) 2011-2014, Christopher Jeffrey. (MIT Licensed)
+ * https://github.com/chjj/marked
+ */
+
+;(function() {
+
+/**
+ * Block-Level Grammar
+ */
+
+var block = {
+  newline: /^\n+/,
+  code: /^( {4}[^\n]+\n*)+/,
+  fences: noop,
+  hr: /^( *[-*_]){3,} *(?:\n+|$)/,
+  heading: /^ *(#{1,6}) *([^\n]+?) *#* *(?:\n+|$)/,
+  nptable: noop,
+  lheading: /^([^\n]+)\n *(=|-){2,} *(?:\n+|$)/,
+  blockquote: /^( *>[^\n]+(\n(?!def)[^\n]+)*\n*)+/,
+  list: /^( *)(bull) [\s\S]+?(?:hr|def|\n{2,}(?! )(?!\1bull )\n*|\s*$)/,
+  html: /^ *(?:comment *(?:\n|\s*$)|closed *(?:\n{2,}|\s*$)|closing *(?:\n{2,}|\s*$))/,
+  def: /^ *\[([^\]]+)\]: *<?([^\s>]+)>?(?: +["(]([^\n]+)[")])? *(?:\n+|$)/,
+  table: noop,
+  paragraph: /^((?:[^\n]+\n?(?!hr|heading|lheading|blockquote|tag|def))+)\n*/,
+  text: /^[^\n]+/
+};
+
+block.bullet = /(?:[*+-]|\d+\.)/;
+block.item = /^( *)(bull) [^\n]*(?:\n(?!\1bull )[^\n]*)*/;
+block.item = replace(block.item, 'gm')
+  (/bull/g, block.bullet)
+  ();
+
+block.list = replace(block.list)
+  (/bull/g, block.bullet)
+  ('hr', '\\n+(?=\\1?(?:[-*_] *){3,}(?:\\n+|$))')
+  ('def', '\\n+(?=' + block.def.source + ')')
+  ();
+
+block.blockquote = replace(block.blockquote)
+  ('def', block.def)
+  ();
+
+block._tag = '(?!(?:'
+  + 'a|em|strong|small|s|cite|q|dfn|abbr|data|time|code'
+  + '|var|samp|kbd|sub|sup|i|b|u|mark|ruby|rt|rp|bdi|bdo'
+  + '|span|br|wbr|ins|del|img)\\b)\\w+(?!:/|[^\\w\\s@]*@)\\b';
+
+block.html = replace(block.html)
+  ('comment', /<!--[\s\S]*?-->/)
+  ('closed', /<(tag)[\s\S]+?<\/\1>/)
+  ('closing', /<tag(?:"[^"]*"|'[^']*'|[^'">])*?>/)
+  (/tag/g, block._tag)
+  ();
+
+block.paragraph = replace(block.paragraph)
+  ('hr', block.hr)
+  ('heading', block.heading)
+  ('lheading', block.lheading)
+  ('blockquote', block.blockquote)
+  ('tag', '<' + block._tag)
+  ('def', block.def)
+  ();
+
+/**
+ * Normal Block Grammar
+ */
+
+block.normal = merge({}, block);
+
+/**
+ * GFM Block Grammar
+ */
+
+block.gfm = merge({}, block.normal, {
+  fences: /^ *(`{3,}|~{3,})[ \.]*(\S+)? *\n([\s\S]*?)\s*\1 *(?:\n+|$)/,
+  paragraph: /^/,
+  heading: /^ *(#{1,6}) +([^\n]+?) *#* *(?:\n+|$)/
+});
+
+block.gfm.paragraph = replace(block.paragraph)
+  ('(?!', '(?!'
+    + block.gfm.fences.source.replace('\\1', '\\2') + '|'
+    + block.list.source.replace('\\1', '\\3') + '|')
+  ();
+
+/**
+ * GFM + Tables Block Grammar
+ */
+
+block.tables = merge({}, block.gfm, {
+  nptable: /^ *(\S.*\|.*)\n *([-:]+ *\|[-| :]*)\n((?:.*\|.*(?:\n|$))*)\n*/,
+  table: /^ *\|(.+)\n *\|( *[-:]+[-| :]*)\n((?: *\|.*(?:\n|$))*)\n*/
+});
+
+/**
+ * Block Lexer
+ */
+
+function Lexer(options) {
+  this.tokens = [];
+  this.tokens.links = {};
+  this.options = options || marked.defaults;
+  this.rules = block.normal;
+
+  if (this.options.gfm) {
+    if (this.options.tables) {
+      this.rules = block.tables;
+    } else {
+      this.rules = block.gfm;
+    }
+  }
+}
+
+/**
+ * Expose Block Rules
+ */
+
+Lexer.rules = block;
+
+/**
+ * Static Lex Method
+ */
+
+Lexer.lex = function(src, options) {
+  var lexer = new Lexer(options);
+  return lexer.lex(src);
+};
+
+/**
+ * Preprocessing
+ */
+
+Lexer.prototype.lex = function(src) {
+  src = src
+    .replace(/\r\n|\r/g, '\n')
+    .replace(/\t/g, '    ')
+    .replace(/\u00a0/g, ' ')
+    .replace(/\u2424/g, '\n');
+
+  return this.token(src, true);
+};
+
+/**
+ * Lexing
+ */
+
+Lexer.prototype.token = function(src, top, bq) {
+  var src = src.replace(/^ +$/gm, '')
+    , next
+    , loose
+    , cap
+    , bull
+    , b
+    , item
+    , space
+    , i
+    , l;
+
+  while (src) {
+    // newline
+    if (cap = this.rules.newline.exec(src)) {
+      src = src.substring(cap[0].length);
+      if (cap[0].length > 1) {
+        this.tokens.push({
+          type: 'space'
+        });
+      }
+    }
+
+    // code
+    if (cap = this.rules.code.exec(src)) {
+      src = src.substring(cap[0].length);
+      cap = cap[0].replace(/^ {4}/gm, '');
+      this.tokens.push({
+        type: 'code',
+        text: !this.options.pedantic
+          ? cap.replace(/\n+$/, '')
+          : cap
+      });
+      continue;
+    }
+
+    // fences (gfm)
+    if (cap = this.rules.fences.exec(src)) {
+      src = src.substring(cap[0].length);
+      this.tokens.push({
+        type: 'code',
+        lang: cap[2],
+        text: cap[3] || ''
+      });
+      continue;
+    }
+
+    // heading
+    if (cap = this.rules.heading.exec(src)) {
+      src = src.substring(cap[0].length);
+      this.tokens.push({
+        type: 'heading',
+        depth: cap[1].length,
+        text: cap[2]
+      });
+      continue;
+    }
+
+    // table no leading pipe (gfm)
+    if (top && (cap = this.rules.nptable.exec(src))) {
+      src = src.substring(cap[0].length);
+
+      item = {
+        type: 'table',
+        header: cap[1].replace(/^ *| *\| *$/g, '').split(/ *\| */),
+        align: cap[2].replace(/^ *|\| *$/g, '').split(/ *\| */),
+        cells: cap[3].replace(/\n$/, '').split('\n')
+      };
+
+      for (i = 0; i < item.align.length; i++) {
+        if (/^ *-+: *$/.test(item.align[i])) {
+          item.align[i] = 'right';
+        } else if (/^ *:-+: *$/.test(item.align[i])) {
+          item.align[i] = 'center';
+        } else if (/^ *:-+ *$/.test(item.align[i])) {
+          item.align[i] = 'left';
+        } else {
+          item.align[i] = null;
+        }
+      }
+
+      for (i = 0; i < item.cells.length; i++) {
+        item.cells[i] = item.cells[i].split(/ *\| */);
+      }
+
+      this.tokens.push(item);
+
+      continue;
+    }
+
+    // lheading
+    if (cap = this.rules.lheading.exec(src)) {
+      src = src.substring(cap[0].length);
+      this.tokens.push({
+        type: 'heading',
+        depth: cap[2] === '=' ? 1 : 2,
+        text: cap[1]
+      });
+      continue;
+    }
+
+    // hr
+    if (cap = this.rules.hr.exec(src)) {
+      src = src.substring(cap[0].length);
+      this.tokens.push({
+        type: 'hr'
+      });
+      continue;
+    }
+
+    // blockquote
+    if (cap = this.rules.blockquote.exec(src)) {
+      src = src.substring(cap[0].length);
+
+      this.tokens.push({
+        type: 'blockquote_start'
+      });
+
+      cap = cap[0].replace(/^ *> ?/gm, '');
+
+      // Pass `top` to keep the current
+      // "toplevel" state. This is exactly
+      // how markdown.pl works.
+      this.token(cap, top, true);
+
+      this.tokens.push({
+        type: 'blockquote_end'
+      });
+
+      continue;
+    }
+
+    // list
+    if (cap = this.rules.list.exec(src)) {
+      src = src.substring(cap[0].length);
+      bull = cap[2];
+
+      this.tokens.push({
+        type: 'list_start',
+        ordered: bull.length > 1
+      });
+
+      // Get each top-level item.
+      cap = cap[0].match(this.rules.item);
+
+      next = false;
+      l = cap.length;
+      i = 0;
+
+      for (; i < l; i++) {
+        item = cap[i];
+
+        // Remove the list item's bullet
+        // so it is seen as the next token.
+        space = item.length;
+        item = item.replace(/^ *([*+-]|\d+\.) +/, '');
+
+        // Outdent whatever the
+        // list item contains. Hacky.
+        if (~item.indexOf('\n ')) {
+          space -= item.length;
+          item = !this.options.pedantic
+            ? item.replace(new RegExp('^ {1,' + space + '}', 'gm'), '')
+            : item.replace(/^ {1,4}/gm, '');
+        }
+
+        // Determine whether the next list item belongs here.
+        // Backpedal if it does not belong in this list.
+        if (this.options.smartLists && i !== l - 1) {
+          b = block.bullet.exec(cap[i + 1])[0];
+          if (bull !== b && !(bull.length > 1 && b.length > 1)) {
+            src = cap.slice(i + 1).join('\n') + src;
+            i = l - 1;
+          }
+        }
+
+        // Determine whether item is loose or not.
+        // Use: /(^|\n)(?! )[^\n]+\n\n(?!\s*$)/
+        // for discount behavior.
+        loose = next || /\n\n(?!\s*$)/.test(item);
+        if (i !== l - 1) {
+          next = item.charAt(item.length - 1) === '\n';
+          if (!loose) loose = next;
+        }
+
+        this.tokens.push({
+          type: loose
+            ? 'loose_item_start'
+            : 'list_item_start'
+        });
+
+        // Recurse.
+        this.token(item, false, bq);
+
+        this.tokens.push({
+          type: 'list_item_end'
+        });
+      }
+
+      this.tokens.push({
+        type: 'list_end'
+      });
+
+      continue;
+    }
+
+    // html
+    if (cap = this.rules.html.exec(src)) {
+      src = src.substring(cap[0].length);
+      this.tokens.push({
+        type: this.options.sanitize
+          ? 'paragraph'
+          : 'html',
+        pre: !this.options.sanitizer
+          && (cap[1] === 'pre' || cap[1] === 'script' || cap[1] === 'style'),
+        text: cap[0]
+      });
+      continue;
+    }
+
+    // def
+    if ((!bq && top) && (cap = this.rules.def.exec(src))) {
+      src = src.substring(cap[0].length);
+      this.tokens.links[cap[1].toLowerCase()] = {
+        href: cap[2],
+        title: cap[3]
+      };
+      continue;
+    }
+
+    // table (gfm)
+    if (top && (cap = this.rules.table.exec(src))) {
+      src = src.substring(cap[0].length);
+
+      item = {
+        type: 'table',
+        header: cap[1].replace(/^ *| *\| *$/g, '').split(/ *\| */),
+        align: cap[2].replace(/^ *|\| *$/g, '').split(/ *\| */),
+        cells: cap[3].replace(/(?: *\| *)?\n$/, '').split('\n')
+      };
+
+      for (i = 0; i < item.align.length; i++) {
+        if (/^ *-+: *$/.test(item.align[i])) {
+          item.align[i] = 'right';
+        } else if (/^ *:-+: *$/.test(item.align[i])) {
+          item.align[i] = 'center';
+        } else if (/^ *:-+ *$/.test(item.align[i])) {
+          item.align[i] = 'left';
+        } else {
+          item.align[i] = null;
+        }
+      }
+
+      for (i = 0; i < item.cells.length; i++) {
+        item.cells[i] = item.cells[i]
+          .replace(/^ *\| *| *\| *$/g, '')
+          .split(/ *\| */);
+      }
+
+      this.tokens.push(item);
+
+      continue;
+    }
+
+    // top-level paragraph
+    if (top && (cap = this.rules.paragraph.exec(src))) {
+      src = src.substring(cap[0].length);
+      this.tokens.push({
+        type: 'paragraph',
+        text: cap[1].charAt(cap[1].length - 1) === '\n'
+          ? cap[1].slice(0, -1)
+          : cap[1]
+      });
+      continue;
+    }
+
+    // text
+    if (cap = this.rules.text.exec(src)) {
+      // Top-level should never reach here.
+      src = src.substring(cap[0].length);
+      this.tokens.push({
+        type: 'text',
+        text: cap[0]
+      });
+      continue;
+    }
+
+    if (src) {
+      throw new
+        Error('Infinite loop on byte: ' + src.charCodeAt(0));
+    }
+  }
+
+  return this.tokens;
+};
+
+/**
+ * Inline-Level Grammar
+ */
+
+var inline = {
+  escape: /^\\([\\`*{}\[\]()#+\-.!_>])/,
+  autolink: /^<([^ >]+(@|:\/)[^ >]+)>/,
+  url: noop,
+  tag: /^<!--[\s\S]*?-->|^<\/?\w+(?:"[^"]*"|'[^']*'|[^'">])*?>/,
+  link: /^!?\[(inside)\]\(href\)/,
+  reflink: /^!?\[(inside)\]\s*\[([^\]]*)\]/,
+  nolink: /^!?\[((?:\[[^\]]*\]|[^\[\]])*)\]/,
+  strong: /^__([\s\S]+?)__(?!_)|^\*\*([\s\S]+?)\*\*(?!\*)/,
+  em: /^\b_((?:[^_]|__)+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
+  code: /^(`+)\s*([\s\S]*?[^`])\s*\1(?!`)/,
+  br: /^ {2,}\n(?!\s*$)/,
+  del: noop,
+  text: /^[\s\S]+?(?=[\\<!\[_*`]| {2,}\n|$)/
+};
+
+inline._inside = /(?:\[[^\]]*\]|[^\[\]]|\](?=[^\[]*\]))*/;
+inline._href = /\s*<?([\s\S]*?)>?(?:\s+['"]([\s\S]*?)['"])?\s*/;
+
+inline.link = replace(inline.link)
+  ('inside', inline._inside)
+  ('href', inline._href)
+  ();
+
+inline.reflink = replace(inline.reflink)
+  ('inside', inline._inside)
+  ();
+
+/**
+ * Normal Inline Grammar
+ */
+
+inline.normal = merge({}, inline);
+
+/**
+ * Pedantic Inline Grammar
+ */
+
+inline.pedantic = merge({}, inline.normal, {
+  strong: /^__(?=\S)([\s\S]*?\S)__(?!_)|^\*\*(?=\S)([\s\S]*?\S)\*\*(?!\*)/,
+  em: /^_(?=\S)([\s\S]*?\S)_(?!_)|^\*(?=\S)([\s\S]*?\S)\*(?!\*)/
+});
+
+/**
+ * GFM Inline Grammar
+ */
+
+inline.gfm = merge({}, inline.normal, {
+  escape: replace(inline.escape)('])', '~|])')(),
+  url: /^(https?:\/\/[^\s<]+[^<.,:;"')\]\s])/,
+  del: /^~~(?=\S)([\s\S]*?\S)~~/,
+  text: replace(inline.text)
+    (']|', '~]|')
+    ('|', '|https?://|')
+    ()
+});
+
+/**
+ * GFM + Line Breaks Inline Grammar
+ */
+
+inline.breaks = merge({}, inline.gfm, {
+  br: replace(inline.br)('{2,}', '*')(),
+  text: replace(inline.gfm.text)('{2,}', '*')()
+});
+
+/**
+ * Inline Lexer & Compiler
+ */
+
+function InlineLexer(links, options) {
+  this.options = options || marked.defaults;
+  this.links = links;
+  this.rules = inline.normal;
+  this.renderer = this.options.renderer || new Renderer;
+  this.renderer.options = this.options;
+
+  if (!this.links) {
+    throw new
+      Error('Tokens array requires a `links` property.');
+  }
+
+  if (this.options.gfm) {
+    if (this.options.breaks) {
+      this.rules = inline.breaks;
+    } else {
+      this.rules = inline.gfm;
+    }
+  } else if (this.options.pedantic) {
+    this.rules = inline.pedantic;
+  }
+}
+
+/**
+ * Expose Inline Rules
+ */
+
+InlineLexer.rules = inline;
+
+/**
+ * Static Lexing/Compiling Method
+ */
+
+InlineLexer.output = function(src, links, options) {
+  var inline = new InlineLexer(links, options);
+  return inline.output(src);
+};
+
+/**
+ * Lexing/Compiling
+ */
+
+InlineLexer.prototype.output = function(src) {
+  var out = ''
+    , link
+    , text
+    , href
+    , cap;
+
+  while (src) {
+    // escape
+    if (cap = this.rules.escape.exec(src)) {
+      src = src.substring(cap[0].length);
+      out += cap[1];
+      continue;
+    }
+
+    // autolink
+    if (cap = this.rules.autolink.exec(src)) {
+      src = src.substring(cap[0].length);
+      if (cap[2] === '@') {
+        text = cap[1].charAt(6) === ':'
+          ? this.mangle(cap[1].substring(7))
+          : this.mangle(cap[1]);
+        href = this.mangle('mailto:') + text;
+      } else {
+        text = escape(cap[1]);
+        href = text;
+      }
+      out += this.renderer.link(href, null, text);
+      continue;
+    }
+
+    // url (gfm)
+    if (!this.inLink && (cap = this.rules.url.exec(src))) {
+      src = src.substring(cap[0].length);
+      text = escape(cap[1]);
+      href = text;
+      out += this.renderer.link(href, null, text);
+      continue;
+    }
+
+    // tag
+    if (cap = this.rules.tag.exec(src)) {
+      if (!this.inLink && /^<a /i.test(cap[0])) {
+        this.inLink = true;
+      } else if (this.inLink && /^<\/a>/i.test(cap[0])) {
+        this.inLink = false;
+      }
+      src = src.substring(cap[0].length);
+      out += this.options.sanitize
+        ? this.options.sanitizer
+          ? this.options.sanitizer(cap[0])
+          : escape(cap[0])
+        : cap[0]
+      continue;
+    }
+
+    // link
+    if (cap = this.rules.link.exec(src)) {
+      src = src.substring(cap[0].length);
+      this.inLink = true;
+      out += this.outputLink(cap, {
+        href: cap[2],
+        title: cap[3]
+      });
+      this.inLink = false;
+      continue;
+    }
+
+    // reflink, nolink
+    if ((cap = this.rules.reflink.exec(src))
+        || (cap = this.rules.nolink.exec(src))) {
+      src = src.substring(cap[0].length);
+      link = (cap[2] || cap[1]).replace(/\s+/g, ' ');
+      link = this.links[link.toLowerCase()];
+      if (!link || !link.href) {
+        out += cap[0].charAt(0);
+        src = cap[0].substring(1) + src;
+        continue;
+      }
+      this.inLink = true;
+      out += this.outputLink(cap, link);
+      this.inLink = false;
+      continue;
+    }
+
+    // strong
+    if (cap = this.rules.strong.exec(src)) {
+      src = src.substring(cap[0].length);
+      out += this.renderer.strong(this.output(cap[2] || cap[1]));
+      continue;
+    }
+
+    // em
+    if (cap = this.rules.em.exec(src)) {
+      src = src.substring(cap[0].length);
+      out += this.renderer.em(this.output(cap[2] || cap[1]));
+      continue;
+    }
+
+    // code
+    if (cap = this.rules.code.exec(src)) {
+      src = src.substring(cap[0].length);
+      out += this.renderer.codespan(escape(cap[2], true));
+      continue;
+    }
+
+    // br
+    if (cap = this.rules.br.exec(src)) {
+      src = src.substring(cap[0].length);
+      out += this.renderer.br();
+      continue;
+    }
+
+    // del (gfm)
+    if (cap = this.rules.del.exec(src)) {
+      src = src.substring(cap[0].length);
+      out += this.renderer.del(this.output(cap[1]));
+      continue;
+    }
+
+    // text
+    if (cap = this.rules.text.exec(src)) {
+      src = src.substring(cap[0].length);
+      out += this.renderer.text(escape(this.smartypants(cap[0])));
+      continue;
+    }
+
+    if (src) {
+      throw new
+        Error('Infinite loop on byte: ' + src.charCodeAt(0));
+    }
+  }
+
+  return out;
+};
+
+/**
+ * Compile Link
+ */
+
+InlineLexer.prototype.outputLink = function(cap, link) {
+  var href = escape(link.href)
+    , title = link.title ? escape(link.title) : null;
+
+  return cap[0].charAt(0) !== '!'
+    ? this.renderer.link(href, title, this.output(cap[1]))
+    : this.renderer.image(href, title, escape(cap[1]));
+};
+
+/**
+ * Smartypants Transformations
+ */
+
+InlineLexer.prototype.smartypants = function(text) {
+  if (!this.options.smartypants) return text;
+  return text
+    // em-dashes
+    .replace(/---/g, '\u2014')
+    // en-dashes
+    .replace(/--/g, '\u2013')
+    // opening singles
+    .replace(/(^|[-\u2014/(\[{"\s])'/g, '$1\u2018')
+    // closing singles & apostrophes
+    .replace(/'/g, '\u2019')
+    // opening doubles
+    .replace(/(^|[-\u2014/(\[{\u2018\s])"/g, '$1\u201c')
+    // closing doubles
+    .replace(/"/g, '\u201d')
+    // ellipses
+    .replace(/\.{3}/g, '\u2026');
+};
+
+/**
+ * Mangle Links
+ */
+
+InlineLexer.prototype.mangle = function(text) {
+  if (!this.options.mangle) return text;
+  var out = ''
+    , l = text.length
+    , i = 0
+    , ch;
+
+  for (; i < l; i++) {
+    ch = text.charCodeAt(i);
+    if (Math.random() > 0.5) {
+      ch = 'x' + ch.toString(16);
+    }
+    out += '&#' + ch + ';';
+  }
+
+  return out;
+};
+
+/**
+ * Renderer
+ */
+
+function Renderer(options) {
+  this.options = options || {};
+}
+
+Renderer.prototype.code = function(code, lang, escaped) {
+  if (this.options.highlight) {
+    var out = this.options.highlight(code, lang);
+    if (out != null && out !== code) {
+      escaped = true;
+      code = out;
+    }
+  }
+
+  if (!lang) {
+    return '<pre><code>'
+      + (escaped ? code : escape(code, true))
+      + '\n</code></pre>';
+  }
+
+  return '<pre><code class="'
+    + this.options.langPrefix
+    + escape(lang, true)
+    + '">'
+    + (escaped ? code : escape(code, true))
+    + '\n</code></pre>\n';
+};
+
+Renderer.prototype.blockquote = function(quote) {
+  return '<blockquote>\n' + quote + '</blockquote>\n';
+};
+
+Renderer.prototype.html = function(html) {
+  return html;
+};
+
+Renderer.prototype.heading = function(text, level, raw) {
+  return '<h'
+    + level
+    + ' id="'
+    + this.options.headerPrefix
+    + raw.toLowerCase().replace(/[^\w]+/g, '-')
+    + '">'
+    + text
+    + '</h'
+    + level
+    + '>\n';
+};
+
+Renderer.prototype.hr = function() {
+  return this.options.xhtml ? '<hr/>\n' : '<hr>\n';
+};
+
+Renderer.prototype.list = function(body, ordered) {
+  var type = ordered ? 'ol' : 'ul';
+  return '<' + type + '>\n' + body + '</' + type + '>\n';
+};
+
+Renderer.prototype.listitem = function(text) {
+  return '<li>' + text + '</li>\n';
+};
+
+Renderer.prototype.paragraph = function(text) {
+  return '<p>' + text + '</p>\n';
+};
+
+Renderer.prototype.table = function(header, body) {
+  return '<table>\n'
+    + '<thead>\n'
+    + header
+    + '</thead>\n'
+    + '<tbody>\n'
+    + body
+    + '</tbody>\n'
+    + '</table>\n';
+};
+
+Renderer.prototype.tablerow = function(content) {
+  return '<tr>\n' + content + '</tr>\n';
+};
+
+Renderer.prototype.tablecell = function(content, flags) {
+  var type = flags.header ? 'th' : 'td';
+  var tag = flags.align
+    ? '<' + type + ' style="text-align:' + flags.align + '">'
+    : '<' + type + '>';
+  return tag + content + '</' + type + '>\n';
+};
+
+// span level renderer
+Renderer.prototype.strong = function(text) {
+  return '<strong>' + text + '</strong>';
+};
+
+Renderer.prototype.em = function(text) {
+  return '<em>' + text + '</em>';
+};
+
+Renderer.prototype.codespan = function(text) {
+  return '<code>' + text + '</code>';
+};
+
+Renderer.prototype.br = function() {
+  return this.options.xhtml ? '<br/>' : '<br>';
+};
+
+Renderer.prototype.del = function(text) {
+  return '<del>' + text + '</del>';
+};
+
+Renderer.prototype.link = function(href, title, text) {
+  if (this.options.sanitize) {
+    try {
+      var prot = decodeURIComponent(unescape(href))
+        .replace(/[^\w:]/g, '')
+        .toLowerCase();
+    } catch (e) {
+      return '';
+    }
+    if (prot.indexOf('javascript:') === 0 || prot.indexOf('vbscript:') === 0) {
+      return '';
+    }
+  }
+  var out = '<a href="' + href + '"';
+  if (title) {
+    out += ' title="' + title + '"';
+  }
+  out += '>' + text + '</a>';
+  return out;
+};
+
+Renderer.prototype.image = function(href, title, text) {
+  var out = '<img src="' + href + '" alt="' + text + '"';
+  if (title) {
+    out += ' title="' + title + '"';
+  }
+  out += this.options.xhtml ? '/>' : '>';
+  return out;
+};
+
+Renderer.prototype.text = function(text) {
+  return text;
+};
+
+/**
+ * Parsing & Compiling
+ */
+
+function Parser(options) {
+  this.tokens = [];
+  this.token = null;
+  this.options = options || marked.defaults;
+  this.options.renderer = this.options.renderer || new Renderer;
+  this.renderer = this.options.renderer;
+  this.renderer.options = this.options;
+}
+
+/**
+ * Static Parse Method
+ */
+
+Parser.parse = function(src, options, renderer) {
+  var parser = new Parser(options, renderer);
+  return parser.parse(src);
+};
+
+/**
+ * Parse Loop
+ */
+
+Parser.prototype.parse = function(src) {
+  this.inline = new InlineLexer(src.links, this.options, this.renderer);
+  this.tokens = src.reverse();
+
+  var out = '';
+  while (this.next()) {
+    out += this.tok();
+  }
+
+  return out;
+};
+
+/**
+ * Next Token
+ */
+
+Parser.prototype.next = function() {
+  return this.token = this.tokens.pop();
+};
+
+/**
+ * Preview Next Token
+ */
+
+Parser.prototype.peek = function() {
+  return this.tokens[this.tokens.length - 1] || 0;
+};
+
+/**
+ * Parse Text Tokens
+ */
+
+Parser.prototype.parseText = function() {
+  var body = this.token.text;
+
+  while (this.peek().type === 'text') {
+    body += '\n' + this.next().text;
+  }
+
+  return this.inline.output(body);
+};
+
+/**
+ * Parse Current Token
+ */
+
+Parser.prototype.tok = function() {
+  switch (this.token.type) {
+    case 'space': {
+      return '';
+    }
+    case 'hr': {
+      return this.renderer.hr();
+    }
+    case 'heading': {
+      return this.renderer.heading(
+        this.inline.output(this.token.text),
+        this.token.depth,
+        this.token.text);
+    }
+    case 'code': {
+      return this.renderer.code(this.token.text,
+        this.token.lang,
+        this.token.escaped);
+    }
+    case 'table': {
+      var header = ''
+        , body = ''
+        , i
+        , row
+        , cell
+        , flags
+        , j;
+
+      // header
+      cell = '';
+      for (i = 0; i < this.token.header.length; i++) {
+        flags = { header: true, align: this.token.align[i] };
+        cell += this.renderer.tablecell(
+          this.inline.output(this.token.header[i]),
+          { header: true, align: this.token.align[i] }
+        );
+      }
+      header += this.renderer.tablerow(cell);
+
+      for (i = 0; i < this.token.cells.length; i++) {
+        row = this.token.cells[i];
+
+        cell = '';
+        for (j = 0; j < row.length; j++) {
+          cell += this.renderer.tablecell(
+            this.inline.output(row[j]),
+            { header: false, align: this.token.align[j] }
+          );
+        }
+
+        body += this.renderer.tablerow(cell);
+      }
+      return this.renderer.table(header, body);
+    }
+    case 'blockquote_start': {
+      var body = '';
+
+      while (this.next().type !== 'blockquote_end') {
+        body += this.tok();
+      }
+
+      return this.renderer.blockquote(body);
+    }
+    case 'list_start': {
+      var body = ''
+        , ordered = this.token.ordered;
+
+      while (this.next().type !== 'list_end') {
+        body += this.tok();
+      }
+
+      return this.renderer.list(body, ordered);
+    }
+    case 'list_item_start': {
+      var body = '';
+
+      while (this.next().type !== 'list_item_end') {
+        body += this.token.type === 'text'
+          ? this.parseText()
+          : this.tok();
+      }
+
+      return this.renderer.listitem(body);
+    }
+    case 'loose_item_start': {
+      var body = '';
+
+      while (this.next().type !== 'list_item_end') {
+        body += this.tok();
+      }
+
+      return this.renderer.listitem(body);
+    }
+    case 'html': {
+      var html = !this.token.pre && !this.options.pedantic
+        ? this.inline.output(this.token.text)
+        : this.token.text;
+      return this.renderer.html(html);
+    }
+    case 'paragraph': {
+      return this.renderer.paragraph(this.inline.output(this.token.text));
+    }
+    case 'text': {
+      return this.renderer.paragraph(this.parseText());
+    }
+  }
+};
+
+/**
+ * Helpers
+ */
+
+function escape(html, encode) {
+  return html
+    .replace(!encode ? /&(?!#?\w+;)/g : /&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function unescape(html) {
+	// explicitly match decimal, hex, and named HTML entities 
+  return html.replace(/&(#(?:\d+)|(?:#x[0-9A-Fa-f]+)|(?:\w+));?/g, function(_, n) {
+    n = n.toLowerCase();
+    if (n === 'colon') return ':';
+    if (n.charAt(0) === '#') {
+      return n.charAt(1) === 'x'
+        ? String.fromCharCode(parseInt(n.substring(2), 16))
+        : String.fromCharCode(+n.substring(1));
+    }
+    return '';
+  });
+}
+
+function replace(regex, opt) {
+  regex = regex.source;
+  opt = opt || '';
+  return function self(name, val) {
+    if (!name) return new RegExp(regex, opt);
+    val = val.source || val;
+    val = val.replace(/(^|[^\[])\^/g, '$1');
+    regex = regex.replace(name, val);
+    return self;
+  };
+}
+
+function noop() {}
+noop.exec = noop;
+
+function merge(obj) {
+  var i = 1
+    , target
+    , key;
+
+  for (; i < arguments.length; i++) {
+    target = arguments[i];
+    for (key in target) {
+      if (Object.prototype.hasOwnProperty.call(target, key)) {
+        obj[key] = target[key];
+      }
+    }
+  }
+
+  return obj;
+}
+
+
+/**
+ * Marked
+ */
+
+function marked(src, opt, callback) {
+  if (callback || typeof opt === 'function') {
+    if (!callback) {
+      callback = opt;
+      opt = null;
+    }
+
+    opt = merge({}, marked.defaults, opt || {});
+
+    var highlight = opt.highlight
+      , tokens
+      , pending
+      , i = 0;
+
+    try {
+      tokens = Lexer.lex(src, opt)
+    } catch (e) {
+      return callback(e);
+    }
+
+    pending = tokens.length;
+
+    var done = function(err) {
+      if (err) {
+        opt.highlight = highlight;
+        return callback(err);
+      }
+
+      var out;
+
+      try {
+        out = Parser.parse(tokens, opt);
+      } catch (e) {
+        err = e;
+      }
+
+      opt.highlight = highlight;
+
+      return err
+        ? callback(err)
+        : callback(null, out);
+    };
+
+    if (!highlight || highlight.length < 3) {
+      return done();
+    }
+
+    delete opt.highlight;
+
+    if (!pending) return done();
+
+    for (; i < tokens.length; i++) {
+      (function(token) {
+        if (token.type !== 'code') {
+          return --pending || done();
+        }
+        return highlight(token.text, token.lang, function(err, code) {
+          if (err) return done(err);
+          if (code == null || code === token.text) {
+            return --pending || done();
+          }
+          token.text = code;
+          token.escaped = true;
+          --pending || done();
+        });
+      })(tokens[i]);
+    }
+
+    return;
+  }
+  try {
+    if (opt) opt = merge({}, marked.defaults, opt);
+    return Parser.parse(Lexer.lex(src, opt), opt);
+  } catch (e) {
+    e.message += '\nPlease report this to https://github.com/chjj/marked.';
+    if ((opt || marked.defaults).silent) {
+      return '<p>An error occured:</p><pre>'
+        + escape(e.message + '', true)
+        + '</pre>';
+    }
+    throw e;
+  }
+}
+
+/**
+ * Options
+ */
+
+marked.options =
+marked.setOptions = function(opt) {
+  merge(marked.defaults, opt);
+  return marked;
+};
+
+marked.defaults = {
+  gfm: true,
+  tables: true,
+  breaks: false,
+  pedantic: false,
+  sanitize: false,
+  sanitizer: null,
+  mangle: true,
+  smartLists: false,
+  silent: false,
+  highlight: null,
+  langPrefix: 'lang-',
+  smartypants: false,
+  headerPrefix: '',
+  renderer: new Renderer,
+  xhtml: false
+};
+
+/**
+ * Expose
+ */
+
+marked.Parser = Parser;
+marked.parser = Parser.parse;
+
+marked.Renderer = Renderer;
+
+marked.Lexer = Lexer;
+marked.lexer = Lexer.lex;
+
+marked.InlineLexer = InlineLexer;
+marked.inlineLexer = InlineLexer.output;
+
+marked.parse = marked;
+
+if (true) {
+  module.exports = marked;
+} else if (typeof define === 'function' && define.amd) {
+  define(function() { return marked; });
+} else {
+  this.marked = marked;
+}
+
+}).call(function() {
+  return this || (typeof window !== 'undefined' ? window : global);
+}());
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -12745,7 +14263,7 @@ module.exports = ReactPropTypesSecret;
 
 }(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../_webpack@3.2.0@webpack/buildin/module.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/module.js")(module), __webpack_require__(/*! ./../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../_webpack@3.3.0@webpack/buildin/module.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/module.js")(module), __webpack_require__(/*! ./../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -21019,7 +22537,7 @@ var warning = __webpack_require__(/*! fbjs/lib/warning */ "./node_modules/_fbjs@
 
 var ReactComponentTreeHook;
 
-if (typeof process !== 'undefined' && Object({"NODE_ENV":"development","HTTPS":"false"}) && "development" === 'test') {
+if (typeof process !== 'undefined' && Object({"NODE_ENV":"development","HTTPS":"true"}) && "development" === 'test') {
   // Temporary hack.
   // Inline requires don't work well with Jest:
   // https://github.com/facebook/react/issues/7240
@@ -31449,7 +32967,7 @@ var warning = __webpack_require__(/*! fbjs/lib/warning */ "./node_modules/_fbjs@
 
 var ReactComponentTreeHook;
 
-if (typeof process !== 'undefined' && Object({"NODE_ENV":"development","HTTPS":"false"}) && "development" === 'test') {
+if (typeof process !== 'undefined' && Object({"NODE_ENV":"development","HTTPS":"true"}) && "development" === 'test') {
   // Temporary hack.
   // Inline requires don't work well with Jest:
   // https://github.com/facebook/react/issues/7240
@@ -31882,7 +33400,7 @@ var warning = __webpack_require__(/*! fbjs/lib/warning */ "./node_modules/_fbjs@
 
 var ReactComponentTreeHook;
 
-if (typeof process !== 'undefined' && Object({"NODE_ENV":"development","HTTPS":"false"}) && "development" === 'test') {
+if (typeof process !== 'undefined' && Object({"NODE_ENV":"development","HTTPS":"true"}) && "development" === 'test') {
   // Temporary hack.
   // Inline requires don't work well with Jest:
   // https://github.com/facebook/react/issues/7240
@@ -36161,7 +37679,7 @@ var warning = __webpack_require__(/*! fbjs/lib/warning */ "./node_modules/_fbjs@
 
 var ReactComponentTreeHook;
 
-if (typeof process !== 'undefined' && Object({"NODE_ENV":"development","HTTPS":"false"}) && "development" === 'test') {
+if (typeof process !== 'undefined' && Object({"NODE_ENV":"development","HTTPS":"true"}) && "development" === 'test') {
   // Temporary hack.
   // Inline requires don't work well with Jest:
   // https://github.com/facebook/react/issues/7240
@@ -36765,7 +38283,7 @@ if (hadRuntime) {
   }
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -37514,7 +39032,7 @@ if (hadRuntime) {
   typeof self === "object" ? self : this
 );
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -37589,7 +39107,7 @@ if ('_sockjs_onload' in global) {
   setTimeout(global._sockjs_onload, 1);
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -38173,7 +39691,7 @@ InfoIframe.prototype.close = function() {
 
 module.exports = InfoIframe;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -38299,7 +39817,7 @@ module.exports = global.location || {
 , hash: ''
 };
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -38694,7 +40212,7 @@ module.exports = function(availableTransports) {
   return SockJS;
 };
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -39397,7 +40915,7 @@ AbstractXHRObject.supportsCORS = cors;
 
 module.exports = AbstractXHRObject;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -39411,7 +40929,7 @@ module.exports = AbstractXHRObject;
 
 /* WEBPACK VAR INJECTION */(function(global) {module.exports = global.EventSource;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -39435,7 +40953,7 @@ if (Driver) {
 	module.exports = undefined;
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -39715,7 +41233,7 @@ JsonPTransport.needBody = true;
 
 module.exports = JsonPTransport;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -39924,7 +41442,7 @@ module.exports = function(transport) {
   return IframeWrapTransport;
 };
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -40229,7 +41747,7 @@ HtmlfileReceiver.enabled = HtmlfileReceiver.htmlfileEnabled || iframeUtils.ifram
 
 module.exports = HtmlfileReceiver;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -40426,7 +41944,7 @@ JsonpReceiver.prototype._createScript = function(url) {
 
 module.exports = JsonpReceiver;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -40622,7 +42140,7 @@ module.exports = function(url, payload, callback) {
   };
 };
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -40739,7 +42257,7 @@ XDRObject.enabled = !!(global.XDomainRequest && browser.hasDomain());
 
 module.exports = XDRObject;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -41128,7 +42646,7 @@ XhrStreamingTransport.needBody = !!global.document;
 
 module.exports = XhrStreamingTransport;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -41159,7 +42677,7 @@ if (global.crypto && global.crypto.getRandomValues) {
   };
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -41200,7 +42718,7 @@ module.exports = {
   }
 };
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -41350,7 +42868,7 @@ if (!isChromePackagedApp) {
   module.exports.attachEvent('unload', unloadTriggered);
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -41550,7 +43068,7 @@ if (global.document) {
     typeof global.postMessage === 'object') && (!browser.isKonqueror());
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -41582,7 +43100,7 @@ var logObject = {};
 
 module.exports = logObject;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -42323,7 +43841,7 @@ var hasFlag = function (flag) {
 };
 
 module.exports = (function () {
-	if ('FORCE_COLOR' in Object({"NODE_ENV":"development","HTTPS":"false"})) {
+	if ('FORCE_COLOR' in Object({"NODE_ENV":"development","HTTPS":"true"})) {
 		return true;
 	}
 
@@ -42348,15 +43866,15 @@ module.exports = (function () {
 		return true;
 	}
 
-	if ('COLORTERM' in Object({"NODE_ENV":"development","HTTPS":"false"})) {
+	if ('COLORTERM' in Object({"NODE_ENV":"development","HTTPS":"true"})) {
 		return true;
 	}
 
-	if (Object({"NODE_ENV":"development","HTTPS":"false"}).TERM === 'dumb') {
+	if (Object({"NODE_ENV":"development","HTTPS":"true"}).TERM === 'dumb') {
 		return false;
 	}
 
-	if (/^screen|^xterm|^vt100|color|ansi|cygwin|linux/i.test(Object({"NODE_ENV":"development","HTTPS":"false"}).TERM)) {
+	if (/^screen|^xterm|^vt100|color|ansi|cygwin|linux/i.test(Object({"NODE_ENV":"development","HTTPS":"true"}).TERM)) {
 		return true;
 	}
 
@@ -42784,7 +44302,7 @@ URL.qs = qs;
 
 module.exports = URL;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../_webpack@3.2.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js")))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../_webpack@3.3.0@webpack/buildin/global.js */ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -43562,7 +45080,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./node_modules/_webpack@3.2.0@webpack/buildin/amd-options.js":
+/***/ "./node_modules/_webpack@3.3.0@webpack/buildin/amd-options.js":
 /*!****************************************!*\
   !*** (webpack)/buildin/amd-options.js ***!
   \****************************************/
@@ -43577,7 +45095,7 @@ module.exports = __webpack_amd_options__;
 
 /***/ }),
 
-/***/ "./node_modules/_webpack@3.2.0@webpack/buildin/global.js":
+/***/ "./node_modules/_webpack@3.3.0@webpack/buildin/global.js":
 /*!***********************************!*\
   !*** (webpack)/buildin/global.js ***!
   \***********************************/
@@ -43610,7 +45128,7 @@ module.exports = g;
 
 /***/ }),
 
-/***/ "./node_modules/_webpack@3.2.0@webpack/buildin/module.js":
+/***/ "./node_modules/_webpack@3.3.0@webpack/buildin/module.js":
 /*!***********************************!*\
   !*** (webpack)/buildin/module.js ***!
   \***********************************/
@@ -43709,6 +45227,7 @@ module.exports = {
 		"codemirror": "^5.27.4",
 		"jquery": "^3.2.1",
 		"lodash": "^4.17.4",
+		"marked": "^0.3.6",
 		"qrcode": "^0.8.2",
 		"react": "^15.6.1",
 		"react-dom": "^15.6.1"
@@ -43904,7 +45423,7 @@ function destroyErrorOverlay() {
 // Connect to WebpackDevServer via a socket.
 var connection = new SockJS(
     url.format({
-        protocol:  false ? 'https' : 'http',
+        protocol:  true ? 'https' : 'http',
         hostname: 'localhost',
         port: parseInt(pkg.port) || 3666,
         // Hardcoded in WebpackDevServer
@@ -43916,7 +45435,7 @@ var connection = new SockJS(
 // to avoid spamming the console. Disconnect usually happens
 // when developer stops the server.
 connection.onclose = function() {
-    if (window.location.protocol === 'https:' && "false" !== 'true' ) {
+    if (window.location.protocol === 'https:' && "true" !== 'true' ) {
         console.warn(
             '当前网站为https页面，请检查是否启动https开发服务器。尝试运行 "HTTPS=true npm start" 后，手动重载一次扩展再试！'
         );
@@ -44154,7 +45673,7 @@ function tryApplyUpdates(onHotUpdateSuccess) {
 
 /***/ }),
 
-/***/ 2:
+/***/ 3:
 /*!*************************************************************!*\
   !*** multi ./scripts/webpackHotDevClient.js ./app/popup.js ***!
   \*************************************************************/
@@ -44162,8 +45681,8 @@ function tryApplyUpdates(onHotUpdateSuccess) {
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/qiqibopy/develop/chrome-extension-development/scripts/webpackHotDevClient.js */"./scripts/webpackHotDevClient.js");
-module.exports = __webpack_require__(/*! /Users/qiqibopy/develop/chrome-extension-development/app/popup.js */"./app/popup.js");
+__webpack_require__(/*! /Users/qiqiboy/develop/chrome-extension-development/scripts/webpackHotDevClient.js */"./scripts/webpackHotDevClient.js");
+module.exports = __webpack_require__(/*! /Users/qiqiboy/develop/chrome-extension-development/app/popup.js */"./app/popup.js");
 
 
 /***/ })

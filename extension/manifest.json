@@ -24,7 +24,8 @@
   }],
   "options_page": "popup.html",
   "web_accessible_resources": [
-    "icons/icon_48.png"
+    "icons/icon_48.png",
+    "md.skin.github.css"
   ],
   "background": {
     "scripts": ["dist/js/background.js"]

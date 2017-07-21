@@ -3,6 +3,7 @@ import Options from '../../components/PageOptions';
 import Github from '../../components/PageGithub';
 import Execute from '../../components/PageExecute';
 import WorkSpace from '../../components/PageWorkSpace';
+import Markdown from '../../components/PageMarkdown';
 
 const tabData = [{
         id: 'options',
@@ -23,6 +24,11 @@ const tabData = [{
         id: 'workspace',
         title: '工作区',
         component: WorkSpace
+    },
+    {
+        id: 'markdown',
+        title: 'Markdown',
+        component: Markdown
     }
 ];
 

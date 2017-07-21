@@ -11,13 +11,15 @@ class Execute extends Component {
     state = {}
 
     async componentDidMount() {
-        const editor = await import('codemirror'); //异步载入编辑器代码
-        await import('codemirror/mode/javascript/javascript');
-        await import('codemirror/mode/css/css');
-        await import('codemirror/lib/codemirror.css'); //载入编辑器样式
-        await import('codemirror/theme/solarized.css') //载入编辑器主题
+        const [Editor] = await Promise.all([
+            import('codemirror'), //异步载入编辑器代码
+            import('codemirror/mode/javascript/javascript'),
+            import('codemirror/mode/css/css'),
+            import('codemirror/lib/codemirror.css'), //载入编辑器样式
+            import('codemirror/theme/solarized.css') //载入编辑器主题
+        ]);
 
-        this.jsEditor = new editor(this.refs.jseditor, {
+        this.jsEditor = new Editor(this.refs.jseditor, {
             mode: 'javascript',
             lineNumbers: true,
             theme: 'solarized',
@@ -26,7 +28,7 @@ document.body.style.background = 'red';
 console.log('executed!');`
         });
 
-        this.cssEditor = new editor(this.refs.csseditor, {
+        this.cssEditor = new Editor(this.refs.csseditor, {
             mode: 'css',
             lineNumbers: true,
             theme: 'solarized',
