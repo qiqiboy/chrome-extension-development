@@ -10,13 +10,14 @@ const previewPage = chrome.runtime.getURL('markdown.html');
 chrome.runtime.onMessage.addListener(async({ action, html }) => {
     if (action === 'markdown') {
         const curTab = await getCurrent();
+        const host = URL.parse(curTab.url).host;
 
-        if (URL.parse(curTab.url).host === 'github.com') {
+        if (host === 'github.com') {
             chrome.tabs.executeScript(curTab.id, {
                 code: createPageCode(html)
             });
         } else {
-            const tab = await findMyTab();
+            const tab = await findMyTab(host === chrome.runtime.id);
             chrome.tabs.sendMessage(tab.id, {
                 action,
                 html
@@ -43,16 +44,23 @@ function createPageCode(html) {
     return codes.join('\n');
 }
 
-function findMyTab() {
+function findMyTab(quiet) {
     return new Promise(resolve =>
         chrome.tabs.query({
             url: previewPage
-        }, function(tabs) {
-            if (tabs.length) {
-                resolve(tabs[0]);
+        }, function([tab]) {
+            if (tab) {
+                resolve(tab);
+
+                if (!tab.active && !quiet) {
+                    chrome.tabs.update(tab.id, {
+                        active: true
+                    });
+                }
             } else {
-                chrome.tabs.create({
-                    url: previewPage
+                chrome.tabs[quiet ? 'create' : 'update']({
+                    url: previewPage,
+                    active: !quiet
                 }, tab => {
                     setTimeout(() => resolve(tab), 500);
                 });
