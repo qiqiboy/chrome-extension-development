@@ -84,7 +84,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "035f1978b4182c900e84"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "7d38a104c65855130bd1"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -3567,7 +3567,7 @@ var copyCurWindow = function copyCurWindow() {
 /***/ (function(module, exports) {
 
 module.exports = {
-	"version": "1.2.0",
+	"version": "1.3.0",
 	"manifest_version": 2,
 	"name": "Chrome extension development",
 	"description": "chrome扩展开发环境示例",

@@ -3,7 +3,7 @@ chrome扩展开发功能示范与开发环境配置。该项目包含了chrome�
 
 1. javascript语法支持`ES6+`(babel-preset-latest)、css支持`sass`预编译器。
 2. 支持`React-jsx`，自定义页面（`option`、`browser action`等）和`content scripts`都可以使用react构建ui。
-3. 代码变动支持时时重载扩展runtime、`HMR`(Hot Moudule Replacement)。了解这是[如何实现的？][9]
+3. 代码变动支持时时重载扩展runtime、`HMR`(Hot Moudule Replacement)。了解这是[如何实现的？][19]
 4. 支持eslint代码预检查，可以在页面与终端控制台显示错误与警告。
 
 ![][5]
@@ -60,6 +60,11 @@ chrome扩展开发功能示范与开发环境配置。该项目包含了chrome�
 
 * 地址栏输入 `gh`，然后空格，就会激活插件的omnibox功能，然后根据提示快速访问开发者主页、项目，或者直接回车搜索github。参考：[modules/omnibox][18]
 
+#### Makrdown编辑器
+![][9]
+
+* 可以编辑时实时预览文档效果。参考：[markdown.js][20]、[components/PageMarkdown/index.js][21]、[components/PageMarkdown/render.js][22]
+
 #### 页面设置
 
 ![][0]
@@ -77,7 +82,7 @@ chrome扩展开发功能示范与开发环境配置。该项目包含了chrome�
 [6]: https://user-images.githubusercontent.com/3774036/28240609-b75342c6-69b7-11e7-86c4-9bc2519c50b0.png "全屏2"
 [7]: https://user-images.githubusercontent.com/3774036/28306210-0d71f31c-6bd1-11e7-8e73-2260ecb63324.png "omnibox"
 [8]: https://user-images.githubusercontent.com/3774036/28369828-48d5c1cc-6ccb-11e7-91bd-2d7a6ee6dba9.png "https"
-[9]:https://github.com/qiqiboy/chrome-extension-development/issues/2 "HMR"
+[9]: https://user-images.githubusercontent.com/3774036/28461631-10dbda24-6e4a-11e7-9dfd-0b681cd41cf4.png "markdown"
 
 [10]: https://github.com/qiqiboy/chrome-extension-development/blob/master/app/background.js
 [11]: https://github.com/qiqiboy/chrome-extension-development/blob/master/app/utils/animateIcon/index.js
@@ -88,6 +93,10 @@ chrome扩展开发功能示范与开发环境配置。该项目包含了chrome�
 [16]: https://github.com/qiqiboy/chrome-extension-development/blob/master/app/components/PageWorkSpace/index.js
 [17]: https://github.com/qiqiboy/chrome-extension-development/blob/master/app/modules/App/search.js
 [18]: https://github.com/qiqiboy/chrome-extension-development/blob/master/app/modules/omnibox/index.js
+[19]: https://github.com/qiqiboy/chrome-extension-development/issues/2
+[20]: https://github.com/qiqiboy/chrome-extension-development/blob/master/app/markdown.js
+[21]: https://github.com/qiqiboy/chrome-extension-development/blob/master/app/components/PageMarkdown/index.js
+[22]: https://github.com/qiqiboy/chrome-extension-development/blob/master/app/components/PageMarkdown/render.js
 
 #### Github
 
