@@ -63,7 +63,10 @@ chrome扩展开发功能示范与开发环境配置。该项目包含了chrome�
 #### Makrdown编辑器
 ![][9]
 
-* 可以编辑时实时预览文档效果。参考：[markdown.js][20]、[components/PageMarkdown/index.js][21]、[components/PageMarkdown/render.js][22]
+* 可以编辑时实时预览文档效果。
+* 预览页面位置可以实时跟随编辑器位置滚动。
+
+参考：[markdown.js][20]、[components/PageMarkdown/index.js][21]、[components/PageMarkdown/render.js][22]
 
 #### 页面设置
 

@@ -25,19 +25,44 @@ class Markdown extends Component {
         });
 
         this.editor.on('change', this.preview);
+        this.editor.on('cursorActivity', this.preview)
     }
 
-    preview = async () => {
-        const code = this.editor.getValue();
-        const html = marked(code);
+    preview = (() => {
+        let lastLine = 0,
+            lastTime = 0,
+            timer;
 
-        chrome.runtime.sendMessage({
-            action: 'markdown',
-            html
-        });
+        return () => {
+            const now = Date.now();
 
-        localStorage.setItem(KEY, code);
-    }
+            clearTimeout(timer);
+            if (now - lastTime < 500) {
+                timer = setTimeout(this.preview, 500 - now + lastTime);
+            } else {
+                let code = this.editor.getValue(),
+                    curLine;
+
+                localStorage.setItem(KEY, code);
+                try {
+                    curLine = this.editor.curOp.scrollToPos.to.line;
+
+                    const allLines = code.split('\n');
+                    allLines.splice(curLine, 1, allLines[curLine] + '<div id="currrent-position"></div>');
+                    code = allLines.join('\n');
+                } catch (e) {}
+
+                const html = marked(code);
+
+                chrome.runtime.sendMessage({
+                    action: 'markdown',
+                    html
+                });
+
+                lastTime = now;
+            }
+        }
+    })();
 
     render() {
 

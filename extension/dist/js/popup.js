@@ -84,7 +84,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "194887aed65f6996bf50"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "f2322851cbc56a3e5073"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -1830,8 +1830,7 @@ var Markdown = function (_Component) {
     _inherits(Markdown, _Component);
 
     function Markdown() {
-        var _ref,
-            _this2 = this;
+        var _ref;
 
         var _temp, _this, _ret;
 
@@ -1841,52 +1840,63 @@ var Markdown = function (_Component) {
             args[_key] = arguments[_key];
         }
 
-        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Markdown.__proto__ || Object.getPrototypeOf(Markdown)).call.apply(_ref, [this].concat(args))), _this), _this.preview = _asyncToGenerator(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-            var code, html;
-            return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
-                while (1) {
-                    switch (_context.prev = _context.next) {
-                        case 0:
-                            code = _this.editor.getValue();
-                            html = __WEBPACK_IMPORTED_MODULE_2_marked___default()(code);
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Markdown.__proto__ || Object.getPrototypeOf(Markdown)).call.apply(_ref, [this].concat(args))), _this), _this.preview = function () {
+            var lastLine = 0,
+                lastTime = 0,
+                timer = void 0;
 
+            return function () {
+                var now = Date.now();
 
-                            chrome.runtime.sendMessage({
-                                action: 'markdown',
-                                html: html
-                            });
+                clearTimeout(timer);
+                if (now - lastTime < 500) {
+                    timer = setTimeout(_this.preview, 500 - now + lastTime);
+                } else {
+                    var code = _this.editor.getValue(),
+                        curLine = void 0;
 
-                            localStorage.setItem(KEY, code);
+                    localStorage.setItem(KEY, code);
+                    try {
+                        curLine = _this.editor.curOp.scrollToPos.to.line;
 
-                        case 4:
-                        case 'end':
-                            return _context.stop();
-                    }
+                        var allLines = code.split('\n');
+                        allLines.splice(curLine, 1, allLines[curLine] + '<div id="currrent-position"></div>');
+                        code = allLines.join('\n');
+                    } catch (e) {}
+
+                    var html = __WEBPACK_IMPORTED_MODULE_2_marked___default()(code);
+
+                    chrome.runtime.sendMessage({
+                        action: 'markdown',
+                        html: html
+                    });
+
+                    lastTime = now;
                 }
-            }, _callee, _this2);
-        })), _temp), _possibleConstructorReturn(_this, _ret);
+            };
+        }(), _temp), _possibleConstructorReturn(_this, _ret);
     }
 
     _createClass(Markdown, [{
         key: 'componentDidMount',
         value: function () {
-            var _ref3 = _asyncToGenerator(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
-                var _ref4, _ref5, Editor;
+            var _ref2 = _asyncToGenerator(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+                var _ref3, _ref4, Editor;
 
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
                     while (1) {
-                        switch (_context2.prev = _context2.next) {
+                        switch (_context.prev = _context.next) {
                             case 0:
-                                _context2.next = 2;
+                                _context.next = 2;
                                 return Promise.all([__webpack_require__.e/* import() */(2).then(__webpack_require__.bind(null, /*! codemirror */ "./node_modules/_codemirror@5.27.4@codemirror/lib/codemirror.js")), //异步载入编辑器代码
                                 __webpack_require__.e/* import() */(3).then(__webpack_require__.bind(null, /*! codemirror/mode/markdown/markdown */ "./node_modules/_codemirror@5.27.4@codemirror/mode/markdown/markdown.js")), __webpack_require__.e/* import() */(1).then(__webpack_require__.bind(null, /*! codemirror/lib/codemirror.css */ "./node_modules/_codemirror@5.27.4@codemirror/lib/codemirror.css")), //载入编辑器样式
                                 __webpack_require__.e/* import() */(0).then(__webpack_require__.bind(null, /*! codemirror/theme/solarized.css */ "./node_modules/_codemirror@5.27.4@codemirror/theme/solarized.css")) //载入编辑器主题
                                 ]);
 
                             case 2:
-                                _ref4 = _context2.sent;
-                                _ref5 = _slicedToArray(_ref4, 1);
-                                Editor = _ref5[0];
+                                _ref3 = _context.sent;
+                                _ref4 = _slicedToArray(_ref3, 1);
+                                Editor = _ref4[0];
 
 
                                 this.editor = new Editor(this.refs.editor, {
@@ -1897,17 +1907,18 @@ var Markdown = function (_Component) {
                                 });
 
                                 this.editor.on('change', this.preview);
+                                this.editor.on('cursorActivity', this.preview);
 
-                            case 7:
+                            case 8:
                             case 'end':
-                                return _context2.stop();
+                                return _context.stop();
                         }
                     }
-                }, _callee2, this);
+                }, _callee, this);
             }));
 
             function componentDidMount() {
-                return _ref3.apply(this, arguments);
+                return _ref2.apply(this, arguments);
             }
 
             return componentDidMount;
@@ -1920,13 +1931,13 @@ var Markdown = function (_Component) {
                 'div',
                 { className: 'markdown', __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 45
+                        lineNumber: 70
                     },
                     __self: this
                 },
                 __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('div', { ref: 'editor', __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 46
+                        lineNumber: 71
                     },
                     __self: this
                 }),
@@ -1934,7 +1945,7 @@ var Markdown = function (_Component) {
                     'button',
                     { className: 'btn btn-success', onClick: this.preview, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 47
+                            lineNumber: 72
                         },
                         __self: this
                     },
