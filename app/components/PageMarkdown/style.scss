@@ -3,7 +3,8 @@
         margin-top: 10px;
     }
     .CodeMirror{
-        min-height: 300px;
-        height: auto;
+        @media (min-width: 800px) {
+            height: auto;
+        }
     }
 }

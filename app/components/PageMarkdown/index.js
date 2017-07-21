@@ -29,8 +29,7 @@ class Markdown extends Component {
     }
 
     preview = (() => {
-        let lastLine = 0,
-            lastTime = 0,
+        let lastTime = 0,
             timer;
 
         return () => {
@@ -49,6 +48,7 @@ class Markdown extends Component {
 
                     const allLines = code.split('\n');
                     allLines.splice(curLine, 1, allLines[curLine] + '<div id="currrent-position"></div>');
+
                     code = allLines.join('\n');
                 } catch (e) {}
 

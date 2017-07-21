@@ -84,7 +84,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "f2322851cbc56a3e5073"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "dca641f50abe05ec7738"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -1841,8 +1841,7 @@ var Markdown = function (_Component) {
         }
 
         return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Markdown.__proto__ || Object.getPrototypeOf(Markdown)).call.apply(_ref, [this].concat(args))), _this), _this.preview = function () {
-            var lastLine = 0,
-                lastTime = 0,
+            var lastTime = 0,
                 timer = void 0;
 
             return function () {
@@ -1861,6 +1860,7 @@ var Markdown = function (_Component) {
 
                         var allLines = code.split('\n');
                         allLines.splice(curLine, 1, allLines[curLine] + '<div id="currrent-position"></div>');
+
                         code = allLines.join('\n');
                     } catch (e) {}
 
@@ -7623,7 +7623,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/_css-lo
 
 
 // module
-exports.push([module.i, ".markdown .btn {\n  margin-top: 10px; }\n\n.markdown .CodeMirror {\n  min-height: 300px;\n  height: auto; }\n", ""]);
+exports.push([module.i, ".markdown .btn {\n  margin-top: 10px; }\n\n@media (min-width: 800px) {\n  .markdown .CodeMirror {\n    height: auto; } }\n", ""]);
 
 // exports
 
