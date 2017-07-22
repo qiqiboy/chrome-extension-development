@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import marked from 'marked';
+import * as mdUtil from '../../utils/mdUtil';
 import './style.scss';
 
 const chrome = window.chrome;
-const KEY = 'chrome-extension-development-markdown';
 
 class Markdown extends Component {
     async componentDidMount() {
@@ -18,14 +18,12 @@ class Markdown extends Component {
             mode: 'markdown',
             lineNumbers: true,
             theme: 'solarized',
-            value: localStorage.getItem(KEY) || `Markdown编辑器
-=====
-直接输入内容将会在当前tab预览效果
-`
+            value: mdUtil.get()
         });
 
         this.editor.on('change', this.preview);
-        this.editor.on('focus', this.preview);
+
+        this.preview();
     }
 
     preview = () => {
@@ -37,7 +35,7 @@ class Markdown extends Component {
             html
         });
 
-        localStorage.setItem(KEY, code);
+        mdUtil.set(code);
     }
 
     splitScreen = () => {

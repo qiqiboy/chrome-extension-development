@@ -84,7 +84,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "6bd3e9900b280200719f"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "db6cf436efc65c53593f"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -1802,8 +1802,9 @@ if(true) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_marked__ = __webpack_require__(/*! marked */ "./node_modules/_marked@0.3.6@marked/lib/marked.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_marked___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_marked__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__style_scss__ = __webpack_require__(/*! ./style.scss */ "./app/components/PageMarkdown/style.scss");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__style_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__style_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_mdUtil__ = __webpack_require__(/*! ../../utils/mdUtil */ "./app/utils/mdUtil.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__style_scss__ = __webpack_require__(/*! ./style.scss */ "./app/components/PageMarkdown/style.scss");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__style_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__style_scss__);
 
 var _jsxFileName = '/Users/qiqibopy/develop/chrome-extension-development/app/components/PageMarkdown/index.js';
 
@@ -1823,8 +1824,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+
 var chrome = window.chrome;
-var KEY = 'chrome-extension-development-markdown';
 
 var Markdown = function (_Component) {
     _inherits(Markdown, _Component);
@@ -1849,7 +1850,7 @@ var Markdown = function (_Component) {
                 html: html
             });
 
-            localStorage.setItem(KEY, code);
+            __WEBPACK_IMPORTED_MODULE_3__utils_mdUtil__["b" /* set */](code);
         }, _this.splitScreen = function () {
             var code = _this.editor.getValue();
             var html = __WEBPACK_IMPORTED_MODULE_2_marked___default()(code);
@@ -1887,11 +1888,12 @@ var Markdown = function (_Component) {
                                     mode: 'markdown',
                                     lineNumbers: true,
                                     theme: 'solarized',
-                                    value: localStorage.getItem(KEY) || 'Markdown\u7F16\u8F91\u5668\n=====\n\u76F4\u63A5\u8F93\u5165\u5185\u5BB9\u5C06\u4F1A\u5728\u5F53\u524Dtab\u9884\u89C8\u6548\u679C\n'
+                                    value: __WEBPACK_IMPORTED_MODULE_3__utils_mdUtil__["a" /* get */]()
                                 });
 
                                 this.editor.on('change', this.preview);
-                                this.editor.on('focus', this.preview);
+
+                                this.preview();
 
                             case 8:
                             case 'end':
@@ -1915,13 +1917,13 @@ var Markdown = function (_Component) {
                 'div',
                 { className: 'markdown', __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 56
+                        lineNumber: 54
                     },
                     __self: this
                 },
                 __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('div', { ref: 'editor', __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 57
+                        lineNumber: 55
                     },
                     __self: this
                 }),
@@ -1929,7 +1931,7 @@ var Markdown = function (_Component) {
                     'button',
                     { className: 'btn btn-success', onClick: this.splitScreen, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 58
+                            lineNumber: 56
                         },
                         __self: this
                     },
@@ -1939,7 +1941,7 @@ var Markdown = function (_Component) {
                     'div',
                     { className: 'readme', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 59
+                            lineNumber: 57
                         },
                         __self: this
                     },
@@ -3222,6 +3224,30 @@ Object(__WEBPACK_IMPORTED_MODULE_1_react_dom__["render"])(__WEBPACK_IMPORTED_MOD
   },
   __self: this
 }), document.querySelector('#root'));
+
+/***/ }),
+
+/***/ "./app/utils/mdUtil.js":
+/*!*****************************!*\
+  !*** ./app/utils/mdUtil.js ***!
+  \*****************************/
+/*! exports provided: KEY, get, set */
+/*! exports used: get, set */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export KEY */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return get; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return set; });
+var KEY = 'chrome-extension-development-markdown';
+
+var get = function get() {
+  return localStorage.getItem('chrome-extension-development-markdown') || 'Markdown\u7F16\u8F91\u5668\n=====\n\u76F4\u63A5\u8F93\u5165\u5185\u5BB9\u5C06\u4F1A\u5728\u5F53\u524Dtab\u9884\u89C8\u6548\u679C\n';
+};
+
+var set = function set(code) {
+  return localStorage.setItem(KEY, code);
+};
 
 /***/ }),
 
