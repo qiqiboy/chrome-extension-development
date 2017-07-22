@@ -35,7 +35,9 @@ chrome.runtime.onMessage.addListener(async ({ action, html }) => {
             top: screen.availTop,
             left: screen.availLeft,
             width: halfWidth,
-            height: screen.availHeight
+            height: screen.availHeight,
+            state: 'normal',
+            focused: true
         }
 
         //如果预览与编辑页面是同一个窗口，则要将它们分开到不同的窗口
@@ -43,18 +45,12 @@ chrome.runtime.onMessage.addListener(async ({ action, html }) => {
         if (previewTab.windowId === editTab.windowId) {
             await new Promise(resolve => chrome.windows.create({
                 tabId: previewTab.id,
-                state: 'normal',
                 ...previewRect
-            }, win => {
-                setTimeout(() => resolve(win), 500);
-            }));
+            }, resolve));
         }
 
         //将预览窗口移动到左边
-        chrome.windows.update(previewTab.windowId, {
-            state: 'normal',
-            ...previewRect
-        });
+        chrome.windows.update(previewTab.windowId, previewRect);
 
         //将编辑窗口移动到右边
         chrome.windows.update(editTab.windowId, {
