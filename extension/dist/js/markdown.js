@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "dca641f50abe05ec7738"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "82abc5f76c3a356248cc"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -724,14 +724,6 @@ window.chrome.runtime.onMessage.addListener(function (_ref) {
 
     if (action === 'markdown') {
         document.body.innerHTML = html;
-
-        var positionNode = document.querySelector('#currrent-position');
-
-        if (positionNode) {
-            setTimeout(function () {
-                return window.scrollTo(0, positionNode.getBoundingClientRect().top - 100);
-            }, 50);
-        }
     }
 });
 

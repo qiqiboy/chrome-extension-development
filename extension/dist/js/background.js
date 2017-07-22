@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "dca641f50abe05ec7738"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "82abc5f76c3a356248cc"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -933,12 +933,14 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 var chrome = window.chrome;
 var skinUrl = chrome.runtime.getURL('md.skin.github.css');
 var previewPage = chrome.runtime.getURL('markdown.html');
+var editPage = chrome.runtime.getURL('popup.html');
+var screen = window.screen;
 
 chrome.runtime.onMessage.addListener(function () {
     var _ref2 = _asyncToGenerator(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(_ref) {
         var action = _ref.action,
             html = _ref.html;
-        var curTab, host, tab;
+        var curTab, host, tab, previewTab, editTab, halfWidth, previewRect;
         return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
             while (1) {
                 switch (_context.prev = _context.next) {
@@ -968,7 +970,7 @@ chrome.runtime.onMessage.addListener(function () {
 
                     case 9:
                         _context.next = 11;
-                        return findMyTab(host === chrome.runtime.id);
+                        return findTheTab(previewPage, host === chrome.runtime.id);
 
                     case 11:
                         tab = _context.sent;
@@ -979,6 +981,68 @@ chrome.runtime.onMessage.addListener(function () {
                         });
 
                     case 13:
+                        if (!(action === 'markdown-edit-mode')) {
+                            _context.next = 28;
+                            break;
+                        }
+
+                        _context.next = 16;
+                        return findTheTab(previewPage);
+
+                    case 16:
+                        previewTab = _context.sent;
+                        _context.next = 19;
+                        return findTheTab(editPage);
+
+                    case 19:
+                        editTab = _context.sent;
+                        halfWidth = screen.availWidth / 2;
+                        previewRect = {
+                            top: screen.availTop,
+                            left: screen.availLeft,
+                            width: halfWidth,
+                            height: screen.availHeight
+
+                            //如果预览与编辑页面是同一个窗口，则要将它们分开到不同的窗口
+                            //我们选择将预览窗口独立出来
+                        };
+
+                        if (!(previewTab.windowId === editTab.windowId)) {
+                            _context.next = 25;
+                            break;
+                        }
+
+                        _context.next = 25;
+                        return new Promise(function (resolve) {
+                            return chrome.windows.create(Object.assign({
+                                tabId: previewTab.id
+                            }, previewRect), function (win) {
+                                setTimeout(function () {
+                                    return resolve(win);
+                                }, 500);
+                            });
+                        });
+
+                    case 25:
+
+                        //将预览窗口移动到左边
+                        chrome.windows.update(previewTab.windowId, previewRect);
+
+                        //将编辑窗口移动到右边
+                        chrome.windows.update(editTab.windowId, {
+                            top: screen.availTop,
+                            left: screen.availLeft + halfWidth,
+                            width: halfWidth,
+                            height: screen.availHeight
+                        });
+
+                        //触发一次渲染
+                        chrome.tabs.sendMessage(previewTab.id, {
+                            action: 'markdown',
+                            html: html
+                        });
+
+                    case 28:
                     case 'end':
                         return _context.stop();
                 }
@@ -1000,10 +1064,10 @@ function createPageCode(html) {
     return codes.join('\n');
 }
 
-function findMyTab(quiet) {
+function findTheTab(url, quiet) {
     return new Promise(function (resolve) {
         return chrome.tabs.query({
-            url: previewPage
+            url: url
         }, function (_ref3) {
             var _ref4 = _slicedToArray(_ref3, 1),
                 tab = _ref4[0];
@@ -1017,8 +1081,8 @@ function findMyTab(quiet) {
                     });
                 }
             } else {
-                chrome.tabs[quiet ? 'create' : 'update']({
-                    url: previewPage,
+                chrome.tabs.create({
+                    url: url,
                     active: !quiet
                 }, function (tab) {
                     setTimeout(function () {

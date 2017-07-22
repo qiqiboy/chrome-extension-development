@@ -84,7 +84,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "dca641f50abe05ec7738"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "82abc5f76c3a356248cc"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -1841,40 +1841,24 @@ var Markdown = function (_Component) {
         }
 
         return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Markdown.__proto__ || Object.getPrototypeOf(Markdown)).call.apply(_ref, [this].concat(args))), _this), _this.preview = function () {
-            var lastTime = 0,
-                timer = void 0;
+            var code = _this.editor.getValue();
+            var html = __WEBPACK_IMPORTED_MODULE_2_marked___default()(code);
 
-            return function () {
-                var now = Date.now();
+            chrome.runtime.sendMessage({
+                action: 'markdown',
+                html: html
+            });
 
-                clearTimeout(timer);
-                if (now - lastTime < 500) {
-                    timer = setTimeout(_this.preview, 500 - now + lastTime);
-                } else {
-                    var code = _this.editor.getValue(),
-                        curLine = void 0;
+            localStorage.setItem(KEY, code);
+        }, _this.splitScreen = function () {
+            var code = _this.editor.getValue();
+            var html = __WEBPACK_IMPORTED_MODULE_2_marked___default()(code);
 
-                    localStorage.setItem(KEY, code);
-                    try {
-                        curLine = _this.editor.curOp.scrollToPos.to.line;
-
-                        var allLines = code.split('\n');
-                        allLines.splice(curLine, 1, allLines[curLine] + '<div id="currrent-position"></div>');
-
-                        code = allLines.join('\n');
-                    } catch (e) {}
-
-                    var html = __WEBPACK_IMPORTED_MODULE_2_marked___default()(code);
-
-                    chrome.runtime.sendMessage({
-                        action: 'markdown',
-                        html: html
-                    });
-
-                    lastTime = now;
-                }
-            };
-        }(), _temp), _possibleConstructorReturn(_this, _ret);
+            chrome.runtime.sendMessage({
+                action: 'markdown-edit-mode',
+                html: html
+            });
+        }, _temp), _possibleConstructorReturn(_this, _ret);
     }
 
     _createClass(Markdown, [{
@@ -1907,7 +1891,7 @@ var Markdown = function (_Component) {
                                 });
 
                                 this.editor.on('change', this.preview);
-                                this.editor.on('cursorActivity', this.preview);
+                                this.editor.on('focus', this.preview);
 
                             case 8:
                             case 'end':
@@ -1931,25 +1915,35 @@ var Markdown = function (_Component) {
                 'div',
                 { className: 'markdown', __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 70
+                        lineNumber: 56
                     },
                     __self: this
                 },
                 __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('div', { ref: 'editor', __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 71
+                        lineNumber: 57
                     },
                     __self: this
                 }),
                 __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                     'button',
-                    { className: 'btn btn-success', onClick: this.preview, __source: {
+                    { className: 'btn btn-success', onClick: this.splitScreen, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 72
+                            lineNumber: 58
                         },
                         __self: this
                     },
-                    '\u9884\u89C8'
+                    '\u5206\u5C4F\u7F16\u8F91\u6A21\u5F0F'
+                ),
+                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                    'div',
+                    { className: 'readme', __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 59
+                        },
+                        __self: this
+                    },
+                    '\u6CE8\uFF1A\u5206\u5C4F\u6A21\u5F0F\u5C06\u4F1A\u6253\u5F00\u4E24\u4E2A\u5E76\u6392\u7A97\u53E3\uFF0C\u5DE6\u8FB9\u662F\u6587\u6863\u9884\u89C8\uFF0C\u53F3\u8FB9\u662F\u7F16\u8F91\u5668\u3002'
                 )
             );
         }
@@ -7623,7 +7617,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/_css-lo
 
 
 // module
-exports.push([module.i, ".markdown .btn {\n  margin-top: 10px; }\n\n@media (min-width: 800px) {\n  .markdown .CodeMirror {\n    height: auto; } }\n", ""]);
+exports.push([module.i, ".markdown .btn {\n  margin-top: 10px; }\n\n@media (min-width: 801px) {\n  .markdown .CodeMirror {\n    height: auto; } }\n\n.markdown .readme {\n  font-size: 13px;\n  margin: 10px 0;\n  color: #666; }\n", ""]);
 
 // exports
 

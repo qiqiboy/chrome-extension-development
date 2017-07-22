@@ -3,8 +3,13 @@
         margin-top: 10px;
     }
     .CodeMirror{
-        @media (min-width: 800px) {
+        @media (min-width: 801px) {
             height: auto;
         }
+    }
+    .readme{
+        font-size: 13px;
+        margin: 10px 0;
+        color: #666;
     }
 }

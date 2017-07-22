@@ -1,13 +1,15 @@
 //运行在background环境中，在当前tab中渲染出效果
 //
 import URL from 'url';
-import {getCurrent} from '../../utils/tabUtil';
+import { getCurrent } from '../../utils/tabUtil';
 
 const chrome = window.chrome;
 const skinUrl = chrome.runtime.getURL('md.skin.github.css');
 const previewPage = chrome.runtime.getURL('markdown.html');
+const editPage = chrome.runtime.getURL('popup.html');
+const screen = window.screen;
 
-chrome.runtime.onMessage.addListener(async({ action, html }) => {
+chrome.runtime.onMessage.addListener(async ({ action, html }) => {
     if (action === 'markdown') {
         const curTab = await getCurrent();
         const host = URL.parse(curTab.url).host;
@@ -17,12 +19,52 @@ chrome.runtime.onMessage.addListener(async({ action, html }) => {
                 code: createPageCode(html)
             });
         } else {
-            const tab = await findMyTab(host === chrome.runtime.id);
+            const tab = await findTheTab(previewPage, host === chrome.runtime.id);
             chrome.tabs.sendMessage(tab.id, {
                 action,
                 html
             });
         }
+    }
+
+    if (action === 'markdown-edit-mode') {
+        const previewTab = await findTheTab(previewPage);
+        const editTab = await findTheTab(editPage);
+        const halfWidth = screen.availWidth / 2;
+        const previewRect = {
+            top: screen.availTop,
+            left: screen.availLeft,
+            width: halfWidth,
+            height: screen.availHeight
+        }
+
+        //如果预览与编辑页面是同一个窗口，则要将它们分开到不同的窗口
+        //我们选择将预览窗口独立出来
+        if (previewTab.windowId === editTab.windowId) {
+            await new Promise(resolve => chrome.windows.create({
+                tabId: previewTab.id,
+                ...previewRect
+            }, win => {
+                setTimeout(() => resolve(win), 500);
+            }));
+        }
+
+        //将预览窗口移动到左边
+        chrome.windows.update(previewTab.windowId, previewRect);
+
+        //将编辑窗口移动到右边
+        chrome.windows.update(editTab.windowId, {
+            top: screen.availTop,
+            left: screen.availLeft + halfWidth,
+            width: halfWidth,
+            height: screen.availHeight
+        });
+
+        //触发一次渲染
+        chrome.tabs.sendMessage(previewTab.id, {
+            action: 'markdown',
+            html
+        });
     }
 });
 
@@ -44,10 +86,10 @@ function createPageCode(html) {
     return codes.join('\n');
 }
 
-function findMyTab(quiet) {
+function findTheTab(url, quiet) {
     return new Promise(resolve =>
         chrome.tabs.query({
-            url: previewPage
+            url
         }, function([tab]) {
             if (tab) {
                 resolve(tab);
@@ -58,8 +100,8 @@ function findMyTab(quiet) {
                     });
                 }
             } else {
-                chrome.tabs[quiet ? 'create' : 'update']({
-                    url: previewPage,
+                chrome.tabs.create({
+                    url,
                     active: !quiet
                 }, tab => {
                     setTimeout(() => resolve(tab), 500);

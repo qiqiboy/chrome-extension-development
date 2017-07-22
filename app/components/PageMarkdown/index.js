@@ -25,51 +25,38 @@ class Markdown extends Component {
         });
 
         this.editor.on('change', this.preview);
-        this.editor.on('cursorActivity', this.preview)
+        this.editor.on('focus', this.preview);
     }
 
-    preview = (() => {
-        let lastTime = 0,
-            timer;
+    preview = () => {
+        const code = this.editor.getValue();
+        const html = marked(code);
 
-        return () => {
-            const now = Date.now();
+        chrome.runtime.sendMessage({
+            action: 'markdown',
+            html
+        });
 
-            clearTimeout(timer);
-            if (now - lastTime < 500) {
-                timer = setTimeout(this.preview, 500 - now + lastTime);
-            } else {
-                let code = this.editor.getValue(),
-                    curLine;
+        localStorage.setItem(KEY, code);
+    }
 
-                localStorage.setItem(KEY, code);
-                try {
-                    curLine = this.editor.curOp.scrollToPos.to.line;
+    splitScreen = () => {
+        const code = this.editor.getValue();
+        const html = marked(code);
 
-                    const allLines = code.split('\n');
-                    allLines.splice(curLine, 1, allLines[curLine] + '<div id="currrent-position"></div>');
-
-                    code = allLines.join('\n');
-                } catch (e) {}
-
-                const html = marked(code);
-
-                chrome.runtime.sendMessage({
-                    action: 'markdown',
-                    html
-                });
-
-                lastTime = now;
-            }
-        }
-    })();
+        chrome.runtime.sendMessage({
+            action: 'markdown-edit-mode',
+            html
+        });
+    }
 
     render() {
 
         return (
             <div className="markdown">
                 <div ref="editor"></div>
-                <button className="btn btn-success" onClick={this.preview}>预览</button>
+                <button className="btn btn-success" onClick={this.splitScreen}>分屏编辑模式</button>
+                <div className="readme">注：分屏模式将会打开两个并排窗口，左边是文档预览，右边是编辑器。</div>
             </div>
         );
     }
