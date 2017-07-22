@@ -43,6 +43,7 @@ chrome.runtime.onMessage.addListener(async ({ action, html }) => {
         if (previewTab.windowId === editTab.windowId) {
             await new Promise(resolve => chrome.windows.create({
                 tabId: previewTab.id,
+                state: 'normal',
                 ...previewRect
             }, win => {
                 setTimeout(() => resolve(win), 500);
@@ -50,10 +51,14 @@ chrome.runtime.onMessage.addListener(async ({ action, html }) => {
         }
 
         //将预览窗口移动到左边
-        chrome.windows.update(previewTab.windowId, previewRect);
+        chrome.windows.update(previewTab.windowId, {
+            state: 'normal',
+            ...previewRect
+        });
 
         //将编辑窗口移动到右边
         chrome.windows.update(editTab.windowId, {
+            state: 'normal',
             top: screen.availTop,
             left: screen.availLeft + halfWidth,
             width: halfWidth,
