@@ -2,6 +2,8 @@
 //
 import URL from 'url';
 import { getCurrent } from '../../utils/tabUtil';
+import * as mdUtil from '../../utils/mdUtil';
+import './reader.js';
 
 const chrome = window.chrome;
 const skinUrl = chrome.runtime.getURL('md.skin.github.css');
@@ -9,7 +11,7 @@ const previewPage = chrome.runtime.getURL('markdown.html');
 const editPage = chrome.runtime.getURL('popup.html');
 const screen = window.screen;
 
-chrome.runtime.onMessage.addListener(async ({ action, html }) => {
+chrome.runtime.onMessage.addListener(async ({ action, html, code }) => {
     if (action === 'markdown') {
         const curTab = await getCurrent();
         const host = URL.parse(curTab.url).host;
@@ -25,6 +27,15 @@ chrome.runtime.onMessage.addListener(async ({ action, html }) => {
                 html
             });
         }
+    }
+
+    if(action === 'markdown-edit') {
+        mdUtil.set(code);
+        //切换到md编辑tab
+        localStorage.setItem('chrome-extension-popup-tab-id', 'markdown');
+
+        const tab = await findTheTab(editPage);
+        chrome.tabs.reload(tab.id);
     }
 
     if (action === 'markdown-edit-mode') {
@@ -47,10 +58,10 @@ chrome.runtime.onMessage.addListener(async ({ action, html }) => {
                 tabId: previewTab.id,
                 ...previewRect
             }, resolve));
+        } else {
+            //将预览窗口移动到左边
+            chrome.windows.update(previewTab.windowId, previewRect);
         }
-
-        //将预览窗口移动到左边
-        chrome.windows.update(previewTab.windowId, previewRect);
 
         //将编辑窗口移动到右边
         chrome.windows.update(editTab.windowId, {
@@ -77,7 +88,7 @@ function createPageCode(html) {
             <title>Markdown预览 - chrome extension development</title>
             <link rel="stylesheet" href="${skinUrl}" type="text/css" media="all" />
         </head>
-        <body>
+        <body class="markdown-body">
             ${html}
         </body>
 </html>

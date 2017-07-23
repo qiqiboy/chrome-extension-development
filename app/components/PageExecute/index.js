@@ -38,7 +38,7 @@ console.log('executed!');`
         });
 
         const tab = await getCurrent();
-        if (URL.parse(tab.url).host.toLowerCase() !== 'github.com') {
+        if (URL.parse(tab.url).protocol.toLowerCase() !== 'chrome-extensions:') {
             this.setState({
                 disabledExec: true
             });
@@ -85,11 +85,11 @@ console.log('executed!');`
                 <OptionItem active={this.state.inline} onChange={this.optionChange}>内联注入</OptionItem>
                 <h3>JS</h3>
                 <div ref="jseditor"></div>
-                {this.state.disabledExec ? <button className="btn btn-success" disabled>只能对github网站进行代码注入</button> :
+                {this.state.disabledExec ? <button className="btn btn-success" disabled>不能对扩展页面进行代码注入</button> :
                 <button className="btn btn-success" onClick={this.executeJS}>执行</button>}
                 <h3>Css</h3>
                 <div ref="csseditor"></div>
-                {this.state.disabledExec ? <button className="btn btn-success" disabled>只能对github网站进行代码注入</button> :
+                {this.state.disabledExec ? <button className="btn btn-success" disabled>不能对扩展页面进行代码注入</button> :
                 <button className="btn btn-success" onClick={this.executeCSS}>执行</button>}
             </div>
         );

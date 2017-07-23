@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "db6cf436efc65c53593f"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "867c82ba5e8ed08b31f9"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -725,7 +725,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_options__ = __webpack_require__(/*! ./utils/options */ "./app/utils/options.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_animateIcon__ = __webpack_require__(/*! ./utils/animateIcon */ "./app/utils/animateIcon/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modules_omnibox__ = __webpack_require__(/*! ./modules/omnibox */ "./app/modules/omnibox/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_PageMarkdown_render__ = __webpack_require__(/*! ./components/PageMarkdown/render */ "./app/components/PageMarkdown/render.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__modules_markdown_background__ = __webpack_require__(/*! ./modules/markdown/background */ "./app/modules/markdown/background.js");
 
 
 var _this = this;
@@ -736,6 +736,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 
 
+//markdown相关
 
 
 new __WEBPACK_IMPORTED_MODULE_3__modules_omnibox__["a" /* default */]();
@@ -904,10 +905,10 @@ if (__WEBPACK_IMPORTED_MODULE_1__utils_options__["a" /* default */].get('animate
 
 /***/ }),
 
-/***/ "./app/components/PageMarkdown/render.js":
-/*!***********************************************!*\
-  !*** ./app/components/PageMarkdown/render.js ***!
-  \***********************************************/
+/***/ "./app/modules/markdown/background.js":
+/*!********************************************!*\
+  !*** ./app/modules/markdown/background.js ***!
+  \********************************************/
 /*! exports provided:  */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -917,6 +918,8 @@ if (__WEBPACK_IMPORTED_MODULE_1__utils_options__["a" /* default */].get('animate
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_url__ = __webpack_require__(/*! url */ "./node_modules/_url@0.11.0@url/url.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_url___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_url__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_tabUtil__ = __webpack_require__(/*! ../../utils/tabUtil */ "./app/utils/tabUtil.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_mdUtil__ = __webpack_require__(/*! ../../utils/mdUtil */ "./app/utils/mdUtil.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__reader_js__ = __webpack_require__(/*! ./reader.js */ "./app/modules/markdown/reader.js");
 
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
@@ -930,6 +933,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 
 
+
+
 var chrome = window.chrome;
 var skinUrl = chrome.runtime.getURL('md.skin.github.css');
 var previewPage = chrome.runtime.getURL('markdown.html');
@@ -939,8 +944,11 @@ var screen = window.screen;
 chrome.runtime.onMessage.addListener(function () {
     var _ref2 = _asyncToGenerator(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(_ref) {
         var action = _ref.action,
-            html = _ref.html;
-        var curTab, host, tab, previewTab, editTab, halfWidth, previewRect;
+            html = _ref.html,
+            code = _ref.code;
+
+        var curTab, host, tab, _tab, previewTab, editTab, halfWidth, previewRect;
+
         return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
             while (1) {
                 switch (_context.prev = _context.next) {
@@ -981,20 +989,38 @@ chrome.runtime.onMessage.addListener(function () {
                         });
 
                     case 13:
-                        if (!(action === 'markdown-edit-mode')) {
-                            _context.next = 28;
+                        if (!(action === 'markdown-edit')) {
+                            _context.next = 20;
                             break;
                         }
 
-                        _context.next = 16;
-                        return findTheTab(previewPage);
+                        __WEBPACK_IMPORTED_MODULE_3__utils_mdUtil__["b" /* set */](code);
+                        //切换到md编辑tab
+                        localStorage.setItem('chrome-extension-popup-tab-id', 'markdown');
 
-                    case 16:
-                        previewTab = _context.sent;
-                        _context.next = 19;
+                        _context.next = 18;
                         return findTheTab(editPage);
 
-                    case 19:
+                    case 18:
+                        _tab = _context.sent;
+
+                        chrome.tabs.reload(_tab.id);
+
+                    case 20:
+                        if (!(action === 'markdown-edit-mode')) {
+                            _context.next = 37;
+                            break;
+                        }
+
+                        _context.next = 23;
+                        return findTheTab(previewPage);
+
+                    case 23:
+                        previewTab = _context.sent;
+                        _context.next = 26;
+                        return findTheTab(editPage);
+
+                    case 26:
                         editTab = _context.sent;
                         halfWidth = screen.availWidth / 2;
                         previewRect = {
@@ -1010,21 +1036,26 @@ chrome.runtime.onMessage.addListener(function () {
                         };
 
                         if (!(previewTab.windowId === editTab.windowId)) {
-                            _context.next = 25;
+                            _context.next = 34;
                             break;
                         }
 
-                        _context.next = 25;
+                        _context.next = 32;
                         return new Promise(function (resolve) {
                             return chrome.windows.create(Object.assign({
                                 tabId: previewTab.id
                             }, previewRect), resolve);
                         });
 
-                    case 25:
+                    case 32:
+                        _context.next = 35;
+                        break;
 
+                    case 34:
                         //将预览窗口移动到左边
                         chrome.windows.update(previewTab.windowId, previewRect);
+
+                    case 35:
 
                         //将编辑窗口移动到右边
                         chrome.windows.update(editTab.windowId, {
@@ -1041,7 +1072,7 @@ chrome.runtime.onMessage.addListener(function () {
                             html: html
                         });
 
-                    case 28:
+                    case 37:
                     case 'end':
                         return _context.stop();
                 }
@@ -1057,7 +1088,7 @@ chrome.runtime.onMessage.addListener(function () {
 function createPageCode(html) {
     var codes = [];
     codes.push('document.open();');
-    codes.push('document.write(`<html>\n        <head>\n            <title>Markdown\u9884\u89C8 - chrome extension development</title>\n            <link rel="stylesheet" href="' + skinUrl + '" type="text/css" media="all" />\n        </head>\n        <body>\n            ' + html + '\n        </body>\n</html>\n`);');
+    codes.push('document.write(`<html>\n        <head>\n            <title>Markdown\u9884\u89C8 - chrome extension development</title>\n            <link rel="stylesheet" href="' + skinUrl + '" type="text/css" media="all" />\n        </head>\n        <body class="markdown-body">\n            ' + html + '\n        </body>\n</html>\n`);');
     codes.push('document.close();');
 
     return codes.join('\n');
@@ -1091,6 +1122,93 @@ function findTheTab(url, quiet) {
             }
         });
     });
+}
+
+/***/ }),
+
+/***/ "./app/modules/markdown/reader.js":
+/*!****************************************!*\
+  !*** ./app/modules/markdown/reader.js ***!
+  \****************************************/
+/*! exports provided:  */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(/*! babel-runtime/regenerator */ "./node_modules/_babel-runtime@6.23.0@babel-runtime/regenerator/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_url__ = __webpack_require__(/*! url */ "./node_modules/_url@0.11.0@url/url.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_url___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_url__);
+
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
+var _this = this;
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+
+
+var chrome = window.chrome;
+
+chrome.tabs.onUpdated.addListener(function () {
+    var _ref2 = _asyncToGenerator(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(tabId, _ref, tab) {
+        var status = _ref.status;
+        var mime, isMdUrl;
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+            while (1) {
+                switch (_context.prev = _context.next) {
+                    case 0:
+                        if (!(status === 'loading')) {
+                            _context.next = 6;
+                            break;
+                        }
+
+                        _context.next = 3;
+                        return getMIME(tabId);
+
+                    case 3:
+                        mime = _context.sent;
+                        isMdUrl = checkMd(tab.url);
+
+                        //如果是md文档地址，而且页面的contentType是普通文本
+                        //或者页面的contentType是markdown文档
+                        //则向当前页面注入js
+
+                        if (isMdUrl && mime === 'text/plain' || /markdown/i.test(mime)) {
+                            chrome.tabs.executeScript(tabId, {
+                                file: 'dist/js/md-file-render.js'
+                            });
+                        }
+
+                    case 6:
+                    case 'end':
+                        return _context.stop();
+                }
+            }
+        }, _callee, _this);
+    }));
+
+    return function (_x, _x2, _x3) {
+        return _ref2.apply(this, arguments);
+    };
+}());
+
+function getMIME(tabId) {
+    return new Promise(function (resolve) {
+        chrome.tabs.executeScript(tabId, {
+            code: 'document.contentType'
+        }, function (_ref3) {
+            var _ref4 = _slicedToArray(_ref3, 1),
+                result = _ref4[0];
+
+            resolve(result);
+        });
+    });
+}
+
+function checkMd(url) {
+    return (/md|markdown/i.test(__WEBPACK_IMPORTED_MODULE_1_url___default.a.parse(url).pathname)
+    );
 }
 
 /***/ }),
@@ -1282,6 +1400,30 @@ originImg.src = defaultIconUrl;
         return ctx.getImageData(0, 0, canvas.width, canvas.height);
     }
 });
+
+/***/ }),
+
+/***/ "./app/utils/mdUtil.js":
+/*!*****************************!*\
+  !*** ./app/utils/mdUtil.js ***!
+  \*****************************/
+/*! exports provided: KEY, get, set */
+/*! exports used: get, set */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export KEY */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return get; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return set; });
+var KEY = 'chrome-extension-development-markdown';
+
+var get = function get() {
+  return localStorage.getItem('chrome-extension-development-markdown') || 'Markdown\u7F16\u8F91\u5668\n=====\n\u76F4\u63A5\u8F93\u5165\u5185\u5BB9\u5C06\u4F1A\u5728\u5F53\u524Dtab\u9884\u89C8\u6548\u679C\n';
+};
+
+var set = function set(code) {
+  return localStorage.setItem(KEY, code);
+};
 
 /***/ }),
 

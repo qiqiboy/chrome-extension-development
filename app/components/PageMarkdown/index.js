@@ -52,7 +52,7 @@ class Markdown extends Component {
 
         return (
             <div className="markdown">
-                <div ref="editor"></div>
+                <div className="md-editor" ref="editor"></div>
                 <button className="btn btn-success" onClick={this.splitScreen}>分屏编辑模式</button>
                 <div className="readme">注：分屏模式将会打开两个并排窗口，左边是文档预览，右边是编辑器。</div>
             </div>

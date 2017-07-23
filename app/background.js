@@ -2,7 +2,8 @@ import Options from './utils/options';
 import animateIcon from './utils/animateIcon';
 import Omnibox from './modules/omnibox';
 
-import './components/PageMarkdown/render';
+//markdown相关
+import './modules/markdown/background';
 
 new Omnibox();
 

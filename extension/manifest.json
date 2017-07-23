@@ -42,7 +42,6 @@
     "unlimitedStorage",
     "chrome://favicon/",
 
-    "*://*.github.com/",
-    "*://*.qiqiboy.com/"
+    "<all_urls>"
   ]
 }
