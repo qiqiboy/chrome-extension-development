@@ -71,12 +71,6 @@ chrome.runtime.onMessage.addListener(async ({ action, html, code }) => {
             width: halfWidth,
             height: screen.availHeight
         });
-
-        //触发一次渲染
-        chrome.tabs.sendMessage(previewTab.id, {
-            action: 'markdown',
-            html
-        });
     }
 });
 
