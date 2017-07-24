@@ -42,10 +42,17 @@ class Markdown extends Component {
     splitScreen = () => {
         const code = this.editor.getValue();
         const html = marked(code);
+        const screen = window.screen;
 
         chrome.runtime.sendMessage({
             action: 'markdown-edit-mode',
-            html
+            html,
+            screen: {
+                availWidth: screen.availWidth,
+                availTop: screen.availTop,
+                availLeft: screen.availLeft,
+                availHeight: screen.availHeight
+            }
         });
     }
 

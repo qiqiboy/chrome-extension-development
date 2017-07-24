@@ -9,9 +9,11 @@ const chrome = window.chrome;
 const skinUrl = chrome.runtime.getURL('md.skin.github.css');
 const previewPage = chrome.runtime.getURL('markdown.html');
 const editPage = chrome.runtime.getURL('popup.html');
-const screen = window.screen;
+//不能用background中的screen，因为这个页面不可见，所以默认是主屏幕的信息
+//并不是实际中浏览器所在屏幕的信息
+// const screen = window.screen;
 
-chrome.runtime.onMessage.addListener(async ({ action, html, code }) => {
+chrome.runtime.onMessage.addListener(async ({ action, html, code, screen }) => {
     if (action === 'markdown') {
         const curTab = await getCurrent();
         const host = URL.parse(curTab.url).host;
