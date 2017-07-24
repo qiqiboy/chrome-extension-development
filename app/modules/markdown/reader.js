@@ -3,7 +3,7 @@ import URL from 'url';
 const chrome = window.chrome;
 
 chrome.tabs.onUpdated.addListener(async (tabId, { status }, tab) => {
-    if(status === 'loading') {
+    if(status === 'loading' && URL.parse(tab.url).protocol.substring(0, 6) !== 'chrome') {
         const mime = await getMIME(tabId);
         const isMdUrl = checkMd(tab.url);
 

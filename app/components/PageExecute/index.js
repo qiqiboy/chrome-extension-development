@@ -38,7 +38,7 @@ console.log('executed!');`
         });
 
         const tab = await getCurrent();
-        if (URL.parse(tab.url).protocol.toLowerCase() !== 'chrome-extensions:') {
+        if (URL.parse(tab.url).protocol.substring(0, 6) === 'chrome') {
             this.setState({
                 disabledExec: true
             });
