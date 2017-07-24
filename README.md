@@ -5,6 +5,10 @@ chrome扩展开发功能示范与开发环境配置。该项目包含了chrome�
 2. 支持`React-jsx`，自定义页面（`option`、`browser action`等）和`content scripts`都可以使用react构建ui。
 3. 代码变动支持时时重载扩展runtime、`HMR`(Hot Moudule Replacement)。了解这是[如何实现的？][19]
 4. 支持eslint代码预检查，可以在页面与终端控制台显示错误与警告。
+5. 大量常见场景的例子示范，包括
+    * [omnibox多功能地址栏](#地址栏快捷访问-omnibox)
+    * [页面即时搜索、页面右键快捷键](#github站内搜索)
+    * [markdown编辑器、markdown文件预览](#markdown编辑器)
 
 ![][5]
 
@@ -64,9 +68,8 @@ chrome扩展开发功能示范与开发环境配置。该项目包含了chrome�
 ![][9]
 
 * 可以编辑时实时预览文档效果。
-* 支持分屏编辑。
-
-参考：[markdown.js][20]、[components/PageMarkdown/index.js][21]、[components/PageMarkdown/render.js][22]
+* 支持分屏编辑。参考：[markdown.js][20]、[components/PageMarkdown/index.js][21]、[modules/markdown/background.js][22]
+* 支持浏览器预览 \*.md 地址或者本地文件。参考：[md-file-render.js][23]、[modules/markdown/index.js][24]
 
 #### 页面设置
 
@@ -99,7 +102,9 @@ chrome扩展开发功能示范与开发环境配置。该项目包含了chrome�
 [19]: https://github.com/qiqiboy/chrome-extension-development/issues/2
 [20]: https://github.com/qiqiboy/chrome-extension-development/blob/master/app/markdown.js
 [21]: https://github.com/qiqiboy/chrome-extension-development/blob/master/app/components/PageMarkdown/index.js
-[22]: https://github.com/qiqiboy/chrome-extension-development/blob/master/app/components/PageMarkdown/render.js
+[22]: https://github.com/qiqiboy/chrome-extension-development/blob/master/app/modules/markdown/background.js
+[23]: https://github.com/qiqiboy/chrome-extension-development/blob/master/app/md-file-render.js
+[24]: https://github.com/qiqiboy/chrome-extension-development/blob/master/app/modules/markdown/index.js
 
 #### Github
 

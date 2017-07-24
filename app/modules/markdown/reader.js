@@ -31,5 +31,5 @@ function getMIME(tabId) {
 
 
 function checkMd(url) {
-    return /md|markdown/i.test(URL.parse(url).pathname);
+    return /md|markdown|mkd/i.test(URL.parse(url).pathname);
 }

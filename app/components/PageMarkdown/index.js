@@ -57,7 +57,9 @@ class Markdown extends Component {
     }
 
     openPreview = clicked => {
-        this.preview();
+        if (clicked) {
+            this.preview();
+        }
 
         this.setState({
             clicked
