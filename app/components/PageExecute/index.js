@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import OptionItem from '../OptionItem';
-import { sendActiveTabRequest } from '../../utils/request';
 import { getCurrent } from '../../utils/tabUtil';
 import URL from 'url';
 import './style.scss';
@@ -48,10 +47,17 @@ console.log('executed!');`
     executeJS = () => {
         const code = this.jsEditor.getValue();
         if (this.state.inline) {
-            sendActiveTabRequest({
-                action: 'executeScript',
-                code
-            });
+            chrome.tabs.executeScript(null, {
+                code: `!function(){
+const script = document.createElement('script');
+const head = document.getElementsByTagName('head')[0];
+
+script.type = 'text/javascript';
+script.textContent = \`${code}\`;
+head.appendChild(script);
+}();
+`
+            })
         } else {
             chrome.tabs.executeScript(null, {
                 code
@@ -62,9 +68,16 @@ console.log('executed!');`
     executeCSS = () => {
         const code = this.cssEditor.getValue();
         if (this.state.inline) {
-            sendActiveTabRequest({
-                action: 'insertCSS',
-                code
+            chrome.tabs.executeScript(null, {
+                code:`!function(){
+const style = document.createElement('style');
+const head = document.getElementsByTagName('head')[0];
+
+style.type = 'text/css';
+style.textContent = \`${code}\`;
+head.appendChild(style);
+}();
+`
             });
         } else {
             chrome.tabs.insertCSS(null, {

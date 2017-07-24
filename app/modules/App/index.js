@@ -12,14 +12,6 @@ class App {
             if (data.action === 'updateOption' || data.action === 'active') {
                 this.checkOption();
             }
-
-            if (data.action === 'executeScript') {
-                this.executeScript(data.code);
-            }
-
-            if (data.action === 'insertCSS') {
-                this.insertCSS(data.code);
-            }
         });
     }
 
@@ -53,29 +45,6 @@ class App {
         options.enableSkin ? this.enableSkin() : this.disabledSkin()
         options.clearMode ? this.enableClearMode() : this.disabledClearMode();
         options.fullscreen ? this.enableFullscreen() : this.disabledFullscreen();
-    }
-
-    executeScript(code) {
-        const script = document.createElement('script');
-        const head = document.getElementsByTagName('head')[0];
-
-        script.textContent = code;
-        //内联script标签，所以没有onload等事件。
-        //如果是外链js文件，可以通过下方代码在代码插入执行后移除掉
-        //script.onload = script.onerror = () => head.removeChild(script);
-
-        head.appendChild(script);
-
-        setTimeout(() => head.removeChild(script));
-    }
-    insertCSS(code) {
-        const style = document.createElement('style');
-        const head = document.getElementsByTagName('head')[0];
-
-        style.type = 'text/css';
-        style.textContent = code;
-
-        head.appendChild(style);
     }
 }
 
