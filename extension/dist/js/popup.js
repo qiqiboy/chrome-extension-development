@@ -84,7 +84,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "3e3de84ca86549355ff4"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "d8a7bde2871fbe63123b"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -1017,7 +1017,7 @@ OptionItem.defaultProps = {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(/*! !../../../node_modules/_css-loader@0.28.4@css-loader??ref--3-1!../../../node_modules/_postcss-loader@2.0.6@postcss-loader/lib??postcss!../../../node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./style.scss */ "./node_modules/_css-loader@0.28.4@css-loader/index.js?{\"importLoaders\":2}!./node_modules/_postcss-loader@2.0.6@postcss-loader/lib/index.js?{\"ident\":\"postcss\"}!./node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./app/components/OptionItem/style.scss");
+var content = __webpack_require__(/*! !../../../node_modules/_css-loader@0.28.4@css-loader??ref--3-1!../../../node_modules/_postcss-loader@2.0.6@postcss-loader/lib??postcss!../../../node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./style.scss */ "./node_modules/_css-loader@0.28.4@css-loader/index.js?{\"importLoaders\":2}!./node_modules/_postcss-loader@2.0.6@postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./app/components/OptionItem/style.scss");
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -1031,8 +1031,8 @@ if(content.locals) module.exports = content.locals;
 if(true) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept(/*! !../../../node_modules/_css-loader@0.28.4@css-loader??ref--3-1!../../../node_modules/_postcss-loader@2.0.6@postcss-loader/lib??postcss!../../../node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./style.scss */ "./node_modules/_css-loader@0.28.4@css-loader/index.js?{\"importLoaders\":2}!./node_modules/_postcss-loader@2.0.6@postcss-loader/lib/index.js?{\"ident\":\"postcss\"}!./node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./app/components/OptionItem/style.scss", function() {
-			var newContent = __webpack_require__(/*! !../../../node_modules/_css-loader@0.28.4@css-loader??ref--3-1!../../../node_modules/_postcss-loader@2.0.6@postcss-loader/lib??postcss!../../../node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./style.scss */ "./node_modules/_css-loader@0.28.4@css-loader/index.js?{\"importLoaders\":2}!./node_modules/_postcss-loader@2.0.6@postcss-loader/lib/index.js?{\"ident\":\"postcss\"}!./node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./app/components/OptionItem/style.scss");
+		module.hot.accept(/*! !../../../node_modules/_css-loader@0.28.4@css-loader??ref--3-1!../../../node_modules/_postcss-loader@2.0.6@postcss-loader/lib??postcss!../../../node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./style.scss */ "./node_modules/_css-loader@0.28.4@css-loader/index.js?{\"importLoaders\":2}!./node_modules/_postcss-loader@2.0.6@postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./app/components/OptionItem/style.scss", function() {
+			var newContent = __webpack_require__(/*! !../../../node_modules/_css-loader@0.28.4@css-loader??ref--3-1!../../../node_modules/_postcss-loader@2.0.6@postcss-loader/lib??postcss!../../../node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./style.scss */ "./node_modules/_css-loader@0.28.4@css-loader/index.js?{\"importLoaders\":2}!./node_modules/_postcss-loader@2.0.6@postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./app/components/OptionItem/style.scss");
 			if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
 			update(newContent);
 		});
@@ -1103,7 +1103,7 @@ var Execute = function (_Component) {
             var code = _this.jsEditor.getValue();
             if (_this.state.inline) {
                 chrome.tabs.executeScript(null, {
-                    code: '!function(){\nconst script = document.createElement(\'script\');\nconst head = document.getElementsByTagName(\'head\')[0];\n\nscript.type = \'text/javascript\';\nscript.textContent = `' + code + '`;\nhead.appendChild(script);\n}();\n'
+                    code: '!function(){\nconst script = document.createElement(\'script\');\nconst head = document.getElementsByTagName(\'head\')[0];\n\nscript.type = \'text/javascript\';\nscript.textContent = ' + JSON.stringify(code) + ';\nhead.appendChild(script);\n}();\n'
                 });
             } else {
                 chrome.tabs.executeScript(null, {
@@ -1114,7 +1114,7 @@ var Execute = function (_Component) {
             var code = _this.cssEditor.getValue();
             if (_this.state.inline) {
                 chrome.tabs.executeScript(null, {
-                    code: '!function(){\nconst style = document.createElement(\'style\');\nconst head = document.getElementsByTagName(\'head\')[0];\n\nstyle.type = \'text/css\';\nstyle.textContent = `' + code + '`;\nhead.appendChild(style);\n}();\n'
+                    code: '!function(){\nconst style = document.createElement(\'style\');\nconst head = document.getElementsByTagName(\'head\')[0];\n\nstyle.type = \'text/css\';\nstyle.textContent = ' + JSON.stringify(code) + ';\nhead.appendChild(style);\n}();\n'
                 });
             } else {
                 chrome.tabs.insertCSS(null, {
@@ -7590,6 +7590,26 @@ exports.push([module.i, ".info-item {\n  display: -webkit-flex;\n  display: -ms-
 
 /***/ }),
 
+/***/ "./node_modules/_css-loader@0.28.4@css-loader/index.js?{\"importLoaders\":2}!./node_modules/_postcss-loader@2.0.6@postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./app/components/OptionItem/style.scss":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/_css-loader@0.28.4@css-loader?{"importLoaders":2}!./node_modules/_postcss-loader@2.0.6@postcss-loader/lib?{"ident":"postcss","plugins":[null,null]}!./node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./app/components/OptionItem/style.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/_css-loader@0.28.4@css-loader/lib/css-base.js */ "./node_modules/_css-loader@0.28.4@css-loader/lib/css-base.js")(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".ios-switch {\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  position: relative;\n  width: 82px;\n  height: 32px;\n  background: #dfdfdf;\n  border-radius: 16px;\n  border: 1px solid #dfdfdf;\n  outline: 0;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box; }\n  .ios-switch:checked {\n    border-color: #04be02;\n    background-color: #04be02; }\n  .ios-switch:before, .ios-switch:after {\n    content: \"\";\n    position: absolute;\n    top: 0;\n    left: 0;\n    height: 30px;\n    border-radius: 16px;\n    -webkit-transition: -webkit-transform 0.3s;\n    transition: -webkit-transform 0.3s;\n    -o-transition: transform 0.3s;\n    transition: transform 0.3s;\n    transition: transform 0.3s, -webkit-transform 0.3s; }\n  .ios-switch:before {\n    width: 80px;\n    background-color: #fdfdfd; }\n  .ios-switch:after {\n    width: 30px;\n    background-color: white;\n    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);\n            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); }\n  .ios-switch:checked:before {\n    -webkit-transform: scale(0);\n        -ms-transform: scale(0);\n            transform: scale(0);\n    -webkit-transform-origin: 65px center;\n        -ms-transform-origin: 65px center;\n            transform-origin: 65px center; }\n  .ios-switch:checked:after {\n    -webkit-transform: translateX(50px);\n        -ms-transform: translateX(50px);\n            transform: translateX(50px); }\n\n.option-item {\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-align-items: center;\n      -ms-flex-align: center;\n          align-items: center;\n  padding: 5px 10px;\n  background-color: rgba(0, 0, 0, 0.1);\n  margin: 1px 0;\n  border-radius: 3px; }\n  .option-item .desc {\n    -webkit-flex: 1 1 0%;\n        -ms-flex: 1 1 0%;\n            flex: 1 1 0%;\n    padding-right: 10px; }\n", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/_css-loader@0.28.4@css-loader/index.js?{\"importLoaders\":2}!./node_modules/_postcss-loader@2.0.6@postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./app/components/PageExecute/style.scss":
 /*!******************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/_css-loader@0.28.4@css-loader?{"importLoaders":2}!./node_modules/_postcss-loader@2.0.6@postcss-loader/lib?{"ident":"postcss","plugins":[null,null]}!./node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./app/components/PageExecute/style.scss ***!
@@ -7684,26 +7704,6 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/_css-lo
 
 // module
 exports.push([module.i, ".workspace-item {\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-align-items: center;\n      -ms-flex-align: center;\n          align-items: center;\n  background-color: rgba(0, 0, 0, 0.2);\n  padding: 5px 10px;\n  margin: 2px 0; }\n  .workspace-item .operate {\n    -webkit-flex: 1 1 0%;\n        -ms-flex: 1 1 0%;\n            flex: 1 1 0%;\n    text-align: right; }\n  .workspace-item .btn {\n    width: auto;\n    margin: 0 5px;\n    height: 30px;\n    font-size: 13px; }\n  .workspace-item .btn-remove {\n    background-color: red; }\n  .workspace-item .btn-open {\n    background-color: green; }\n  .workspace-item .name {\n    width: 30%;\n    font-weight: bold; }\n\n.workspace .add {\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  margin: 10px 0; }\n\n.workspace .btn-search {\n  width: 80px;\n  height: 30px;\n  border-radius: 0; }\n\n.workspace .input-wrap {\n  -webkit-flex: 1 1 0%;\n      -ms-flex: 1 1 0%;\n          flex: 1 1 0%; }\n  .workspace .input-wrap input {\n    width: 100%;\n    height: 30px;\n    padding: 0 10px;\n    border: 0;\n    outline: none;\n    -webkit-transition: .5s ease;\n    -o-transition: .5s ease;\n    transition: .5s ease; }\n    .workspace .input-wrap input:focus {\n      -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);\n              box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5); }\n\n.workspace .error {\n  padding: 10px;\n  background: red;\n  color: #fff;\n  font-size: 12px; }\n\n.workspace .list {\n  margin-top: 10px; }\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/_css-loader@0.28.4@css-loader/index.js?{\"importLoaders\":2}!./node_modules/_postcss-loader@2.0.6@postcss-loader/lib/index.js?{\"ident\":\"postcss\"}!./node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./app/components/OptionItem/style.scss":
-/*!*******************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/_css-loader@0.28.4@css-loader?{"importLoaders":2}!./node_modules/_postcss-loader@2.0.6@postcss-loader/lib?{"ident":"postcss"}!./node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./app/components/OptionItem/style.scss ***!
-  \*******************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/*! all exports used */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../node_modules/_css-loader@0.28.4@css-loader/lib/css-base.js */ "./node_modules/_css-loader@0.28.4@css-loader/lib/css-base.js")(undefined);
-// imports
-
-
-// module
-exports.push([module.i, ".ios-switch {\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  position: relative;\n  width: 82px;\n  height: 32px;\n  background: #dfdfdf;\n  border-radius: 16px;\n  border: 1px solid #dfdfdf;\n  outline: 0;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box; }\n  .ios-switch:checked {\n    border-color: #04be02;\n    background-color: #04be02; }\n  .ios-switch:before, .ios-switch:after {\n    content: \"\";\n    position: absolute;\n    top: 0;\n    left: 0;\n    height: 30px;\n    border-radius: 16px;\n    -webkit-transition: -webkit-transform 0.3s;\n    transition: -webkit-transform 0.3s;\n    -o-transition: transform 0.3s;\n    transition: transform 0.3s;\n    transition: transform 0.3s, -webkit-transform 0.3s; }\n  .ios-switch:before {\n    width: 80px;\n    background-color: #fdfdfd; }\n  .ios-switch:after {\n    width: 30px;\n    background-color: white;\n    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);\n            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); }\n  .ios-switch:checked:before {\n    -webkit-transform: scale(0);\n        -ms-transform: scale(0);\n            transform: scale(0);\n    -webkit-transform-origin: 65px center;\n        -ms-transform-origin: 65px center;\n            transform-origin: 65px center; }\n  .ios-switch:checked:after {\n    -webkit-transform: translateX(50px);\n        -ms-transform: translateX(50px);\n            transform: translateX(50px); }\n\n.option-item {\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-align-items: center;\n      -ms-flex-align: center;\n          align-items: center;\n  padding: 5px 10px;\n  background-color: rgba(0, 0, 0, 0.1);\n  margin: 1px 0;\n  border-radius: 3px; }\n  .option-item .desc {\n    -webkit-flex: 1 1 0%;\n        -ms-flex: 1 1 0%;\n            flex: 1 1 0%;\n    padding-right: 10px; }\n", ""]);
 
 // exports
 

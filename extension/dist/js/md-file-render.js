@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "3e3de84ca86549355ff4"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "d8a7bde2871fbe63123b"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -810,7 +810,7 @@ OptionItem.defaultProps = {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(/*! !../../../node_modules/_css-loader@0.28.4@css-loader??ref--3-1!../../../node_modules/_postcss-loader@2.0.6@postcss-loader/lib??postcss!../../../node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./style.scss */ "./node_modules/_css-loader@0.28.4@css-loader/index.js?{\"importLoaders\":2}!./node_modules/_postcss-loader@2.0.6@postcss-loader/lib/index.js?{\"ident\":\"postcss\"}!./node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./app/components/OptionItem/style.scss");
+var content = __webpack_require__(/*! !../../../node_modules/_css-loader@0.28.4@css-loader??ref--3-1!../../../node_modules/_postcss-loader@2.0.6@postcss-loader/lib??postcss!../../../node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./style.scss */ "./node_modules/_css-loader@0.28.4@css-loader/index.js?{\"importLoaders\":2}!./node_modules/_postcss-loader@2.0.6@postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./app/components/OptionItem/style.scss");
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -824,8 +824,8 @@ if(content.locals) module.exports = content.locals;
 if(true) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept(/*! !../../../node_modules/_css-loader@0.28.4@css-loader??ref--3-1!../../../node_modules/_postcss-loader@2.0.6@postcss-loader/lib??postcss!../../../node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./style.scss */ "./node_modules/_css-loader@0.28.4@css-loader/index.js?{\"importLoaders\":2}!./node_modules/_postcss-loader@2.0.6@postcss-loader/lib/index.js?{\"ident\":\"postcss\"}!./node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./app/components/OptionItem/style.scss", function() {
-			var newContent = __webpack_require__(/*! !../../../node_modules/_css-loader@0.28.4@css-loader??ref--3-1!../../../node_modules/_postcss-loader@2.0.6@postcss-loader/lib??postcss!../../../node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./style.scss */ "./node_modules/_css-loader@0.28.4@css-loader/index.js?{\"importLoaders\":2}!./node_modules/_postcss-loader@2.0.6@postcss-loader/lib/index.js?{\"ident\":\"postcss\"}!./node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./app/components/OptionItem/style.scss");
+		module.hot.accept(/*! !../../../node_modules/_css-loader@0.28.4@css-loader??ref--3-1!../../../node_modules/_postcss-loader@2.0.6@postcss-loader/lib??postcss!../../../node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./style.scss */ "./node_modules/_css-loader@0.28.4@css-loader/index.js?{\"importLoaders\":2}!./node_modules/_postcss-loader@2.0.6@postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./app/components/OptionItem/style.scss", function() {
+			var newContent = __webpack_require__(/*! !../../../node_modules/_css-loader@0.28.4@css-loader??ref--3-1!../../../node_modules/_postcss-loader@2.0.6@postcss-loader/lib??postcss!../../../node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./style.scss */ "./node_modules/_css-loader@0.28.4@css-loader/index.js?{\"importLoaders\":2}!./node_modules/_postcss-loader@2.0.6@postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./app/components/OptionItem/style.scss");
 			if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
 			update(newContent);
 		});
@@ -3300,10 +3300,10 @@ exports.push([module.i, ".markdown-body {\n    font-family: -apple-system, Blink
 
 /***/ }),
 
-/***/ "./node_modules/_css-loader@0.28.4@css-loader/index.js?{\"importLoaders\":2}!./node_modules/_postcss-loader@2.0.6@postcss-loader/lib/index.js?{\"ident\":\"postcss\"}!./node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./app/components/OptionItem/style.scss":
-/*!*******************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/_css-loader@0.28.4@css-loader?{"importLoaders":2}!./node_modules/_postcss-loader@2.0.6@postcss-loader/lib?{"ident":"postcss"}!./node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./app/components/OptionItem/style.scss ***!
-  \*******************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/_css-loader@0.28.4@css-loader/index.js?{\"importLoaders\":2}!./node_modules/_postcss-loader@2.0.6@postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./app/components/OptionItem/style.scss":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/_css-loader@0.28.4@css-loader?{"importLoaders":2}!./node_modules/_postcss-loader@2.0.6@postcss-loader/lib?{"ident":"postcss","plugins":[null,null]}!./node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./app/components/OptionItem/style.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {

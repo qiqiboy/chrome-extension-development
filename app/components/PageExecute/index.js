@@ -53,7 +53,7 @@ const script = document.createElement('script');
 const head = document.getElementsByTagName('head')[0];
 
 script.type = 'text/javascript';
-script.textContent = \`${code}\`;
+script.textContent = ${JSON.stringify(code)};
 head.appendChild(script);
 }();
 `
@@ -74,7 +74,7 @@ const style = document.createElement('style');
 const head = document.getElementsByTagName('head')[0];
 
 style.type = 'text/css';
-style.textContent = \`${code}\`;
+style.textContent = ${JSON.stringify(code)};
 head.appendChild(style);
 }();
 `
