@@ -67,21 +67,25 @@ chrome.tabs.onActivated.addListener(({ tabId }) => {
 });
 
 //创建搜索github的右键菜单
-chrome.runtime.onInstalled.addListener(() => {
+createGithubSearchMenu();
+
+//插件启动时检测下设置
+if (Options.get('animateIcon')) {
+    animateIcon.start();
+}
+
+
+function createGithubSearchMenu() {
     chrome.contextMenus.create({
         type: 'normal',
         id: 'search_github',
         contexts: [chrome.contextMenus.ContextType.SELECTION],
         title: '在github上搜索 %s'
     });
-});
-chrome.contextMenus.onClicked.addListener(info => {
-    chrome.tabs.create({
-        url: `https://github.com/search?q=${info.selectionText.trim()}`
-    });
-});
 
-//插件启动时检测下设置
-if (Options.get('animateIcon')) {
-    animateIcon.start();
+    chrome.contextMenus.onClicked.addListener(info => {
+        chrome.tabs.create({
+            url: `https://github.com/search?q=${info.selectionText.trim()}`
+        });
+    });
 }
