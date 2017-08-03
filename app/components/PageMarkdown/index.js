@@ -5,6 +5,7 @@ import OptionItem from '../../components/OptionItem';
 import './style.scss';
 
 const chrome = window.chrome;
+let lastId;
 
 class Markdown extends Component {
     state = {}
@@ -66,6 +67,29 @@ class Markdown extends Component {
         });
     }
 
+    save2file = () => {
+        const URL = window.URL || window.webkitURL;
+        const code = this.editor.getValue();
+        const blob = new window.Blob([code], {
+            type: 'text/markdown'
+        });
+        const fileUrl = URL.createObjectURL(blob);
+
+        if (lastId) {
+            chrome.downloads.erase({
+                id: lastId
+            });
+        }
+
+        chrome.downloads.download({
+            url: fileUrl,
+            filename: 'chrome-extension-development-markdown.md',
+            conflictAction: 'overwrite'
+        }, dlId => {
+            lastId = dlId;
+        });
+    }
+
     render() {
 
         return (
@@ -74,6 +98,7 @@ class Markdown extends Component {
                 <div className="md-editor" ref="editor"></div>
                 <button className="btn btn-success" onClick={this.splitScreen}>分屏编辑模式</button>
                 <div className="readme">注：分屏模式将会打开两个并排窗口，左边是文档预览，右边是编辑器。</div>
+                <button className="btn btn-success" onClick={this.save2file}>保存文件</button>
             </div>
         );
     }
