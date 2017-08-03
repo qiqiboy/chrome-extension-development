@@ -84,7 +84,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "070316c308e6c9d5db5d"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "d46d73605f9656a209f0"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -1880,6 +1880,7 @@ var Markdown = function (_Component) {
                 type: 'text/markdown'
             });
             var fileUrl = URL.createObjectURL(blob);
+            var filename = _this.editor.getLine(0);
 
             if (lastId) {
                 chrome.downloads.erase({
@@ -1889,7 +1890,7 @@ var Markdown = function (_Component) {
 
             chrome.downloads.download({
                 url: fileUrl,
-                filename: 'chrome-extension-development-markdown.md',
+                filename: (filename || 'chrome-extension-development-markdown') + '.md',
                 conflictAction: 'overwrite'
             }, function (dlId) {
                 lastId = dlId;
@@ -1945,7 +1946,6 @@ var Markdown = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
-
             return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                 'div',
                 { className: 'markdown', __source: {

@@ -74,6 +74,7 @@ class Markdown extends Component {
             type: 'text/markdown'
         });
         const fileUrl = URL.createObjectURL(blob);
+        const filename = this.editor.getLine(0);
 
         if (lastId) {
             chrome.downloads.erase({
@@ -83,7 +84,7 @@ class Markdown extends Component {
 
         chrome.downloads.download({
             url: fileUrl,
-            filename: 'chrome-extension-development-markdown.md',
+            filename: (filename || 'chrome-extension-development-markdown') + '.md',
             conflictAction: 'overwrite'
         }, dlId => {
             lastId = dlId;
@@ -91,7 +92,6 @@ class Markdown extends Component {
     }
 
     render() {
-
         return (
             <div className="markdown">
                 <OptionItem active={this.state.clicked} onChange={this.openPreview}>直接开始编辑，或者点此打开预览页面</OptionItem>
