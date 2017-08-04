@@ -5,7 +5,7 @@ import OptionItem from '../../components/OptionItem';
 import './style.scss';
 
 const chrome = window.chrome;
-let lastId;
+const KEY = 'chrome-extension-develop-markdown-save-id';
 
 class Markdown extends Component {
     state = {}
@@ -75,6 +75,7 @@ class Markdown extends Component {
         });
         const fileUrl = URL.createObjectURL(blob);
         const filename = this.editor.getLine(0);
+        const lastId = localStorage.getItem(KEY);
 
         if (lastId) {
             chrome.downloads.erase({
@@ -87,7 +88,7 @@ class Markdown extends Component {
             filename: (filename || 'chrome-extension-development-markdown') + '.md',
             conflictAction: 'overwrite'
         }, dlId => {
-            lastId = dlId;
+            localStorage.setItem(KEY, dlId);
         });
     }
 
