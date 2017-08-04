@@ -75,7 +75,7 @@ class Markdown extends Component {
         });
         const fileUrl = URL.createObjectURL(blob);
         const filename = this.editor.getLine(0);
-        const lastId = localStorage.getItem(KEY);
+        const lastId = localStorage.getItem(KEY) * 1;
 
         if (lastId) {
             chrome.downloads.erase({
