@@ -38,7 +38,7 @@ const webpackConfig = {
         pathinfo: true,
         filename: 'js/[name].js',
         chunkFilename: 'js/[name].bundle.js',
-        publicPath: '../dist/'
+        publicPath: './dist/'
     },
     resolve: {
         modules: ['node_modules', appRoot],

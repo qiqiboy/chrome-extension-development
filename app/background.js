@@ -56,6 +56,8 @@ chrome.runtime.onMessage.addListener((data, sender, sendResponse) => {
         default: //nothing todo
             break;
     }
+
+    return true;
 });
 
 
